@@ -1,10 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://cjlnkfaeove6s"]
 
-[ext_resource type="Script" path="res://TestScript.cs" id="1_5q3e5"]
+[ext_resource type="Script" path="res://entities/Ecosystem.cs" id="1_ef70f"]
 [ext_resource type="PackedScene" uid="uid://eu2m21vqurfu" path="res://entities/Mushroom.tscn" id="2_8kc2x"]
 
-[node name="Node2D" type="Node2D"]
-script = ExtResource("1_5q3e5")
+[node name="Ecosystem" type="Node2D"]
+script = ExtResource("1_ef70f")
 
 [node name="Mushroom" parent="." instance=ExtResource("2_8kc2x")]
-position = Vector2(8, 9)
+position = Vector2(61, 99)
+scale = Vector2(2, 2)

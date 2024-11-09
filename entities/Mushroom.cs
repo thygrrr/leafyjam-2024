@@ -22,7 +22,7 @@ public partial class Mushroom : EntityNode2D
     static Mushroom()
     {
         Noise.SetNoiseType(FastNoiseLite.NoiseTypeEnum.Simplex);
-        Noise.SetFrequency(1f);
+        Noise.SetFrequency(.1f);
         Noise.SetFractalOctaves(3);
         Noise.SetFractalLacunarity(2.0f);
         Noise.SetFractalGain(0.5f);
@@ -31,22 +31,23 @@ public partial class Mushroom : EntityNode2D
     public override void _Ready()
     {
         base._Ready();
-        
-        _sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
     }
     
     public override void _EnterTree()
     {
         base._EnterTree();
-        Entity.Add(this);
         
+        _sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
         _seed = Random.Shared.NextSingle();
+
+        Entity.Add(this);
+        Entity.Add(_sprite);
     }
 
-    public override void _Process(double delta)
+    public void Grow(double delta)
     {
-        //GD.Print($"Growth: {_growth}");
         _growth += (float) delta;
+        _sprite.Frame = (int) Mathf.Floor(_growth);
         _sprite.Scale = ScaleRange.MapMinMaxV(Noise.GetNoise2Dv(scaleGene));
         _sprite.RotationDegrees = AngleRange.MapMinMax(Noise.GetNoise2Dv(angleGene));
     }

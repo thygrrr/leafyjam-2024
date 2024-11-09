@@ -5,10 +5,12 @@
 
 [node name="Mushroom" type="Node2D"]
 texture_filter = 1
+scale = Vector2(4, 4)
 script = ExtResource("1_fg67e")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
 sprite_frames = ExtResource("1_prquw")
 animation = &"honeymash_0"
+frame = 3
 offset = Vector2(0, -6)
