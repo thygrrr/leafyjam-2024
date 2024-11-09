@@ -14,7 +14,9 @@ config/name="Leafyjam"
 run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 boot_splash/image="res://ui/Jam_And_Swoon_Logo_Solid_Red_1k.png"
+boot_splash/fullsize=false
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=750
 
 [autoload]
 
