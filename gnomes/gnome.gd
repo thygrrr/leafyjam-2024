@@ -78,7 +78,7 @@ func _on_velocity_computed(safe_velocity: Vector2):
 
 func _on_navigation_agent_2d_target_reached() -> void:
 	$FootstepPlayer.stop_playing_footsteps()
-	
+
 	if current_state == GnomeState.TRAVELING_HOME:
 		await get_tree().create_timer(2).timeout
 		current_state = GnomeState.IDLE
