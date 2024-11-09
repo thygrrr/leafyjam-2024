@@ -9,3 +9,19 @@ script = ExtResource("1_ef70f")
 [node name="Mushroom" parent="." instance=ExtResource("2_8kc2x")]
 position = Vector2(61, 99)
 scale = Vector2(2, 2)
+
+[node name="Mushroom2" parent="." instance=ExtResource("2_8kc2x")]
+position = Vector2(98, 116)
+scale = Vector2(2, 2)
+
+[node name="Mushroom3" parent="." instance=ExtResource("2_8kc2x")]
+position = Vector2(140, 89)
+scale = Vector2(2, 2)
+
+[node name="Mushroom4" parent="." instance=ExtResource("2_8kc2x")]
+position = Vector2(172, 131)
+scale = Vector2(2, 2)
+
+[node name="Mushroom5" parent="." instance=ExtResource("2_8kc2x")]
+position = Vector2(193, 81)
+scale = Vector2(2, 2)
