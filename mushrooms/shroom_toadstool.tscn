@@ -3,9 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://eu2m21vqurfu" path="res://mushrooms/_base.tscn" id="1_fuoc5"]
 
 [node name="toadstool" instance=ExtResource("1_fuoc5")]
-scale = Vector2(4, 4)
 _growTimes = Vector2(6, 8)
-plantRange = Vector2(10, 40)
+plantRange = Vector2(30, 60)
 traits = 4
 
 [node name="AnimatedSprite2D" parent="." index="0"]

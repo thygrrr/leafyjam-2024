@@ -77,7 +77,7 @@ public partial class Ecosystem : Node
         closestPoint = closest;
         pair = (first, second);
 
-        tooFar = distance > 30f;
+        tooFar = distance > 150f;
         return !tooClose && !tooFar && first != null;
     }
 }

@@ -16,7 +16,7 @@ public partial class Mushroom : EntityNode2D
     private Vector2 _scales = new(0.9f, 1.1f);
 
     [Export]
-    public Vector2 plantRange = new(20, 40);
+    public Vector2 plantRange = new(50, 100);
 
     [Export]
     public float pickRange = 20;
@@ -108,8 +108,8 @@ public partial class Mushroom : EntityNode2D
         Entity.Despawn();
         base._ExitTree();
     }
-    
-    public void StartGrowing()
+
+    private void StartGrowing()
     {
         Entity.Add<Growing>();
     }
