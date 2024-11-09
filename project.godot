@@ -26,6 +26,7 @@ JobManager="*res://job_manager.gd"
 
 window/size/viewport_width=1280
 window/size/viewport_height=960
+mouse_cursor/custom_image="res://sprites/cursor2.png"
 
 [dotnet]
 
