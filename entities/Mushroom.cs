@@ -80,7 +80,7 @@ public partial class Mushroom : EntityNode2D
             Entity.Remove<Growing>();
         }
 
-        var frame = (int)Mathf.Floor(_growth * _frames);
+        var frame = Mathf.RoundToInt(_growth * _frames);
         if (_sprite.Frame != frame)
         {
             _sprite.Frame = frame;

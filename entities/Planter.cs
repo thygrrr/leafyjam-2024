@@ -4,6 +4,9 @@ namespace leafy.entities;
 
 public partial class Planter : Node2D
 {
+    [Export] 
+    private PackedScene[] _plantables = [];
+    
     private AnimatedSprite2D _sprite;
     
     private Ecosystem _ecosystem;
@@ -48,7 +51,9 @@ public partial class Planter : Node2D
                 {
                     if (button.IsPressed())
                     {
-                        GD.Print("Planting.");
+                        var planted = _plantables[0].Instantiate<Node2D>();
+                        planted.Position = Position;
+                        GetParent().AddChild(planted);
                     }
                 }
                 break;
