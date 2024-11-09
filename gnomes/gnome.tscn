@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://4shyyx2bwjiq"]
+[gd_scene load_steps=7 format=3 uid="uid://4shyyx2bwjiq"]
 
 [ext_resource type="Script" path="res://gnomes/gnome.gd" id="1_jmtkh"]
+[ext_resource type="PackedScene" uid="uid://bxtyfb8rc20ir" path="res://audio_players/footstep_player/FootstepPlayer.tscn" id="2_2na7m"]
 [ext_resource type="SpriteFrames" uid="uid://dfp4pmbntkw1a" path="res://sprites/sf_gnomes.tres" id="2_ec1qw"]
 [ext_resource type="Script" path="res://gnomes/PlayRandomAnim.gd" id="3_47uhu"]
+[ext_resource type="PackedScene" uid="uid://56cw51vp0hkh" path="res://audio_players/sound_player/sound_player.tscn" id="3_f6mpx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ry6rn"]
 radius = 3.0
@@ -12,6 +14,10 @@ y_sort_enabled = true
 texture_filter = 1
 scale = Vector2(4, 4)
 script = ExtResource("1_jmtkh")
+
+[node name="FootstepPlayer" parent="." instance=ExtResource("2_2na7m")]
+
+[node name="SoundPlayer" parent="." instance=ExtResource("3_f6mpx")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)
