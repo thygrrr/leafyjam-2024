@@ -4,6 +4,7 @@
     <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'android' ">net7.0</TargetFramework>
     <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'ios' ">net8.0</TargetFramework>
     <EnableDynamicLoading>true</EnableDynamicLoading>
+    <RootNamespace>leafy</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="fennecs" Version="0.5.14-beta" />

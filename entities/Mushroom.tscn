@@ -1,10 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://eu2m21vqurfu"]
+[gd_scene load_steps=3 format=3 uid="uid://eu2m21vqurfu"]
 
+[ext_resource type="Script" path="res://entities/Mushroom.cs" id="1_fg67e"]
 [ext_resource type="SpriteFrames" uid="uid://bhtf42vj1ly0y" path="res://sprites/sf_mushrooms.tres" id="1_prquw"]
 
 [node name="Mushroom" type="Node2D"]
 texture_filter = 1
+script = ExtResource("1_fg67e")
 
-[node name="porcini" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 sprite_frames = ExtResource("1_prquw")
-animation = &"toadstool_0"
+animation = &"honeymash_0"
+offset = Vector2(0, -6)
