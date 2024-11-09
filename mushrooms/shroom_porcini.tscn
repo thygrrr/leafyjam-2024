@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://eu2m21vqurfu" path="res://mushrooms/_base.tscn" id="1_jtykb"]
 
 [node name="porcini" instance=ExtResource("1_jtykb")]
-plantRange = Vector2(30, 60)
+plantRange = Vector2(20, 50)
 pickRange = 15.0
 traits = 2
 

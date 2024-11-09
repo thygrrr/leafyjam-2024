@@ -2,7 +2,7 @@ using Godot;
 
 namespace leafy.entities;
 
-public partial class Planter : Control
+public partial class Planter : Node2D
 {
     private AnimatedSprite2D _sprite;
     

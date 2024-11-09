@@ -29,15 +29,26 @@ public partial class Ecosystem : Node
 
         var distance = float.PositiveInfinity;
         
+        var tooClose = false;
+        var tooFar = true;
+        
         _maturePositions.For((ref Mushroom shroom, ref Position position) =>
         {
             var d = position.Distance(point);
          
+            // Current shroom is too far away
+            if (d < shroom.plantRange.Min())
+            {
+                tooClose = true;
+                return;
+            }
+            
+            if (d > shroom.plantRange.Max()) return;
+            
+            tooFar = false;
+            
             // Found something closer than the current pair
             if (d >= distance) return;
-            
-            // Current shroom is too far away
-            if (d > shroom.plantRange.Max()) return;
             
             second = first;
             first = shroom;
@@ -45,6 +56,6 @@ public partial class Ecosystem : Node
         });
 
         pair = (first, second);
-        return first != null;
+        return !tooClose && !tooFar;
     }
 }
