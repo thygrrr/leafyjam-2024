@@ -60,13 +60,7 @@ public partial class Ecosystem : Node
                 else
                 {
                     var dMax = shroom.plantRange.Max();
-                    var closer = position + dMax * (point - position).Normalized();
-
-                    //var d2 = (point - closer).Length();
-                    //if (d2 > d) return;
-                    
-                    //d = d2;
-                    closest = closer;
+                    closest = position + dMax * (point - position).Normalized();;
                 }
 
                 distance = d;
