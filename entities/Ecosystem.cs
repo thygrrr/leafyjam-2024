@@ -8,7 +8,7 @@ public partial class Ecosystem : Node
     private Stream<Mushroom> _growing;
     private Stream<Mushroom> _immature;
     
-    private Stream<Mushroom, Position> _maturePositions;
+    private Stream<Mushroom, Position> _plantablePositions;
     private Stream<Mushroom, Position> _allPositions;
     
     public override void _Ready()
@@ -16,7 +16,7 @@ public partial class Ecosystem : Node
         base._Ready();
         _growing = ECS.World.Query<Mushroom>().Has<Growing>().Stream();
         _immature = ECS.World.Query<Mushroom>().Has<Growing>().Not<Mature>().Stream();
-        _maturePositions = ECS.World.Query<Mushroom, Position>().Has<Mature>().Stream();
+        _plantablePositions = ECS.World.Query<Mushroom, Position>().Stream();
         _allPositions = ECS.World.Query<Mushroom, Position>().Stream();
         
         
@@ -47,7 +47,7 @@ public partial class Ecosystem : Node
             if (d < shroom.plantRange.Min()) tooClose = true;
         });
 
-        if (!tooClose) _maturePositions.For((ref Mushroom shroom, ref Position position) =>
+        if (!tooClose) _plantablePositions.For((ref Mushroom shroom, ref Position position) =>
             {
                 var d = position.Distance(point);
 
