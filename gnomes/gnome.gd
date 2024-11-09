@@ -88,4 +88,5 @@ func _on_navigation_agent_2d_target_reached() -> void:
 		find_job.call_deferred()
 
 func _on_navigation_agent_2d_navigation_finished() -> void:
-	print("Navigation finished")
+	#print("Navigation finished")
+	pass
