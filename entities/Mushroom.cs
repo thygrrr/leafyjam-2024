@@ -66,6 +66,8 @@ public partial class Mushroom : EntityNode2D
 
         //NOTE: This is something fennecs should do better, one of the overloads is broken in 0.5.x
         Entity.Add(new Position(Position.X, Position.Y));
+        
+        Grow(0);
     }
 
 

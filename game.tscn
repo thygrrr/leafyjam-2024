@@ -17,8 +17,8 @@ script = ExtResource("2_y8gtc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Planter"]
 y_sort_enabled = true
+scale = Vector2(4, 4)
 sprite_frames = ExtResource("3_74wjp")
-animation = &"hint_honeymash"
 offset = Vector2(0, -6)
 
 [node name="ShroomField" type="Node2D" parent="."]
@@ -27,136 +27,49 @@ offset = Vector2(0, -6)
 position = Vector2(42, 45)
 
 [node name="honeymash2" parent="." instance=ExtResource("2_4c65i")]
-position = Vector2(63, 57)
+position = Vector2(60, 114)
 
 [node name="honeymash3" parent="." instance=ExtResource("2_4c65i")]
-position = Vector2(85, 40)
+position = Vector2(88, 72)
 
 [node name="honeymash4" parent="." instance=ExtResource("2_4c65i")]
-position = Vector2(118, 73)
+position = Vector2(148, 141)
 
 [node name="honeymash5" parent="." instance=ExtResource("2_4c65i")]
-position = Vector2(49, 85)
+position = Vector2(202, 187)
 
 [node name="honeymash6" parent="." instance=ExtResource("2_4c65i")]
-position = Vector2(101, 84)
+position = Vector2(286, 226)
 
 [node name="honeymash7" parent="." instance=ExtResource("2_4c65i")]
-position = Vector2(105, 53)
+position = Vector2(349, 238)
 
 [node name="honeymash8" parent="." instance=ExtResource("2_4c65i")]
-position = Vector2(73, 85)
+position = Vector2(365, 199)
 
 [node name="honeymash9" parent="." instance=ExtResource("2_4c65i")]
-position = Vector2(83, 65)
-
-[node name="honeymash10" parent="." instance=ExtResource("2_4c65i")]
-position = Vector2(66, 44)
-
-[node name="honeymash11" parent="." instance=ExtResource("2_4c65i")]
-position = Vector2(38, 65)
-
-[node name="honeymash12" parent="." instance=ExtResource("2_4c65i")]
-position = Vector2(71, 71)
-
-[node name="honeymash13" parent="." instance=ExtResource("2_4c65i")]
-position = Vector2(88, 94)
-
-[node name="honeymash14" parent="." instance=ExtResource("2_4c65i")]
-position = Vector2(103, 67)
-
-[node name="honeymash15" parent="." instance=ExtResource("2_4c65i")]
-position = Vector2(103, 67)
-
-[node name="honeymash16" parent="." instance=ExtResource("2_4c65i")]
-position = Vector2(42, 83)
-
-[node name="honeymash17" parent="." instance=ExtResource("2_4c65i")]
-position = Vector2(63, 95)
-
-[node name="honeymash18" parent="." instance=ExtResource("2_4c65i")]
-position = Vector2(85, 78)
-
-[node name="honeymash19" parent="." instance=ExtResource("2_4c65i")]
-position = Vector2(118, 111)
-
-[node name="honeymash20" parent="." instance=ExtResource("2_4c65i")]
-position = Vector2(49, 123)
-
-[node name="honeymash21" parent="." instance=ExtResource("2_4c65i")]
-position = Vector2(101, 122)
-
-[node name="honeymash22" parent="." instance=ExtResource("2_4c65i")]
-position = Vector2(105, 91)
-
-[node name="honeymash23" parent="." instance=ExtResource("2_4c65i")]
-position = Vector2(73, 123)
-
-[node name="honeymash24" parent="." instance=ExtResource("2_4c65i")]
-position = Vector2(83, 103)
-
-[node name="honeymash25" parent="." instance=ExtResource("2_4c65i")]
-position = Vector2(66, 82)
-
-[node name="honeymash26" parent="." instance=ExtResource("2_4c65i")]
-position = Vector2(38, 103)
-
-[node name="honeymash27" parent="." instance=ExtResource("2_4c65i")]
-position = Vector2(71, 109)
-
-[node name="honeymash28" parent="." instance=ExtResource("2_4c65i")]
-position = Vector2(88, 132)
-
-[node name="honeymash29" parent="." instance=ExtResource("2_4c65i")]
-position = Vector2(103, 105)
-
-[node name="honeymash30" parent="." instance=ExtResource("2_4c65i")]
-position = Vector2(103, 105)
+position = Vector2(361, 148)
 
 [node name="porcini" parent="." instance=ExtResource("3_2wtn5")]
-position = Vector2(246, 48)
+position = Vector2(182, 754)
 
 [node name="porcini2" parent="." instance=ExtResource("3_2wtn5")]
-position = Vector2(255, 64)
+position = Vector2(251, 727)
 
 [node name="porcini3" parent="." instance=ExtResource("3_2wtn5")]
-position = Vector2(230, 75)
-
-[node name="porcini4" parent="." instance=ExtResource("3_2wtn5")]
-position = Vector2(240, 91)
-
-[node name="porcini5" parent="." instance=ExtResource("3_2wtn5")]
-position = Vector2(255, 75)
-
-[node name="porcini6" parent="." instance=ExtResource("3_2wtn5")]
-position = Vector2(276, 42)
-
-[node name="porcini7" parent="." instance=ExtResource("3_2wtn5")]
-position = Vector2(305, 55)
-
-[node name="porcini8" parent="." instance=ExtResource("3_2wtn5")]
-position = Vector2(315, 74)
-
-[node name="porcini9" parent="." instance=ExtResource("3_2wtn5")]
-position = Vector2(331, 84)
-
-[node name="porcini10" parent="." instance=ExtResource("3_2wtn5")]
-position = Vector2(331, 84)
+position = Vector2(209, 681)
 
 [node name="toadstool" parent="." instance=ExtResource("4_3n5c2")]
-position = Vector2(139, 141)
+position = Vector2(1041, 670)
 
 [node name="toadstool2" parent="." instance=ExtResource("4_3n5c2")]
-position = Vector2(154, 149)
+position = Vector2(924, 701)
 
 [node name="toadstool3" parent="." instance=ExtResource("4_3n5c2")]
-position = Vector2(176, 158)
+position = Vector2(934, 602)
 
 [node name="toadstool4" parent="." instance=ExtResource("4_3n5c2")]
-position = Vector2(214, 112)
+position = Vector2(1030, 571)
 
 [node name="toadstool5" parent="." instance=ExtResource("4_3n5c2")]
-position = Vector2(219, 133)
-
-[node name="toadstool6" parent="." instance=ExtResource("4_3n5c2")]
-position = Vector2(213, 159)
+position = Vector2(933, 472)
