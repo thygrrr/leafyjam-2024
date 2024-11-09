@@ -68,7 +68,6 @@ public partial class Planter : Node2D
                         GetParent().AddChild(planted);
                         
                         var sound = _plantableSounds[0];
-                        _sound.Stop();
                         _sound.PitchScale = pitchRange.Remap(Random.Shared.NextSingle());
                         _sound.Stream = sound;
                         _sound.Play();

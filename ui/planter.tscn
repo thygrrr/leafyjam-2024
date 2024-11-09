@@ -17,3 +17,4 @@ sprite_frames = ExtResource("2_j0m4o")
 offset = Vector2(0, -6)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+max_polyphony = 5
