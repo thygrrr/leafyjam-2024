@@ -34,6 +34,10 @@ public partial class Planter : Control
                     _ => "default",
                 };
             }
+            else
+            {
+                _sprite.Animation = "default";
+            }
         }
         
     }
