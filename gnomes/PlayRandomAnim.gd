@@ -10,7 +10,6 @@ func _ready() -> void:
 	play(anims[index % anims.size()])
 
 func _process(delta) -> void:
-	if flip_h:
+	var velocity = get_parent().velocity
+	if abs(velocity.x) > 1:
 		flip_h = get_parent().velocity.x < 0
-	else:
-		flip_h = !get_parent().velocity.x > 0

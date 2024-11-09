@@ -76,7 +76,7 @@ func _on_navigation_agent_2d_target_reached() -> void:
 		current_state = GnomeState.IDLE
 		await get_tree().create_timer(2).timeout
 		find_job.call_deferred()
-		
+
 
 	elif current_state == GnomeState.TRAVELING_WORK:
 		current_state = GnomeState.WORKING
