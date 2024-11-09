@@ -22,7 +22,7 @@ public partial class Ecosystem : Node
         _growing.For((ref Mushroom shroom) => shroom.Grow(dt));
     }
 
-    public bool ClosestMaturePair(Vector2 point, out (Mushroom first, Mushroom second) pair)
+    public bool ClosestMaturePair(Vector2 point, out (Mushroom first, Mushroom second) pair, out Vector2 closestPoint)
     {
         Mushroom first = null;
         Mushroom second = null;
@@ -30,32 +30,41 @@ public partial class Ecosystem : Node
         var distance = float.PositiveInfinity;
         
         var tooClose = false;
-        var tooFar = true;
+        
+        var closest = point;
         
         _maturePositions.For((ref Mushroom shroom, ref Position position) =>
         {
             var d = position.Distance(point);
-         
-            // Current shroom is too far away
+
+            if (d >= distance) return;
+
             if (d < shroom.plantRange.Min())
             {
                 tooClose = true;
                 return;
             }
-            
-            if (d > shroom.plantRange.Max()) return;
-            
-            tooFar = false;
-            
-            // Found something closer than the current pair
-            if (d >= distance) return;
-            
-            second = first;
-            first = shroom;
+
+            if (shroom.plantRange.Contains(d))
+            {
+                closest = point;
+            }
+            else
+            {
+                var dMax = shroom.plantRange.Max();
+                closest = position + dMax * (point - position).Normalized();
+
+                d = (point - closest).Length();
+                if (d >= distance) return;
+            }
+
             distance = d;
+            first = shroom;
+            second = first;
         });
 
+        closestPoint = closest;
         pair = (first, second);
-        return !tooClose && !tooFar;
+        return !tooClose && first != null;
     }
 }

@@ -6,7 +6,7 @@
 _growTimes = Vector2(1, 3)
 _angles = Vector2(-4, 4)
 _scales = Vector2(0.9, 1.2)
-plantRange = Vector2(15, 25)
+plantRange = Vector2(2, 20)
 pickRange = 10.0
 traits = 1
 

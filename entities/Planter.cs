@@ -18,11 +18,10 @@ public partial class Planter : Node2D
     {
         if (input is InputEventMouseMotion mouseMotion)
         {
-            Position = mouseMotion.Position;
-
-            if (_ecosystem.ClosestMaturePair(mouseMotion.Position, out var pair))
+            if (_ecosystem.ClosestMaturePair(mouseMotion.Position, out var pair, out var closestPoint))
             {
-                var traits = pair.first.traits | pair.second?.traits;
+                Position = closestPoint;
+                var traits = pair.first?.traits | pair.second?.traits;
                 
                 _sprite.Animation = traits switch
                 {
