@@ -1,25 +1,21 @@
 extends CharacterBody2D
 
-@export var movement_speed: float = 100.0
-#@onready var navigation_agent: NavigationAgent2D = get_node("NavigationAgent2D")
-@export var navigation_agent : NavigationAgent2D = null
+@export var movement_speed: float = 350.0
+@onready var navigation_agent: NavigationAgent2D = get_node("NavigationAgent2D")
 
 @export var home : Node2D = null
 @export var target : Node2D = null
 
 
 func _ready() -> void:
-	if navigation_agent == null:
-		push_error("NavigationAgent not set in gnome.gd")
-	else:
-		navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
+	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
+	navigation_agent.max_speed = movement_speed
 
 	if home == null:
 		push_error("Home Node2D not set in gnome.gd")
 
 	if target == null:
 		push_error("Target Node2D not set in gnome.gd")
-
 	else:
 		set_movement_target(target.position)
 

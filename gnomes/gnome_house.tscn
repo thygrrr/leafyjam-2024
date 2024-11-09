@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://drvyj0ycxgb3l"]
+
+[ext_resource type="Texture2D" uid="uid://cl55d8pm522ny" path="res://icon.svg" id="1_7k2a2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fafw0"]
+radius = 65.0
+
+[node name="GnomeHouse" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_fafw0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7k2a2")
+
+[node name="ChillSpots" type="Node2D" parent="."]
+
+[node name="Node2D" type="Node2D" parent="ChillSpots"]
+position = Vector2(0, 99)
+
+[node name="Node2D2" type="Node2D" parent="ChillSpots"]
+position = Vector2(-140, 101)
+
+[node name="Node2D3" type="Node2D" parent="ChillSpots"]
+position = Vector2(105, 98)
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+radius = 65.0

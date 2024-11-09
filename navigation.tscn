@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2b1wi0um6mow"]
+[gd_scene load_steps=4 format=3 uid="uid://d2b1wi0um6mow"]
 
-[ext_resource type="PackedScene" uid="uid://4shyyx2bwjiq" path="res://entities/gnome.tscn" id="1_1kcg0"]
+[ext_resource type="PackedScene" uid="uid://4shyyx2bwjiq" path="res://gnomes/gnome.tscn" id="1_1kcg0"]
+[ext_resource type="PackedScene" uid="uid://drvyj0ycxgb3l" path="res://gnomes/gnome_house.tscn" id="2_hf6fe"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ckuuo"]
 vertices = PackedVector2Array(5416.75, 2430.1, -737.25, 3686.8, -818.797, -180.852, 3513.81, -560.5)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-829, -190, -747, 3699, 5433, 2437, 3519, -571)])
+agent_radius = 24.0
 
 [node name="Node2D" type="Node2D"]
 
@@ -19,4 +21,7 @@ target = NodePath("../../Target")
 navigation_polygon = SubResource("NavigationPolygon_ckuuo")
 
 [node name="Target" type="Node2D" parent="."]
-position = Vector2(152, 93)
+position = Vector2(653, 571)
+
+[node name="GnomeHouse" parent="." instance=ExtResource("2_hf6fe")]
+position = Vector2(487, 399)
