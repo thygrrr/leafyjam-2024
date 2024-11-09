@@ -9,7 +9,7 @@ func _ready() -> void:
 	speed_scale = random.randf_range(0.75, 1.5)
 	play(anims[index % anims.size()])
 
-func _process(delta) -> void:
+func _process(_delta) -> void:
 	var velocity = get_parent().velocity
 	if abs(velocity.x) > 1:
 		flip_h = get_parent().velocity.x < 0

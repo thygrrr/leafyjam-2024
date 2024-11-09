@@ -13,9 +13,10 @@ extends Node
 var mutex : Mutex = Mutex.new()
 
 var job_targets : Array = []
+var random := RandomNumberGenerator.new()
 
 func register_target(target_node : Node2D) -> void:
-	job_targets.append(target_node)
+	job_targets.insert(random.randi_range(0, len(job_targets)-1),target_node)
 
 func consume_target() -> Node2D:
 	if job_targets:
