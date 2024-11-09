@@ -82,7 +82,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"gnome_0",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -122,5 +122,5 @@ animations = [{
 }],
 "loop": true,
 "name": &"gnome_2",
-"speed": 5.0
+"speed": 6.0
 }]
