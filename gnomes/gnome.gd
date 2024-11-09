@@ -4,8 +4,8 @@ extends CharacterBody2D
 @onready var navigation_agent: NavigationAgent2D = get_node("NavigationAgent2D")
 
 @export var home : Node2D = null
-@export var target : Node2D = null
 
+var current_target = null
 
 enum GnomeState {IDLE, TRAVELING_HOME, TRAVELING_WORK, WORKING}
 var current_state : GnomeState = GnomeState.TRAVELING_HOME
@@ -17,9 +17,6 @@ func _ready() -> void:
 	if not home:
 		push_error("Home Node2D not set in gnome.gd")
 
-	if not target:
-		push_error("Target Node2D not set in gnome.gd")
-	
 	go_home.call_deferred()
 
 func set_movement_target(movement_target: Vector2):
@@ -31,19 +28,30 @@ func go_home() -> void:
 		target_position = home.global_position
 		if home.has_method("get_chill_spot"):
 			var chill_node = home.get_chill_spot(self)
+			#print("get chilld spot")
 			if chill_node:
+				print("found chill spot")
 				target_position = chill_node.global_position
 
 		if target_position:
 			set_movement_target(target_position)
 		else:
 			push_warning("Going home failed")
+			
+func find_job() -> void:
+	if current_state == GnomeState.IDLE:
+		current_target = JobManager.consume_target()
+		
+		if current_target:
+			set_movement_target(current_target.global_position)
+			current_state = GnomeState.TRAVELING_WORK
+			if home:
+				home.leave_chill_spot(self)
 	
 func _physics_process(_delta):
 	
-	#if current_state == GnomeState.TRAVELING_HOME:
-		#if navigation_agent.is_target_reached():
-			
+	find_job.call_deferred()
+
 	# Do not query when the map has never synchronized and is empty.
 	if NavigationServer2D.map_get_iteration_id(navigation_agent.get_navigation_map()) == 0:
 		return
@@ -65,5 +73,15 @@ func _on_velocity_computed(safe_velocity: Vector2):
 
 func _on_navigation_agent_2d_target_reached() -> void:
 	if current_state == GnomeState.TRAVELING_HOME:
-		print("Reached home")
 		current_state = GnomeState.IDLE
+	
+	elif current_state == GnomeState.TRAVELING_WORK:
+		current_state = GnomeState.WORKING
+		if current_target and current_target.has_method("work_done"):
+			current_target.work_done()
+			
+		current_state = GnomeState.TRAVELING_HOME
+		go_home.call_deferred()
+
+func _on_navigation_agent_2d_navigation_finished() -> void:
+	print("Navigation finished")
