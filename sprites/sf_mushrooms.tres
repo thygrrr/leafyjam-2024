@@ -80,7 +80,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vcpaw")
 }],
-"loop": true,
+"loop": false,
 "name": &"honeymash_0",
 "speed": 5.0
 }, {
@@ -100,7 +100,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ubkv5")
 }],
-"loop": true,
+"loop": false,
 "name": &"porcini_0",
 "speed": 5.0
 }, {
@@ -120,7 +120,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8u0on")
 }],
-"loop": true,
+"loop": false,
 "name": &"toadstool_0",
 "speed": 5.0
 }]
