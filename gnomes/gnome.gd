@@ -24,8 +24,11 @@ func set_movement_target(movement_target: Vector2):
 	$FootstepPlayer.start_playing_footsteps()
 
 func go_home() -> void:
+	
 	var target_position = null
 	if home:
+		current_state = GnomeState.TRAVELING_HOME
+		
 		target_position = home.global_position
 		if home.has_method("get_chill_spot"):
 			var chill_node = home.get_chill_spot(self)
@@ -33,6 +36,7 @@ func go_home() -> void:
 			if chill_node:
 				#print("found chill spot")
 				target_position = chill_node.global_position
+			
 
 		if target_position:
 			set_movement_target(target_position)
@@ -90,7 +94,6 @@ func _on_navigation_agent_2d_target_reached() -> void:
 		if current_target and current_target.has_method("work_done"):
 			current_target.work_done()
 
-		current_state = GnomeState.TRAVELING_HOME
 		find_job.call_deferred()
 
 func _on_navigation_agent_2d_navigation_finished() -> void:
