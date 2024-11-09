@@ -28,6 +28,7 @@ position = Vector2(279, 662)
 home = NodePath("../../NavigationRegion2D/GnomeHouse")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+y_sort_enabled = true
 navigation_polygon = SubResource("NavigationPolygon_4v3q5")
 
 [node name="GnomeHouse" parent="NavigationRegion2D" instance=ExtResource("2_wd8no")]
