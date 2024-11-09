@@ -17,6 +17,8 @@ config/icon="res://icon.svg"
 
 [display]
 
+window/size/viewport_width=1280
+window/size/viewport_height=960
 window/stretch/mode="viewport"
 window/stretch/scale=4.0
 window/stretch/scale_mode="integer"
@@ -24,6 +26,10 @@ window/stretch/scale_mode="integer"
 [dotnet]
 
 project/assembly_name="Leafyjam"
+
+[editor]
+
+movie_writer/movie_file="P:/leafyjam-2024/movies/movie.avi"
 
 [importer_defaults]
 
