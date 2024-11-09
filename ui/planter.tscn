@@ -11,6 +11,7 @@ script = ExtResource("1_ko4rs")
 _plantableSounds = [ExtResource("2_ltbe0"), ExtResource("3_trn58")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.25098)
 y_sort_enabled = true
 scale = Vector2(4, 4)
 sprite_frames = ExtResource("2_j0m4o")
