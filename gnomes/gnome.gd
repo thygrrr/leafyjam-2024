@@ -39,18 +39,18 @@ func go_home() -> void:
 			push_warning("Going home failed")
 
 func find_job() -> void:
-	if current_state == GnomeState.IDLE:
-		current_target = JobManager.consume_target()
+	#if current_state == GnomeState.IDLE:
+	current_target = JobManager.consume_target()
 
-		if current_target:
-			set_movement_target(current_target.global_position)
-			current_state = GnomeState.TRAVELING_WORK
-			if home:
-				home.leave_chill_spot(self)
+	if current_target:
+		set_movement_target(current_target.global_position)
+		current_state = GnomeState.TRAVELING_WORK
+		if home:
+			home.leave_chill_spot(self)
+	else:
+		go_home.call_deferred()
 
 func _physics_process(_delta):
-
-	find_job.call_deferred()
 
 	# Do not query when the map has never synchronized and is empty.
 	if NavigationServer2D.map_get_iteration_id(navigation_agent.get_navigation_map()) == 0:
@@ -74,6 +74,9 @@ func _on_velocity_computed(safe_velocity: Vector2):
 func _on_navigation_agent_2d_target_reached() -> void:
 	if current_state == GnomeState.TRAVELING_HOME:
 		current_state = GnomeState.IDLE
+		await get_tree().create_timer(2).timeout
+		find_job.call_deferred()
+		
 
 	elif current_state == GnomeState.TRAVELING_WORK:
 		current_state = GnomeState.WORKING
@@ -81,7 +84,7 @@ func _on_navigation_agent_2d_target_reached() -> void:
 			current_target.work_done()
 
 		current_state = GnomeState.TRAVELING_HOME
-		go_home.call_deferred()
+		find_job.call_deferred()
 
 func _on_navigation_agent_2d_navigation_finished() -> void:
 	print("Navigation finished")
