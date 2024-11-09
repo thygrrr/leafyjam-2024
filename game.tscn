@@ -22,7 +22,7 @@ script = ExtResource("2_y8gtc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Planter"]
 sprite_frames = ExtResource("3_74wjp")
-animation = &"hint_honeymash"
+offset = Vector2(0, -6)
 
 [node name="ShroomField" type="Node2D" parent="."]
 
