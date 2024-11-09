@@ -144,4 +144,4 @@ position = Vector2(214, 112)
 position = Vector2(219, 133)
 
 [node name="toadstool6" parent="." instance=ExtResource("4_3n5c2")]
-position = Vector2(219, 134)
+position = Vector2(213, 159)
