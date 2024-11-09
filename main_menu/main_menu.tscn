@@ -1,0 +1,112 @@
+[gd_scene load_steps=10 format=3 uid="uid://b0f8t5s80rwcu"]
+
+[ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_8y7rx"]
+[ext_resource type="Texture2D" uid="uid://ed0k6o8b3303" path="res://sprites/Title.png" id="1_f3nyh"]
+[ext_resource type="Texture2D" uid="uid://5vfmqtno7ypi" path="res://sprites/play.png" id="2_7bid2"]
+[ext_resource type="Texture2D" uid="uid://80a6t0aol0k5" path="res://sprites/play_highlight.png" id="4_owdgi"]
+
+[sub_resource type="Animation" id="Animation_ubnvb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_kmm0j"]
+resource_name = "fade_out"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ywkaw"]
+_data = {
+"RESET": SubResource("Animation_ubnvb"),
+"fade_out": SubResource("Animation_kmm0j")
+}
+
+[sub_resource type="Gradient" id="Gradient_w7u42"]
+offsets = PackedFloat32Array(0, 0.819672)
+colors = PackedColorArray(0.145098, 0.145098, 0.145098, 0, 0.1, 0.1, 0.1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0adr4"]
+gradient = SubResource("Gradient_w7u42")
+
+[node name="MainMenu" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8y7rx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ywkaw")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ArtContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="Art" type="TextureRect" parent="ArtContainer"]
+layout_mode = 2
+texture = ExtResource("1_f3nyh")
+
+[node name="GradientContainer" type="HBoxContainer" parent="ArtContainer"]
+layout_mode = 2
+
+[node name="EmptySpace" type="MarginContainer" parent="ArtContainer/GradientContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Gradient" type="TextureRect" parent="ArtContainer/GradientContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("GradientTexture1D_0adr4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+theme_override_constants/margin_right = 100
+
+[node name="Play" type="TextureButton" parent="HBoxContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("2_7bid2")
+texture_hover = ExtResource("4_owdgi")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/MarginContainer/Play" to="." method="_on_play_pressed"]
