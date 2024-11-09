@@ -9,6 +9,9 @@ public partial class Mushroom : EntityNode2D
     private Node2D _navTarget;
 
     [Export]
+    private Vector2 _jitterRange = new(-2f, 2f);
+    
+    [Export]
     private Vector2 _lumiRange = new(0.9f, 1.0f);
     [Export]
     private Vector2 _satuRange = new(0.0f, 0.1f);
@@ -63,11 +66,17 @@ public partial class Mushroom : EntityNode2D
         _navTarget.Connect("start_growing", Callable.From(StartGrowing));
         
         _sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+
         _sprite.Modulate = Color.FromOkHsl(
             _hueRange.Remap(Random.Shared.NextSingle()),
             _satuRange.Remap(Random.Shared.NextSingle()), 
             _lumiRange.Remap(Random.Shared.NextSingle()));
-        
+
+        _sprite.Position = new(
+            _jitterRange.Remap(Random.Shared.NextSingle()), 
+            _jitterRange.Remap(Random.Shared.NextSingle())
+        );
+
         _frames = _sprite.GetSpriteFrames().GetFrameCount(_sprite.Animation);
 
         _seed = Random.Shared.NextSingle();
