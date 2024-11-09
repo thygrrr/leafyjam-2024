@@ -1,0 +1,38 @@
+[gd_scene load_steps=10 format=3 uid="uid://56cw51vp0hkh"]
+
+[ext_resource type="Script" path="res://audio_players/sound_player/sound_player.gd" id="1_onwi3"]
+[ext_resource type="AudioStream" uid="uid://cdo4ystiekfyw" path="res://sounds/ambience/nature_ambience.ogg" id="2_p2gmf"]
+[ext_resource type="AudioStream" uid="uid://d1aeetratv3rx" path="res://sounds/effects/pickup1.wav" id="3_uu8i6"]
+[ext_resource type="AudioStream" uid="uid://cyc8a4rnnn478" path="res://sounds/effects/pickup_quiet.wav" id="4_cudkd"]
+[ext_resource type="AudioStream" uid="uid://8lel8eu17kde" path="res://sounds/effects/splosh.wav" id="5_whns7"]
+[ext_resource type="AudioStream" uid="uid://b2xk817we47by" path="res://sounds/effects/wet_explosion.wav" id="6_bk7rr"]
+[ext_resource type="AudioStream" uid="uid://pbgcmupcpn46" path="res://sounds/effects/wet_squish2.wav" id="7_f8r57"]
+[ext_resource type="AudioStream" uid="uid://cw4irwwm6oh88" path="res://sounds/effects/wet_squish.wav" id="8_2t8im"]
+[ext_resource type="AudioStream" uid="uid://qwys0owk5rn6" path="res://sounds/effects/woosh.wav" id="9_pw5ui"]
+
+[node name="SoundPlayer" type="Node"]
+script = ExtResource("1_onwi3")
+
+[node name="NatureAmbience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_p2gmf")
+
+[node name="Pickup1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_uu8i6")
+
+[node name="PickupQuiet" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_cudkd")
+
+[node name="Splosh" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_whns7")
+
+[node name="WetExplosion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_bk7rr")
+
+[node name="WetSquish2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_f8r57")
+
+[node name="WetSquish" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_2t8im")
+
+[node name="Woosh" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_pw5ui")

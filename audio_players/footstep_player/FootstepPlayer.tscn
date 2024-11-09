@@ -1,0 +1,45 @@
+[gd_scene load_steps=10 format=3 uid="uid://bxtyfb8rc20ir"]
+
+[ext_resource type="Script" path="res://audio_players/footstep_player/footstep_player.gd" id="1_iry17"]
+[ext_resource type="AudioStream" uid="uid://bgfb25w5ydv4k" path="res://sounds/footsteps/footstep-01.wav" id="2_3sya2"]
+[ext_resource type="AudioStream" uid="uid://bffsttfc3hv7h" path="res://sounds/footsteps/footstep-02.wav" id="3_fjvax"]
+[ext_resource type="AudioStream" uid="uid://2iy8of386g78" path="res://sounds/footsteps/footstep-03.wav" id="4_kj0at"]
+[ext_resource type="AudioStream" uid="uid://dd4hfl7701pvj" path="res://sounds/footsteps/footstep-04.wav" id="5_2id5d"]
+[ext_resource type="AudioStream" uid="uid://1kuw7brlhf8o" path="res://sounds/footsteps/footstep-05.wav" id="6_4gy24"]
+[ext_resource type="AudioStream" uid="uid://d3m80yftr4vvl" path="res://sounds/footsteps/footstep-06.wav" id="7_j43gd"]
+[ext_resource type="AudioStream" uid="uid://dnglihmsbc1e0" path="res://sounds/footsteps/footstep-07.wav" id="8_yf8ds"]
+[ext_resource type="AudioStream" uid="uid://d2w2mbd52yudr" path="res://sounds/footsteps/footstep-08.wav" id="9_y1f8p"]
+
+[node name="FootstepPlayer" type="Node"]
+script = ExtResource("1_iry17")
+
+[node name="FootstepTimer" type="Timer" parent="."]
+wait_time = 0.4
+
+[node name="Footsteps" type="Node" parent="."]
+
+[node name="Footstep-01" type="AudioStreamPlayer2D" parent="Footsteps"]
+stream = ExtResource("2_3sya2")
+
+[node name="Footstep-02" type="AudioStreamPlayer2D" parent="Footsteps"]
+stream = ExtResource("3_fjvax")
+
+[node name="Footstep-03" type="AudioStreamPlayer2D" parent="Footsteps"]
+stream = ExtResource("4_kj0at")
+
+[node name="Footstep-04" type="AudioStreamPlayer2D" parent="Footsteps"]
+stream = ExtResource("5_2id5d")
+
+[node name="Footstep-05" type="AudioStreamPlayer2D" parent="Footsteps"]
+stream = ExtResource("6_4gy24")
+
+[node name="Footstep-06" type="AudioStreamPlayer2D" parent="Footsteps"]
+stream = ExtResource("7_j43gd")
+
+[node name="Footstep-07" type="AudioStreamPlayer2D" parent="Footsteps"]
+stream = ExtResource("8_yf8ds")
+
+[node name="Footstep-08" type="AudioStreamPlayer2D" parent="Footsteps"]
+stream = ExtResource("9_y1f8p")
+
+[connection signal="timeout" from="FootstepTimer" to="." method="_on_footstep_timer_timeout"]
