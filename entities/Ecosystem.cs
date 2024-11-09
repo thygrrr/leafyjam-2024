@@ -8,7 +8,7 @@ public partial class Ecosystem : Node
     private Stream<Mushroom> _growing;
     private Stream<Mushroom> _immature;
     
-    private Stream<Mushroom, Position> _plantablePositions;
+    private Stream<Mushroom, Position> _plantPositions;
     private Stream<Mushroom, Position> _allPositions;
     
     public override void _Ready()
@@ -16,7 +16,7 @@ public partial class Ecosystem : Node
         base._Ready();
         _growing = ECS.World.Query<Mushroom>().Has<Growing>().Stream();
         _immature = ECS.World.Query<Mushroom>().Has<Growing>().Not<Mature>().Stream();
-        _plantablePositions = ECS.World.Query<Mushroom, Position>().Stream();
+        _plantPositions = ECS.World.Query<Mushroom, Position>().Stream();
         _allPositions = ECS.World.Query<Mushroom, Position>().Stream();
         
         
@@ -37,7 +37,6 @@ public partial class Ecosystem : Node
         var distance = float.PositiveInfinity;
 
         var tooClose = false;
-        var tooFar = false;
 
         var closest = point;
 
@@ -47,7 +46,7 @@ public partial class Ecosystem : Node
             if (d < shroom.plantRange.Min()) tooClose = true;
         });
 
-        if (!tooClose) _plantablePositions.For((ref Mushroom shroom, ref Position position) =>
+        if (!tooClose) _plantPositions.For((ref Mushroom shroom, ref Position position) =>
             {
                 var d = position.Distance(point);
 
@@ -60,7 +59,7 @@ public partial class Ecosystem : Node
                 else
                 {
                     var dMax = shroom.plantRange.Max();
-                    closest = position + dMax * (point - position).Normalized();;
+                    closest = position + dMax * (point - position).Normalized();
                 }
 
                 distance = d;
@@ -70,7 +69,7 @@ public partial class Ecosystem : Node
         closestPoint = closest;
         shroom = found;
 
-        tooFar = distance > 150f;
+        var tooFar = distance > 150f;
         return !tooClose && !tooFar && found != null;
     }
 }
