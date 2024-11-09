@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctnaucbi7wbra"]
+
+[ext_resource type="Script" path="res://ui/Planter.cs" id="1_ko4rs"]
+[ext_resource type="SpriteFrames" uid="uid://bhtf42vj1ly0y" path="res://sprites/sf_mushrooms.tres" id="2_j0m4o"]
+
+[node name="Planter" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_ko4rs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("2_j0m4o")
+offset = Vector2(0, -6)

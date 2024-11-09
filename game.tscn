@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" path="res://entities/Ecosystem.cs" id="1_ef70f"]
 [ext_resource type="PackedScene" uid="uid://cuufdtans67rs" path="res://mushrooms/shroom_honeymash.tscn" id="2_4c65i"]
-[ext_resource type="Script" path="res://entities/Planter.cs" id="2_y8gtc"]
+[ext_resource type="Script" path="res://ui/Planter.cs" id="2_y8gtc"]
 [ext_resource type="PackedScene" uid="uid://fmp547o72q2k" path="res://mushrooms/shroom_porcini.tscn" id="3_2wtn5"]
 [ext_resource type="SpriteFrames" uid="uid://bhtf42vj1ly0y" path="res://sprites/sf_mushrooms.tres" id="3_74wjp"]
 [ext_resource type="PackedScene" uid="uid://dhe26vqb4bgoq" path="res://mushrooms/shroom_toadstool.tscn" id="4_3n5c2"]
 [ext_resource type="PackedScene" uid="uid://y3nmra30jlox" path="res://environment/environment.tscn" id="7_c046l"]
-[ext_resource type="PackedScene" uid="uid://d2b1wi0um6mow" path="res://gnomes.tscn" id="8_f8b4c"]
+[ext_resource type="PackedScene" uid="uid://d2b1wi0um6mow" path="res://navigation.tscn" id="8_f8b4c"]
 
-[node name="Ecosystem" type="Node2D"]
+[node name="Ecosystem2" type="Node2D"]
 y_sort_enabled = true
 texture_filter = 1
 script = ExtResource("1_ef70f")

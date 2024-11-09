@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://c6eg2me0jnwp6"]
+
+[ext_resource type="Script" path="res://entities/Ecosystem.cs" id="1_vcl1y"]
+[ext_resource type="PackedScene" uid="uid://y3nmra30jlox" path="res://environment/environment.tscn" id="2_mdt4b"]
+[ext_resource type="PackedScene" uid="uid://ctnaucbi7wbra" path="res://ui/planter.tscn" id="3_vaaiy"]
+[ext_resource type="PackedScene" uid="uid://cuufdtans67rs" path="res://mushrooms/shroom_honeymash.tscn" id="5_tigg5"]
+[ext_resource type="PackedScene" uid="uid://fmp547o72q2k" path="res://mushrooms/shroom_porcini.tscn" id="6_vyhvp"]
+[ext_resource type="PackedScene" uid="uid://dhe26vqb4bgoq" path="res://mushrooms/shroom_toadstool.tscn" id="7_xvike"]
+
+[node name="Ecosystem" type="Node2D"]
+y_sort_enabled = true
+texture_filter = 1
+script = ExtResource("1_vcl1y")
+
+[node name="Environment" parent="." instance=ExtResource("2_mdt4b")]
+
+[node name="Planter" parent="." instance=ExtResource("3_vaaiy")]
+
+[node name="honeymash" parent="." instance=ExtResource("5_tigg5")]
+position = Vector2(42, 45)
+
+[node name="honeymash2" parent="." instance=ExtResource("5_tigg5")]
+position = Vector2(60, 114)
+
+[node name="honeymash3" parent="." instance=ExtResource("5_tigg5")]
+position = Vector2(88, 72)
+
+[node name="honeymash4" parent="." instance=ExtResource("5_tigg5")]
+position = Vector2(148, 141)
+
+[node name="honeymash5" parent="." instance=ExtResource("5_tigg5")]
+position = Vector2(202, 187)
+
+[node name="honeymash6" parent="." instance=ExtResource("5_tigg5")]
+position = Vector2(286, 226)
+
+[node name="honeymash7" parent="." instance=ExtResource("5_tigg5")]
+position = Vector2(349, 238)
+
+[node name="honeymash8" parent="." instance=ExtResource("5_tigg5")]
+position = Vector2(365, 199)
+
+[node name="honeymash9" parent="." instance=ExtResource("5_tigg5")]
+position = Vector2(361, 148)
+
+[node name="porcini" parent="." instance=ExtResource("6_vyhvp")]
+position = Vector2(173, 752)
+
+[node name="porcini2" parent="." instance=ExtResource("6_vyhvp")]
+position = Vector2(251, 727)
+
+[node name="porcini3" parent="." instance=ExtResource("6_vyhvp")]
+position = Vector2(209, 681)
+
+[node name="toadstool" parent="." instance=ExtResource("7_xvike")]
+position = Vector2(1041, 670)
+
+[node name="toadstool2" parent="." instance=ExtResource("7_xvike")]
+position = Vector2(924, 701)
+
+[node name="toadstool3" parent="." instance=ExtResource("7_xvike")]
+position = Vector2(934, 602)
+
+[node name="toadstool4" parent="." instance=ExtResource("7_xvike")]
+position = Vector2(1030, 571)
+
+[node name="toadstool5" parent="." instance=ExtResource("7_xvike")]
+position = Vector2(933, 472)
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+position = Vector2(619, 670)
