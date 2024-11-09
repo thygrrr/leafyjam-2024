@@ -16,7 +16,10 @@ var job_targets : Array = []
 var random := RandomNumberGenerator.new()
 
 func register_target(target_node : Node2D) -> void:
-	job_targets.insert(random.randi_range(0, max(0, len(job_targets)-1)), target_node)
+	if job_targets:
+		job_targets.insert(random.randi_range(0, len(job_targets)-1), target_node)
+	else:
+		job_targets.append(target_node)
 
 func consume_target() -> Node2D:
 	if job_targets:
