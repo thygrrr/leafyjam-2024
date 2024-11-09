@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://y3nmra30jlox"]
 
 [ext_resource type="AudioStream" uid="uid://cdo4ystiekfyw" path="res://sounds/ambience/nature_ambience.ogg" id="1_fl50p"]
-[ext_resource type="AudioStream" uid="uid://ct52dbshb8hu1" path="res://sounds/music/game_music.mp3" id="2_dndqk"]
+[ext_resource type="AudioStream" uid="uid://cb3otr0uw4xpk" path="res://sounds/music/game_music.ogg" id="2_k3t4q"]
 
 [node name="Environment" type="Node2D"]
 
@@ -10,5 +10,5 @@ stream = ExtResource("1_fl50p")
 autoplay = true
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_dndqk")
+stream = ExtResource("2_k3t4q")
 autoplay = true
