@@ -21,12 +21,10 @@ public partial class EntityNode2D : Node2D
 
     public override void _Notification(int what)
     {
-        base._Notification(what);
-
         switch ((long) what)
         {
             case NotificationPredelete:
-                Entity.Despawn();
+                if (Entity) Entity.Despawn();
                 break;
         }
     }
