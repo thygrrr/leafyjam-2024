@@ -50,10 +50,10 @@ func find_job() -> void:
 		go_home.call_deferred()
 
 func _physics_process(_delta):
-	
+
 	if current_state == GnomeState.IDLE:
 		find_job.call_deferred()
-	
+
 	# Do not query when the map has never synchronized and is empty.
 	if NavigationServer2D.map_get_iteration_id(navigation_agent.get_navigation_map()) == 0:
 		return
@@ -77,7 +77,7 @@ func _on_navigation_agent_2d_target_reached() -> void:
 	if current_state == GnomeState.TRAVELING_HOME:
 		await get_tree().create_timer(2).timeout
 		current_state = GnomeState.IDLE
-		
+
 
 
 	elif current_state == GnomeState.TRAVELING_WORK:

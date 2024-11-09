@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://b0f8t5s80rwcu"]
+[gd_scene load_steps=11 format=3 uid="uid://b0f8t5s80rwcu"]
 
 [ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_8y7rx"]
 [ext_resource type="Texture2D" uid="uid://ed0k6o8b3303" path="res://sprites/Title.png" id="1_f3nyh"]
 [ext_resource type="Texture2D" uid="uid://5vfmqtno7ypi" path="res://sprites/play.png" id="2_7bid2"]
 [ext_resource type="Texture2D" uid="uid://80a6t0aol0k5" path="res://sprites/play_highlight.png" id="4_owdgi"]
+[ext_resource type="Texture2D" uid="uid://cdrydis7nlrlt" path="res://sprites/logo.png" id="5_lrfhb"]
 
 [sub_resource type="Animation" id="Animation_ubnvb"]
 length = 0.001
@@ -107,6 +108,27 @@ stretch_mode = 5
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
 custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(1169, 840)
+texture = ExtResource("5_lrfhb")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Logo"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1262.0
+offset_top = -36.5
+offset_right = 328.0
+offset_bottom = 923.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "a cozy dreamy shroomy thingy for leafy jam 2024
+by Lucas, Bart, Matteo, Moritz, and Oliver"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/MarginContainer/Play" to="." method="_on_play_pressed"]
