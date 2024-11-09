@@ -14,13 +14,15 @@ public partial class Planter : Control
     
     public override void _Input(InputEvent input)
     {
-        if (input is not InputEventMouseMotion mouseMotion) return;
-        
-        if (_ecosystem.ClosestMaturePair(mouseMotion.Position, out var pair))
+        if (input is InputEventMouseMotion mouseMotion)
         {
-            var traits = pair.first.traits | pair.second?.traits;
-            
-            GD.Print($"Traits: {traits}");
+            Position = mouseMotion.Position;
+
+            if (_ecosystem.ClosestMaturePair(mouseMotion.Position, out var pair))
+            {
+                var traits = pair.first.traits | pair.second?.traits;
+            }
         }
+        
     }
 }

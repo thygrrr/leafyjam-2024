@@ -1,9 +1,22 @@
-[gd_resource type="SpriteFrames" load_steps=18 format=3 uid="uid://bhtf42vj1ly0y"]
+[gd_resource type="SpriteFrames" load_steps=22 format=3 uid="uid://bhtf42vj1ly0y"]
 
 [ext_resource type="Texture2D" uid="uid://cny7j2dui2kbs" path="res://sprites/Leaf_Sheet_1.png" id="1_4wpxf"]
+[ext_resource type="Texture2D" uid="uid://dquwrsugba4p3" path="res://sprites/Hint_Sheet_1.png" id="2_jycgu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lv0io"]
 atlas = ExtResource("1_4wpxf")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alp4m"]
+atlas = ExtResource("2_jycgu")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thx2a"]
+atlas = ExtResource("2_jycgu")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4k8u"]
+atlas = ExtResource("2_jycgu")
 region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iepih"]
@@ -74,6 +87,30 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_alp4m")
+}],
+"loop": true,
+"name": &"hint_honeymash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_thx2a")
+}],
+"loop": true,
+"name": &"hint_porcini",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4k8u")
+}],
+"loop": true,
+"name": &"hint_toadstool",
 "speed": 5.0
 }, {
 "frames": [{
