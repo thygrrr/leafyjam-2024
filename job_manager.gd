@@ -10,6 +10,8 @@ extends Node
 #func _process(delta: float) -> void:
 	#pass
 
+var mutex : Mutex = Mutex.new()
+
 var job_targets : Array = []
 
 func register_target(target_node : Node2D) -> void:
@@ -17,6 +19,9 @@ func register_target(target_node : Node2D) -> void:
 
 func consume_target() -> Node2D:
 	if job_targets:
-		return job_targets.pop_front()
-	
+		mutex.lock()
+		var target = job_targets.pop_front()
+		mutex.unlock()
+		return target
+
 	return null

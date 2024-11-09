@@ -37,19 +37,19 @@ func go_home() -> void:
 			set_movement_target(target_position)
 		else:
 			push_warning("Going home failed")
-			
+
 func find_job() -> void:
 	if current_state == GnomeState.IDLE:
 		current_target = JobManager.consume_target()
-		
+
 		if current_target:
 			set_movement_target(current_target.global_position)
 			current_state = GnomeState.TRAVELING_WORK
 			if home:
 				home.leave_chill_spot(self)
-	
+
 func _physics_process(_delta):
-	
+
 	find_job.call_deferred()
 
 	# Do not query when the map has never synchronized and is empty.
@@ -74,12 +74,12 @@ func _on_velocity_computed(safe_velocity: Vector2):
 func _on_navigation_agent_2d_target_reached() -> void:
 	if current_state == GnomeState.TRAVELING_HOME:
 		current_state = GnomeState.IDLE
-	
+
 	elif current_state == GnomeState.TRAVELING_WORK:
 		current_state = GnomeState.WORKING
 		if current_target and current_target.has_method("work_done"):
 			current_target.work_done()
-			
+
 		current_state = GnomeState.TRAVELING_HOME
 		go_home.call_deferred()
 
