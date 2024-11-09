@@ -18,6 +18,9 @@ public partial class Planter : Node2D
         _ecosystem = GetParent<Ecosystem>();
         _sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
     }
+
+    
+    private ShroomTraits _traits;
     
     public override void _Input(InputEvent input)
     {
@@ -28,6 +31,8 @@ public partial class Planter : Node2D
                 Position = closestPoint;
                 var traits = shroom.traits;
                 
+                _traits = traits;
+                
                 _sprite.Animation = traits switch
                 {
                     ShroomTraits.Trait1 => "hint_honeymash",
@@ -35,12 +40,14 @@ public partial class Planter : Node2D
                     ShroomTraits.Trait3 => "hint_porcini",
                     _ => "default",
                 };
+                
                 _state = State.Planting;
             }
             else
             {
                 Position = mouseMotion.Position;
                 _state = State.Idle;
+                _traits = default;
                 _sprite.Animation = "default";
             }
         }
