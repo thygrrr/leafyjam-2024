@@ -30,10 +30,9 @@ public partial class Ecosystem : Node
         _immature.For((ref Mushroom shroom) => shroom.Mature());
     }
 
-    public bool ClosestPair(Vector2 point, out (Mushroom first, Mushroom second) pair, out Vector2 closestPoint)
+    public bool ClosestShroom(Vector2 point, out Mushroom shroom, out Vector2 closestPoint)
     {
-        Mushroom first = null;
-        Mushroom second = null;
+        Mushroom found = null;
 
         var distance = float.PositiveInfinity;
 
@@ -52,8 +51,8 @@ public partial class Ecosystem : Node
             {
                 var d = position.Distance(point);
 
-                if (d >= distance) return;
-
+                if (d > distance) return;
+                
                 if (shroom.plantRange.Contains(d))
                 {
                     closest = point;
@@ -63,21 +62,20 @@ public partial class Ecosystem : Node
                     var dMax = shroom.plantRange.Max();
                     var closer = position + dMax * (point - position).Normalized();
 
-                    d = (point - closer).Length();
-                    if (d >= distance) return;
+                    var d2 = (point - closer).Length();
+                    if (d2 > d) return;
+                    d = d2;
                     closest = closer;
                 }
 
                 distance = d;
-                first = shroom;
-                second = first;
+                found = shroom;
             });
-
-
+        
         closestPoint = closest;
-        pair = (first, second);
+        shroom = found;
 
         tooFar = distance > 150f;
-        return !tooClose && !tooFar && first != null;
+        return !tooClose && !tooFar && found != null;
     }
 }

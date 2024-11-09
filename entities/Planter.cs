@@ -23,10 +23,10 @@ public partial class Planter : Node2D
     {
         if (input is InputEventMouseMotion mouseMotion)
         {
-            if (_ecosystem.ClosestPair(mouseMotion.Position, out var pair, out var closestPoint))
+            if (_ecosystem.ClosestShroom(mouseMotion.Position, out var shroom, out var closestPoint))
             {
                 Position = closestPoint;
-                var traits = pair.first?.traits | pair.second?.traits;
+                var traits = shroom.traits;
                 
                 _sprite.Animation = traits switch
                 {

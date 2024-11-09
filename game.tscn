@@ -74,3 +74,6 @@ position = Vector2(1030, 571)
 
 [node name="toadstool5" parent="." instance=ExtResource("4_3n5c2")]
 position = Vector2(933, 472)
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+position = Vector2(619, 670)
