@@ -13,8 +13,19 @@ agent_radius = 24.0
 
 [node name="Gnomes" type="Node2D" parent="."]
 
-[node name="Gnome" parent="Gnomes" node_paths=PackedStringArray("target") instance=ExtResource("1_1kcg0")]
+[node name="Gnome" parent="Gnomes" node_paths=PackedStringArray("home", "target") instance=ExtResource("1_1kcg0")]
 position = Vector2(218, 191)
+home = NodePath("../../GnomeHouse")
+target = NodePath("../../Target")
+
+[node name="Gnome2" parent="Gnomes" node_paths=PackedStringArray("home", "target") instance=ExtResource("1_1kcg0")]
+position = Vector2(218, 835)
+home = NodePath("../../GnomeHouse")
+target = NodePath("../../Target")
+
+[node name="Gnome3" parent="Gnomes" node_paths=PackedStringArray("home", "target") instance=ExtResource("1_1kcg0")]
+position = Vector2(696, 835)
+home = NodePath("../../GnomeHouse")
 target = NodePath("../../Target")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
