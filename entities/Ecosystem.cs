@@ -10,12 +10,14 @@ public partial class Ecosystem : Node
     
     private Stream<Mushroom, Position> _plantPositions;
     private Stream<Mushroom, Position> _allPositions;
-    
+    private Stream<Mushroom> _fullyGrown;
+
     public override void _Ready()
     {
         base._Ready();
         _growing = ECS.World.Query<Mushroom>().Has<Growing>().Stream();
         _immature = ECS.World.Query<Mushroom>().Has<Growing>().Not<Mature>().Stream();
+        _fullyGrown = ECS.World.Query<Mushroom>().Not<Growing>().Has<Mature>().Stream();
         _plantPositions = ECS.World.Query<Mushroom, Position>().Stream();
         _allPositions = ECS.World.Query<Mushroom, Position>().Stream();
     }
@@ -26,6 +28,7 @@ public partial class Ecosystem : Node
 
         _growing.For((ref Mushroom shroom) => shroom.Grow(dt));
         _immature.For((ref Mushroom shroom) => shroom.Mature());
+        _fullyGrown.For((ref Mushroom shroom) => shroom.Idle(dt));
     }
 
     public bool ClosestShroom(Vector2 point, out Mushroom shroom, out Vector2 closestPoint)

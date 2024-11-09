@@ -93,9 +93,9 @@ public partial class Mushroom : EntityNode2D
     }
 
 
-    public void Grow(double delta)
+    public void Grow(float dt)
     {
-        _growth += (float)delta / _growTimes.Remap(_speed);
+        _growth += dt / _growTimes.Remap(_speed);
 
         if (_growth > 1f)
         {
@@ -117,6 +117,12 @@ public partial class Mushroom : EntityNode2D
         {
             Entity.Add<Mature>();
         }
+    }
+
+    public void Idle(float dt)
+    {
+        _growth += dt / _growTimes.Remap(_speed) * 0.5f;
+        _sprite.RotationDegrees = _angles.Remap(Noise.GetNoise2Dv(angleGene)); 
     }
 
     public override void _EnterTree()
