@@ -4,27 +4,29 @@
 [ext_resource type="SpriteFrames" uid="uid://dfp4pmbntkw1a" path="res://sprites/sf_gnomes.tres" id="2_ec1qw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ry6rn"]
-radius = 6.0
+radius = 3.0
 
 [node name="Gnome" type="CharacterBody2D"]
+y_sort_enabled = true
 texture_filter = 1
 scale = Vector2(4, 4)
 script = ExtResource("1_jmtkh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1.5)
+position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_ry6rn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_ec1qw")
 animation = &"gnome_0"
+offset = Vector2(0, -8)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 25.0
 target_desired_distance = 25.0
 path_max_distance = 300.0
 avoidance_enabled = true
-radius = 24.0
+radius = 12.0
 neighbor_distance = 250.0
 
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
