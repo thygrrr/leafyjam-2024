@@ -30,7 +30,7 @@ func go_home() -> void:
 			var chill_node = home.get_chill_spot(self)
 			#print("get chilld spot")
 			if chill_node:
-				print("found chill spot")
+				#print("found chill spot")
 				target_position = chill_node.global_position
 
 		if target_position:
