@@ -1,27 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjlnkfaeove6s"]
+[gd_scene load_steps=5 format=3 uid="uid://cjlnkfaeove6s"]
 
 [ext_resource type="Script" path="res://entities/Ecosystem.cs" id="1_ef70f"]
-[ext_resource type="PackedScene" uid="uid://eu2m21vqurfu" path="res://entities/Mushroom.tscn" id="2_8kc2x"]
+[ext_resource type="PackedScene" uid="uid://cuufdtans67rs" path="res://mushrooms/shroom_honeymash.tscn" id="2_4c65i"]
+[ext_resource type="PackedScene" uid="uid://fmp547o72q2k" path="res://mushrooms/shroom_porcini.tscn" id="3_2wtn5"]
+[ext_resource type="PackedScene" uid="uid://dhe26vqb4bgoq" path="res://mushrooms/shroom_toadstool.tscn" id="4_3n5c2"]
 
 [node name="Ecosystem" type="Node2D"]
 script = ExtResource("1_ef70f")
 
-[node name="Mushroom" parent="." instance=ExtResource("2_8kc2x")]
-position = Vector2(61, 99)
-scale = Vector2(2, 2)
+[node name="honeymash" parent="." instance=ExtResource("2_4c65i")]
+position = Vector2(137, 95)
+scale = Vector2(1, 1)
 
-[node name="Mushroom2" parent="." instance=ExtResource("2_8kc2x")]
-position = Vector2(98, 116)
-scale = Vector2(2, 2)
+[node name="toadstool" parent="." instance=ExtResource("3_2wtn5")]
+position = Vector2(39, 83)
+scale = Vector2(1, 1)
 
-[node name="Mushroom3" parent="." instance=ExtResource("2_8kc2x")]
-position = Vector2(140, 89)
-scale = Vector2(2, 2)
-
-[node name="Mushroom4" parent="." instance=ExtResource("2_8kc2x")]
-position = Vector2(172, 131)
-scale = Vector2(2, 2)
-
-[node name="Mushroom5" parent="." instance=ExtResource("2_8kc2x")]
-position = Vector2(193, 81)
-scale = Vector2(2, 2)
+[node name="Mushroom" parent="." instance=ExtResource("4_3n5c2")]
+position = Vector2(71, 49)
+scale = Vector2(1, 1)

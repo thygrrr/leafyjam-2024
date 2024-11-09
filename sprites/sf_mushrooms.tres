@@ -1,6 +1,10 @@
-[gd_resource type="SpriteFrames" load_steps=17 format=3 uid="uid://bhtf42vj1ly0y"]
+[gd_resource type="SpriteFrames" load_steps=18 format=3 uid="uid://bhtf42vj1ly0y"]
 
 [ext_resource type="Texture2D" uid="uid://cny7j2dui2kbs" path="res://sprites/Leaf_Sheet_1.png" id="1_4wpxf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lv0io"]
+atlas = ExtResource("1_4wpxf")
+region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iepih"]
 atlas = ExtResource("1_4wpxf")
@@ -64,6 +68,14 @@ region = Rect2(64, 0, 16, 16)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lv0io")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_iepih")

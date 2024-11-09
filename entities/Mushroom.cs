@@ -6,9 +6,12 @@ namespace leafy.entities;
 [GlobalClass]
 public partial class Mushroom : EntityNode2D
 {
-    [Export] public Vector2 GrowTimes = new(4, 6);
-    [Export] public Vector2 Angles = new(-2f, 2f);
-    [Export] public Vector2 Scales = new(0.9f, 1.1f);
+    [Export]
+    private Vector2 _growTimes = new(4, 6);
+    [Export]
+    private Vector2 _angles = new(-3f, 3f);
+    [Export]
+    private Vector2 _scales = new(0.9f, 1.1f);
 
     
     private float _seed;
@@ -28,7 +31,7 @@ public partial class Mushroom : EntityNode2D
     static Mushroom()
     {
         Noise.SetNoiseType(FastNoiseLite.NoiseTypeEnum.Simplex);
-        Noise.SetFrequency(.1f);
+        Noise.SetFrequency(.5f);
         Noise.SetFractalOctaves(3);
         Noise.SetFractalLacunarity(2.0f);
         Noise.SetFractalGain(0.5f);
@@ -48,19 +51,26 @@ public partial class Mushroom : EntityNode2D
         
         Entity.Add(this);
         Entity.Add(_sprite);
+        Entity.Add<Growing>();
     }
 
     public void Grow(double delta)
     {
-        _growth += (float) delta / GrowTimes.Remap(_speed);
+        _growth += (float) delta / _growTimes.Remap(_speed);
+
+        if (_growth > 1f)
+        {
+            Entity.Remove<Growing>();
+            Entity.Add<Mature>();
+        }
         
         var frame = (int)Mathf.Floor(_growth * _frames);
         if (_sprite.Frame != frame)
         {
             _sprite.Frame = frame;
         }
-        _sprite.Scale = Scales.Remap(Noise.GetNoise2Dv(scaleGene)) * _orientation;
-        _sprite.RotationDegrees = Angles.Remap(Noise.GetNoise2Dv(angleGene));
+        _sprite.Scale = _scales.Remap(Noise.GetNoise2Dv(scaleGene)) * _orientation;
+        _sprite.RotationDegrees = _angles.Remap(Noise.GetNoise2Dv(angleGene));
     }
     
     public override void _ExitTree()
