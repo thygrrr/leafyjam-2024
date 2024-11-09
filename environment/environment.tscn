@@ -1,7 +1,72 @@
-[gd_scene load_steps=3 format=3 uid="uid://y3nmra30jlox"]
+[gd_scene load_steps=15 format=3 uid="uid://y3nmra30jlox"]
 
 [ext_resource type="AudioStream" uid="uid://cdo4ystiekfyw" path="res://sounds/ambience/nature_ambience.ogg" id="1_fl50p"]
 [ext_resource type="AudioStream" uid="uid://cb3otr0uw4xpk" path="res://sounds/music/game_music.ogg" id="2_k3t4q"]
+[ext_resource type="Texture2D" uid="uid://pn8pfdkdjf41" path="res://sprites/Leaves_and_floor.png" id="3_cnblq"]
+[ext_resource type="Shader" path="res://film_grain.gdshader" id="3_s734x"]
+[ext_resource type="Shader" path="res://environment/vignette.gdshader" id="5_71pat"]
+
+[sub_resource type="Environment" id="Environment_3ula6"]
+background_mode = 3
+background_canvas_max_layer = 1
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 1.0
+glow_bloom = 0.05
+glow_blend_mode = 0
+glow_hdr_luminance_cap = 17.79
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vh4ft"]
+shader = ExtResource("3_s734x")
+shader_parameter/grain_amount = 0.02
+shader_parameter/grain_size = 1.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_cxixs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1so8y"]
+shader = ExtResource("5_71pat")
+shader_parameter/outerRadius = 1.39
+shader_parameter/MainAlpha = 0.273
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_duddf"]
+
+[sub_resource type="Gradient" id="Gradient_55363"]
+colors = PackedColorArray(0.425, 0.425, 0.425, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jaa0u"]
+gradient = SubResource("Gradient_55363")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0gs74"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(500, -100, 0)
+emission_shape_scale = Vector3(10, 0, 1)
+emission_shape = 1
+emission_sphere_radius = 128.0
+spread = 180.0
+initial_velocity_max = 31.88
+angular_velocity_min = -166.96
+angular_velocity_max = 83.48
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+radial_velocity_min = -168.12
+radial_velocity_max = 208.7
+gravity = Vector3(0, 98, 0)
+radial_accel_min = -48.7
+radial_accel_max = 73.04
+tangential_accel_min = -12.17
+tangential_accel_max = 10.43
+damping_min = 51.593
+damping_max = 60.58
+scale_min = 2.0
+scale_max = 4.0
+color_ramp = SubResource("GradientTexture1D_jaa0u")
+hue_variation_min = -0.08
+hue_variation_max = 0.22
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ouab"]
+atlas = ExtResource("3_cnblq")
+region = Rect2(0, 0, 16, 15)
 
 [node name="Environment" type="Node2D"]
 
@@ -13,3 +78,32 @@ autoplay = true
 stream = ExtResource("2_k3t4q")
 volume_db = -6.0
 autoplay = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3ula6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="EffectsContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Grain" type="TextureRect" parent="CanvasLayer/EffectsContainer"]
+material = SubResource("ShaderMaterial_vh4ft")
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_cxixs")
+
+[node name="Vignette" type="TextureRect" parent="CanvasLayer/EffectsContainer"]
+material = SubResource("ShaderMaterial_1so8y")
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_duddf")
+
+[node name="FallingLeaves" type="GPUParticles2D" parent="CanvasLayer"]
+amount = 60
+process_material = SubResource("ParticleProcessMaterial_0gs74")
+texture = SubResource("AtlasTexture_6ouab")
+lifetime = 60.0
+speed_scale = 0.5
