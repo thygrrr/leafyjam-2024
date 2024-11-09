@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://eu2m21vqurfu" path="res://mushrooms/_base.tscn" id="1_1ynwe"]
 
 [node name="honeymash" instance=ExtResource("1_1ynwe")]
+_growTimes = Vector2(2, 3)
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 animation = &"honeymash_0"

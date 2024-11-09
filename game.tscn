@@ -15,6 +15,7 @@ scale = Vector2(1, 1)
 [node name="toadstool" parent="." instance=ExtResource("3_2wtn5")]
 position = Vector2(39, 83)
 scale = Vector2(1, 1)
+_growTimes = Vector2(5, 8)
 
 [node name="Mushroom" parent="." instance=ExtResource("4_3n5c2")]
 position = Vector2(71, 49)
