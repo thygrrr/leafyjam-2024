@@ -6,6 +6,8 @@
 _growTimes = Vector2(1, 3)
 _angles = Vector2(-4, 4)
 _scales = Vector2(0.9, 1.2)
+plantRange = Vector2(15, 25)
+pickRange = 10.0
 traits = 1
 
 [node name="AnimatedSprite2D" parent="." index="0"]
