@@ -1,3 +1,4 @@
+using System;
 using Godot;
 // ReSharper disable StringLiteralTypo
 
@@ -5,6 +6,11 @@ namespace leafy.entities;
 
 public partial class Planter : Node2D
 {
+    [Export]
+    private AudioStream[] _plantableSounds = [];
+
+    [Export] private Vector2 pitchRange = new(0.9f, 1.1f);
+    
     private AnimatedSprite2D _sprite;
     
     private Ecosystem _ecosystem;
@@ -15,11 +21,13 @@ public partial class Planter : Node2D
         base._Ready();
         _ecosystem = GetParent<Ecosystem>();
         _sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+        _sound = GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D");
     }
 
     
     private Node _plantable;
-    
+    private AudioStreamPlayer2D _sound;
+
     public override void _Input(InputEvent input)
     {
         if (input is InputEventMouseMotion mouseMotion)
@@ -58,6 +66,12 @@ public partial class Planter : Node2D
                         var planted = ResourceLoader.Load<PackedScene>(_plantable.SceneFilePath).Instantiate<Mushroom>();
                         planted.Position = Position;
                         GetParent().AddChild(planted);
+                        
+                        var sound = _plantableSounds[0];
+                        _sound.Stop();
+                        _sound.PitchScale = pitchRange.Remap(Random.Shared.NextSingle());
+                        _sound.Stream = sound;
+                        _sound.Play();
                     }
                 }
                 break;
