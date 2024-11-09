@@ -27,6 +27,9 @@ public partial class Mushroom : EntityNode2D
     private Vector2 _scales = new(0.9f, 1.1f);
 
     [Export]
+    private Vector2 _pitchRange = new(0.9f, 1.1f);
+
+    [Export]
     public Vector2 plantRange = new(50, 100);
 
     [Export]
@@ -140,5 +143,8 @@ public partial class Mushroom : EntityNode2D
     private void StartGrowing()
     {
         Entity.Add<Growing>();
+        var audio = GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D");
+        audio.PitchScale = _pitchRange.Remap(Random.Shared.NextSingle());
+        audio.Play();
     }
 }
