@@ -1,147 +1,159 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjlnkfaeove6s"]
+[gd_scene load_steps=6 format=3 uid="uid://vql6budn4vnf"]
 
 [ext_resource type="Script" path="res://entities/Ecosystem.cs" id="1_ef70f"]
 [ext_resource type="PackedScene" uid="uid://cuufdtans67rs" path="res://mushrooms/shroom_honeymash.tscn" id="2_4c65i"]
+[ext_resource type="Script" path="res://entities/Planter.cs" id="2_y8gtc"]
 [ext_resource type="PackedScene" uid="uid://fmp547o72q2k" path="res://mushrooms/shroom_porcini.tscn" id="3_2wtn5"]
 [ext_resource type="PackedScene" uid="uid://dhe26vqb4bgoq" path="res://mushrooms/shroom_toadstool.tscn" id="4_3n5c2"]
 
-[node name="Ecosystem" type="Node2D"]
+[node name="Ecosystem" type="Node"]
 script = ExtResource("1_ef70f")
 
-[node name="honeymash" parent="." instance=ExtResource("2_4c65i")]
+[node name="Planter" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_y8gtc")
+
+[node name="ShroomField" type="Node2D" parent="."]
+
+[node name="honeymash" parent="ShroomField" instance=ExtResource("2_4c65i")]
 position = Vector2(42, 45)
 
-[node name="honeymash2" parent="." instance=ExtResource("2_4c65i")]
+[node name="honeymash2" parent="ShroomField" instance=ExtResource("2_4c65i")]
 position = Vector2(63, 57)
 
-[node name="honeymash3" parent="." instance=ExtResource("2_4c65i")]
+[node name="honeymash3" parent="ShroomField" instance=ExtResource("2_4c65i")]
 position = Vector2(85, 40)
 
-[node name="honeymash4" parent="." instance=ExtResource("2_4c65i")]
+[node name="honeymash4" parent="ShroomField" instance=ExtResource("2_4c65i")]
 position = Vector2(118, 73)
 
-[node name="honeymash5" parent="." instance=ExtResource("2_4c65i")]
+[node name="honeymash5" parent="ShroomField" instance=ExtResource("2_4c65i")]
 position = Vector2(49, 85)
 
-[node name="honeymash6" parent="." instance=ExtResource("2_4c65i")]
+[node name="honeymash6" parent="ShroomField" instance=ExtResource("2_4c65i")]
 position = Vector2(101, 84)
 
-[node name="honeymash7" parent="." instance=ExtResource("2_4c65i")]
+[node name="honeymash7" parent="ShroomField" instance=ExtResource("2_4c65i")]
 position = Vector2(105, 53)
 
-[node name="honeymash8" parent="." instance=ExtResource("2_4c65i")]
+[node name="honeymash8" parent="ShroomField" instance=ExtResource("2_4c65i")]
 position = Vector2(73, 85)
 
-[node name="honeymash9" parent="." instance=ExtResource("2_4c65i")]
+[node name="honeymash9" parent="ShroomField" instance=ExtResource("2_4c65i")]
 position = Vector2(83, 65)
 
-[node name="honeymash10" parent="." instance=ExtResource("2_4c65i")]
+[node name="honeymash10" parent="ShroomField" instance=ExtResource("2_4c65i")]
 position = Vector2(66, 44)
 
-[node name="honeymash11" parent="." instance=ExtResource("2_4c65i")]
+[node name="honeymash11" parent="ShroomField" instance=ExtResource("2_4c65i")]
 position = Vector2(38, 65)
 
-[node name="honeymash12" parent="." instance=ExtResource("2_4c65i")]
+[node name="honeymash12" parent="ShroomField" instance=ExtResource("2_4c65i")]
 position = Vector2(71, 71)
 
-[node name="honeymash13" parent="." instance=ExtResource("2_4c65i")]
+[node name="honeymash13" parent="ShroomField" instance=ExtResource("2_4c65i")]
 position = Vector2(88, 94)
 
-[node name="honeymash14" parent="." instance=ExtResource("2_4c65i")]
+[node name="honeymash14" parent="ShroomField" instance=ExtResource("2_4c65i")]
 position = Vector2(103, 67)
 
-[node name="honeymash15" parent="." instance=ExtResource("2_4c65i")]
+[node name="honeymash15" parent="ShroomField" instance=ExtResource("2_4c65i")]
 position = Vector2(103, 67)
 
-[node name="honeymash16" parent="." instance=ExtResource("2_4c65i")]
+[node name="honeymash16" parent="ShroomField" instance=ExtResource("2_4c65i")]
 position = Vector2(42, 83)
 
-[node name="honeymash17" parent="." instance=ExtResource("2_4c65i")]
+[node name="honeymash17" parent="ShroomField" instance=ExtResource("2_4c65i")]
 position = Vector2(63, 95)
 
-[node name="honeymash18" parent="." instance=ExtResource("2_4c65i")]
+[node name="honeymash18" parent="ShroomField" instance=ExtResource("2_4c65i")]
 position = Vector2(85, 78)
 
-[node name="honeymash19" parent="." instance=ExtResource("2_4c65i")]
+[node name="honeymash19" parent="ShroomField" instance=ExtResource("2_4c65i")]
 position = Vector2(118, 111)
 
-[node name="honeymash20" parent="." instance=ExtResource("2_4c65i")]
+[node name="honeymash20" parent="ShroomField" instance=ExtResource("2_4c65i")]
 position = Vector2(49, 123)
 
-[node name="honeymash21" parent="." instance=ExtResource("2_4c65i")]
+[node name="honeymash21" parent="ShroomField" instance=ExtResource("2_4c65i")]
 position = Vector2(101, 122)
 
-[node name="honeymash22" parent="." instance=ExtResource("2_4c65i")]
+[node name="honeymash22" parent="ShroomField" instance=ExtResource("2_4c65i")]
 position = Vector2(105, 91)
 
-[node name="honeymash23" parent="." instance=ExtResource("2_4c65i")]
+[node name="honeymash23" parent="ShroomField" instance=ExtResource("2_4c65i")]
 position = Vector2(73, 123)
 
-[node name="honeymash24" parent="." instance=ExtResource("2_4c65i")]
+[node name="honeymash24" parent="ShroomField" instance=ExtResource("2_4c65i")]
 position = Vector2(83, 103)
 
-[node name="honeymash25" parent="." instance=ExtResource("2_4c65i")]
+[node name="honeymash25" parent="ShroomField" instance=ExtResource("2_4c65i")]
 position = Vector2(66, 82)
 
-[node name="honeymash26" parent="." instance=ExtResource("2_4c65i")]
+[node name="honeymash26" parent="ShroomField" instance=ExtResource("2_4c65i")]
 position = Vector2(38, 103)
 
-[node name="honeymash27" parent="." instance=ExtResource("2_4c65i")]
+[node name="honeymash27" parent="ShroomField" instance=ExtResource("2_4c65i")]
 position = Vector2(71, 109)
 
-[node name="honeymash28" parent="." instance=ExtResource("2_4c65i")]
+[node name="honeymash28" parent="ShroomField" instance=ExtResource("2_4c65i")]
 position = Vector2(88, 132)
 
-[node name="honeymash29" parent="." instance=ExtResource("2_4c65i")]
+[node name="honeymash29" parent="ShroomField" instance=ExtResource("2_4c65i")]
 position = Vector2(103, 105)
 
-[node name="honeymash30" parent="." instance=ExtResource("2_4c65i")]
+[node name="honeymash30" parent="ShroomField" instance=ExtResource("2_4c65i")]
 position = Vector2(103, 105)
 
-[node name="porcini" parent="." instance=ExtResource("3_2wtn5")]
+[node name="porcini" parent="ShroomField" instance=ExtResource("3_2wtn5")]
 position = Vector2(246, 48)
 
-[node name="porcini2" parent="." instance=ExtResource("3_2wtn5")]
+[node name="porcini2" parent="ShroomField" instance=ExtResource("3_2wtn5")]
 position = Vector2(255, 64)
 
-[node name="porcini3" parent="." instance=ExtResource("3_2wtn5")]
+[node name="porcini3" parent="ShroomField" instance=ExtResource("3_2wtn5")]
 position = Vector2(230, 75)
 
-[node name="porcini4" parent="." instance=ExtResource("3_2wtn5")]
+[node name="porcini4" parent="ShroomField" instance=ExtResource("3_2wtn5")]
 position = Vector2(240, 91)
 
-[node name="porcini5" parent="." instance=ExtResource("3_2wtn5")]
+[node name="porcini5" parent="ShroomField" instance=ExtResource("3_2wtn5")]
 position = Vector2(255, 75)
 
-[node name="porcini6" parent="." instance=ExtResource("3_2wtn5")]
+[node name="porcini6" parent="ShroomField" instance=ExtResource("3_2wtn5")]
 position = Vector2(276, 42)
 
-[node name="porcini7" parent="." instance=ExtResource("3_2wtn5")]
+[node name="porcini7" parent="ShroomField" instance=ExtResource("3_2wtn5")]
 position = Vector2(305, 55)
 
-[node name="porcini8" parent="." instance=ExtResource("3_2wtn5")]
+[node name="porcini8" parent="ShroomField" instance=ExtResource("3_2wtn5")]
 position = Vector2(315, 74)
 
-[node name="porcini9" parent="." instance=ExtResource("3_2wtn5")]
+[node name="porcini9" parent="ShroomField" instance=ExtResource("3_2wtn5")]
 position = Vector2(331, 84)
 
-[node name="porcini10" parent="." instance=ExtResource("3_2wtn5")]
+[node name="porcini10" parent="ShroomField" instance=ExtResource("3_2wtn5")]
 position = Vector2(331, 84)
 
-[node name="toadstool" parent="." instance=ExtResource("4_3n5c2")]
+[node name="toadstool" parent="ShroomField" instance=ExtResource("4_3n5c2")]
 position = Vector2(139, 141)
 
-[node name="toadstool2" parent="." instance=ExtResource("4_3n5c2")]
+[node name="toadstool2" parent="ShroomField" instance=ExtResource("4_3n5c2")]
 position = Vector2(154, 149)
 
-[node name="toadstool3" parent="." instance=ExtResource("4_3n5c2")]
+[node name="toadstool3" parent="ShroomField" instance=ExtResource("4_3n5c2")]
 position = Vector2(176, 158)
 
-[node name="toadstool4" parent="." instance=ExtResource("4_3n5c2")]
+[node name="toadstool4" parent="ShroomField" instance=ExtResource("4_3n5c2")]
 position = Vector2(214, 112)
 
-[node name="toadstool5" parent="." instance=ExtResource("4_3n5c2")]
+[node name="toadstool5" parent="ShroomField" instance=ExtResource("4_3n5c2")]
 position = Vector2(219, 133)
 
-[node name="toadstool6" parent="." instance=ExtResource("4_3n5c2")]
+[node name="toadstool6" parent="ShroomField" instance=ExtResource("4_3n5c2")]
 position = Vector2(213, 159)

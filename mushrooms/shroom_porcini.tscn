@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://eu2m21vqurfu" path="res://mushrooms/_base.tscn" id="1_jtykb"]
 
 [node name="porcini" instance=ExtResource("1_jtykb")]
+traits = 2
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 animation = &"porcini_0"
