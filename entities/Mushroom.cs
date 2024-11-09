@@ -73,7 +73,6 @@ public partial class Mushroom : EntityNode2D
         if (_growth > 1f)
         {
             Entity.Remove<Growing>();
-            Entity.Add<Mature>();
         }
 
         var frame = (int)Mathf.Floor(_growth * _frames);
@@ -83,6 +82,14 @@ public partial class Mushroom : EntityNode2D
         }
         _sprite.Scale = _scales.Remap(Noise.GetNoise2Dv(scaleGene)) * _orientation;
         _sprite.RotationDegrees = _angles.Remap(Noise.GetNoise2Dv(angleGene));
+    }
+
+    public void Mature()
+    {
+        if (_growth > 0.7f)
+        {
+            Entity.Add<Mature>();
+        }
     }
 
     public override void _EnterTree()
