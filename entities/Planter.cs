@@ -5,9 +5,6 @@ namespace leafy.entities;
 
 public partial class Planter : Node2D
 {
-    [Export] 
-    private PackedScene[] _plantables = [];
-    
     private AnimatedSprite2D _sprite;
     
     private Ecosystem _ecosystem;
@@ -21,7 +18,7 @@ public partial class Planter : Node2D
     }
 
     
-    private ShroomTraits _traits;
+    private Node _plantable;
     
     public override void _Input(InputEvent input)
     {
@@ -32,8 +29,6 @@ public partial class Planter : Node2D
                 Position = closestPoint;
                 var traits = shroom.traits;
                 
-                _traits = traits;
-                
                 _sprite.Animation = traits switch
                 {
                     ShroomTraits.Trait1 => "hint_honeymash",
@@ -42,13 +37,13 @@ public partial class Planter : Node2D
                     _ => "default",
                 };
                 
+                _plantable = shroom;
                 _state = State.Planting;
             }
             else
             {
                 Position = mouseMotion.Position;
                 _state = State.Idle;
-                _traits = default;
                 _sprite.Animation = "default";
             }
         }
@@ -60,7 +55,7 @@ public partial class Planter : Node2D
                 {
                     if (button.IsPressed())
                     {
-                        var planted = _plantables[0].Instantiate<Node2D>();
+                        var planted = ResourceLoader.Load<PackedScene>(_plantable.SceneFilePath).Instantiate<Mushroom>();
                         planted.Position = Position;
                         GetParent().AddChild(planted);
                     }

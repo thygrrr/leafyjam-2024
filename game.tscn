@@ -15,7 +15,6 @@ script = ExtResource("1_ef70f")
 [node name="Planter" type="Node2D" parent="."]
 y_sort_enabled = true
 script = ExtResource("2_y8gtc")
-_plantables = [ExtResource("2_4c65i"), ExtResource("3_2wtn5"), ExtResource("4_3n5c2")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Planter"]
 y_sort_enabled = true

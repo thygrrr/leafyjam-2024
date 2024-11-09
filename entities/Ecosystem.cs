@@ -18,8 +18,6 @@ public partial class Ecosystem : Node
         _immature = ECS.World.Query<Mushroom>().Has<Growing>().Not<Mature>().Stream();
         _plantPositions = ECS.World.Query<Mushroom, Position>().Stream();
         _allPositions = ECS.World.Query<Mushroom, Position>().Stream();
-        
-        
     }
 
     public override void _Process(double delta)
