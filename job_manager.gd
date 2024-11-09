@@ -10,5 +10,13 @@ extends Node
 #func _process(delta: float) -> void:
 	#pass
 
+var job_targets : Array = []
+
 func register_target(target_node : Node2D) -> void:
-	print("registered")
+	job_targets.append(target_node)
+
+func consume_target() -> Node2D:
+	if job_targets:
+		return job_targets.pop_front()
+	
+	return null

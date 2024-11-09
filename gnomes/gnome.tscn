@@ -20,7 +20,12 @@ sprite_frames = ExtResource("2_ec1qw")
 animation = &"gnome_0"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 25.0
+target_desired_distance = 25.0
+path_max_distance = 300.0
 avoidance_enabled = true
 radius = 24.0
+neighbor_distance = 250.0
 
+[connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
 [connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]

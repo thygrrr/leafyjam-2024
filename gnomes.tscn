@@ -12,20 +12,17 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-6087, -3823, -5778, 58
 
 [node name="Gnomes" type="Node2D" parent="."]
 
-[node name="Gnome" parent="Gnomes" node_paths=PackedStringArray("home", "target") instance=ExtResource("1_4nr8s")]
+[node name="Gnome" parent="Gnomes" node_paths=PackedStringArray("home") instance=ExtResource("1_4nr8s")]
 position = Vector2(218, 191)
 home = NodePath("../../GnomeHouse")
-target = NodePath("../../Target")
 
-[node name="Gnome2" parent="Gnomes" node_paths=PackedStringArray("home", "target") instance=ExtResource("1_4nr8s")]
-position = Vector2(218, 835)
+[node name="Gnome2" parent="Gnomes" node_paths=PackedStringArray("home") instance=ExtResource("1_4nr8s")]
+position = Vector2(805, 691)
 home = NodePath("../../GnomeHouse")
-target = NodePath("../../Target")
 
-[node name="Gnome3" parent="Gnomes" node_paths=PackedStringArray("home", "target") instance=ExtResource("1_4nr8s")]
-position = Vector2(696, 835)
+[node name="Gnome3" parent="Gnomes" node_paths=PackedStringArray("home") instance=ExtResource("1_4nr8s")]
+position = Vector2(279, 662)
 home = NodePath("../../GnomeHouse")
-target = NodePath("../../Target")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_4v3q5")
@@ -35,3 +32,7 @@ position = Vector2(653, 571)
 
 [node name="GnomeHouse" parent="." instance=ExtResource("2_wd8no")]
 position = Vector2(487, 399)
+
+[node name="GnomeHouse2" parent="." instance=ExtResource("2_wd8no")]
+position = Vector2(678, 143)
+house_type = 1
