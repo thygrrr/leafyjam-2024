@@ -13,6 +13,8 @@ y_sort_enabled = true
 texture_filter = 1
 script = ExtResource("1_ef70f")
 
+[node name="Environment" parent="." instance=ExtResource("7_c046l")]
+
 [node name="Planter" type="Node2D" parent="."]
 y_sort_enabled = true
 script = ExtResource("2_y8gtc")
@@ -76,5 +78,3 @@ position = Vector2(933, 472)
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 position = Vector2(619, 670)
-
-[node name="Environment" parent="." instance=ExtResource("7_c046l")]
