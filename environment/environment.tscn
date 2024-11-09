@@ -10,6 +10,7 @@
 [sub_resource type="Environment" id="Environment_3ula6"]
 background_mode = 3
 background_canvas_max_layer = 1
+tonemap_mode = 3
 glow_enabled = true
 glow_normalized = true
 glow_intensity = 1.0
