@@ -11,4 +11,5 @@ autoplay = true
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_k3t4q")
+volume_db = -6.0
 autoplay = true

@@ -59,10 +59,8 @@ public partial class Planter : Node2D
         switch (_state)
         {
             case State.Planting:
-                if (input is InputEventMouseButton { ButtonIndex: MouseButton.Left} button)
+                if (input is InputEventMouseButton { ButtonIndex: MouseButton.Left} button && button.IsPressed())
                 {
-                    if (button.IsPressed())
-                    {
                         var planted = ResourceLoader.Load<PackedScene>(_plantable.SceneFilePath).Instantiate<Mushroom>();
                         planted.Position = Position;
                         GetParent().AddChild(planted);
@@ -71,7 +69,6 @@ public partial class Planter : Node2D
                         _sound.PitchScale = pitchRange.Remap(Random.Shared.NextSingle());
                         _sound.Stream = sound;
                         _sound.Play();
-                    }
                 }
                 break;
         }
