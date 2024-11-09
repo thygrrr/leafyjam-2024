@@ -9,7 +9,7 @@ public partial class Planter : Node2D
     [Export]
     private AudioStream[] _plantableSounds = [];
 
-    [Export] private Vector2 pitchRange = new(0.9f, 1.1f);
+    [Export] private Vector2 _pitchRange = new(0.9f, 1.1f);
     
     private AnimatedSprite2D _sprite;
     
@@ -65,9 +65,9 @@ public partial class Planter : Node2D
                         planted.Position = Position;
                         GetParent().AddChild(planted);
                         
-                        var sound = _plantableSounds[0];
-                        _sound.PitchScale = pitchRange.Remap(Random.Shared.NextSingle());
+                        var sound = _plantableSounds[Random.Shared.Next(_plantableSounds.Length)];
                         _sound.Stream = sound;
+                        _sound.PitchScale = _pitchRange.Remap(Random.Shared.NextSingle());
                         _sound.Play();
                 }
                 break;

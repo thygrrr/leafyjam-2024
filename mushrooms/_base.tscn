@@ -9,6 +9,7 @@
 texture_filter = 1
 scale = Vector2(4, 4)
 script = ExtResource("1_fg67e")
+_pitchRange = Vector2(0.2, 2)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_prquw")

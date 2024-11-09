@@ -20,54 +20,71 @@ script = ExtResource("1_ef70f")
 
 [node name="honeymash" parent="." instance=ExtResource("2_4c65i")]
 position = Vector2(42, 45)
+_pitchRange = Vector2(0.9, 1.1)
 
 [node name="honeymash2" parent="." instance=ExtResource("2_4c65i")]
 position = Vector2(60, 114)
+_pitchRange = Vector2(0.9, 1.1)
 
 [node name="honeymash3" parent="." instance=ExtResource("2_4c65i")]
 position = Vector2(88, 72)
+_pitchRange = Vector2(0.9, 1.1)
 
 [node name="honeymash4" parent="." instance=ExtResource("2_4c65i")]
 position = Vector2(148, 141)
+_pitchRange = Vector2(0.9, 1.1)
 
 [node name="honeymash5" parent="." instance=ExtResource("2_4c65i")]
 position = Vector2(202, 187)
+_pitchRange = Vector2(0.9, 1.1)
 
 [node name="honeymash6" parent="." instance=ExtResource("2_4c65i")]
 position = Vector2(286, 226)
+_pitchRange = Vector2(0.9, 1.1)
 
 [node name="honeymash7" parent="." instance=ExtResource("2_4c65i")]
 position = Vector2(349, 238)
+_pitchRange = Vector2(0.9, 1.1)
 
 [node name="honeymash8" parent="." instance=ExtResource("2_4c65i")]
 position = Vector2(365, 199)
+_pitchRange = Vector2(0.9, 1.1)
 
 [node name="honeymash9" parent="." instance=ExtResource("2_4c65i")]
 position = Vector2(361, 148)
+_pitchRange = Vector2(0.9, 1.1)
 
 [node name="porcini" parent="." instance=ExtResource("3_2wtn5")]
 position = Vector2(173, 752)
+_pitchRange = Vector2(0.9, 1.1)
 
 [node name="porcini2" parent="." instance=ExtResource("3_2wtn5")]
 position = Vector2(251, 727)
+_pitchRange = Vector2(0.9, 1.1)
 
 [node name="porcini3" parent="." instance=ExtResource("3_2wtn5")]
 position = Vector2(209, 681)
+_pitchRange = Vector2(0.9, 1.1)
 
 [node name="toadstool" parent="." instance=ExtResource("4_3n5c2")]
 position = Vector2(1041, 670)
+_pitchRange = Vector2(0.9, 1.1)
 
 [node name="toadstool2" parent="." instance=ExtResource("4_3n5c2")]
 position = Vector2(924, 701)
+_pitchRange = Vector2(0.9, 1.1)
 
 [node name="toadstool3" parent="." instance=ExtResource("4_3n5c2")]
 position = Vector2(934, 602)
+_pitchRange = Vector2(0.9, 1.1)
 
 [node name="toadstool4" parent="." instance=ExtResource("4_3n5c2")]
 position = Vector2(1030, 571)
+_pitchRange = Vector2(0.9, 1.1)
 
 [node name="toadstool5" parent="." instance=ExtResource("4_3n5c2")]
 position = Vector2(933, 472)
+_pitchRange = Vector2(0.9, 1.1)
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 position = Vector2(619, 670)
