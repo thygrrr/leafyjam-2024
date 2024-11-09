@@ -32,7 +32,7 @@ public partial class Mushroom : EntityNode2D
     {
         base._Ready();
         
-        _sprite = GetNode<AnimatedSprite2D>("Sprite2D");
+        _sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
     }
     
     public override void _EnterTree()
@@ -45,7 +45,7 @@ public partial class Mushroom : EntityNode2D
 
     public override void _Process(double delta)
     {
-        GD.Print($"Growth: {_growth}");
+        //GD.Print($"Growth: {_growth}");
         _growth += (float) delta;
         _sprite.Scale = ScaleRange.MapMinMaxV(Noise.GetNoise2Dv(scaleGene));
         _sprite.RotationDegrees = AngleRange.MapMinMax(Noise.GetNoise2Dv(angleGene));
