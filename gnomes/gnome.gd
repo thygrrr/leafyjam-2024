@@ -14,9 +14,6 @@ func _ready() -> void:
 	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
 	navigation_agent.max_speed = movement_speed
 
-	if not home:
-		push_error("Home Node2D not set in gnome.gd")
-
 	go_home.call_deferred()
 
 func set_movement_target(movement_target: Vector2):
@@ -24,31 +21,23 @@ func set_movement_target(movement_target: Vector2):
 	$FootstepPlayer.start_playing_footsteps()
 
 func go_home() -> void:
+	navigation_agent.target_desired_distance = 50
+	var chill_spots = get_tree().get_nodes_in_group("ChillSpots")
+	if not chill_spots:
+		current_state = GnomeState.IDLE
+		return
 	
-	var target_position = null
-	if home:
-		current_state = GnomeState.TRAVELING_HOME
-		
-		target_position = home.global_position
-		if home.has_method("get_chill_spot"):
-			var chill_node = home.get_chill_spot(self)
-			#print("get chilld spot")
-			if chill_node:
-				#print("found chill spot")
-				target_position = chill_node.global_position
-			
-
-		if target_position:
-			set_movement_target(target_position)
-		else:
-			push_warning("Going home failed")
-
+	chill_spots.shuffle()
+	var choosen_chill_spot : Node2D = chill_spots.front()
+	set_movement_target(choosen_chill_spot.global_position)
+	current_state = GnomeState.TRAVELING_HOME
+	
 func find_job() -> void:
 	current_target = JobManager.consume_target()
 
 	if current_target:
-		if current_state == GnomeState.IDLE and home:
-			home.leave_chill_spot(self)
+		navigation_agent.target_desired_distance = 25
+		
 		set_movement_target(current_target.global_position)
 		current_state = GnomeState.TRAVELING_WORK
 	else:
@@ -97,5 +86,4 @@ func _on_navigation_agent_2d_target_reached() -> void:
 		find_job.call_deferred()
 
 func _on_navigation_agent_2d_navigation_finished() -> void:
-	#print("Navigation finished")
 	pass
