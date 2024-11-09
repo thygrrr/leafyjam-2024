@@ -52,7 +52,7 @@ position = Vector2(365, 199)
 position = Vector2(361, 148)
 
 [node name="porcini" parent="." instance=ExtResource("3_2wtn5")]
-position = Vector2(182, 754)
+position = Vector2(173, 752)
 
 [node name="porcini2" parent="." instance=ExtResource("3_2wtn5")]
 position = Vector2(251, 727)

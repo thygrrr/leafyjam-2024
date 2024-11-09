@@ -64,6 +64,7 @@ public partial class Ecosystem : Node
 
                     var d2 = (point - closer).Length();
                     if (d2 > d) return;
+                    
                     d = d2;
                     closest = closer;
                 }

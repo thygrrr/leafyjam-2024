@@ -39,6 +39,7 @@ public partial class Planter : Node2D
             }
             else
             {
+                Position = mouseMotion.Position;
                 _state = State.Idle;
                 _sprite.Animation = "default";
             }
