@@ -23,74 +23,55 @@ scale = Vector2(4, 4)
 sprite_frames = ExtResource("3_74wjp")
 offset = Vector2(0, -6)
 
-[node name="ShroomField" type="Node2D" parent="."]
-
 [node name="honeymash" parent="." instance=ExtResource("2_4c65i")]
-y_sort_enabled = false
 position = Vector2(42, 45)
 
 [node name="honeymash2" parent="." instance=ExtResource("2_4c65i")]
-y_sort_enabled = false
 position = Vector2(60, 114)
 
 [node name="honeymash3" parent="." instance=ExtResource("2_4c65i")]
-y_sort_enabled = false
 position = Vector2(88, 72)
 
 [node name="honeymash4" parent="." instance=ExtResource("2_4c65i")]
-y_sort_enabled = false
 position = Vector2(148, 141)
 
 [node name="honeymash5" parent="." instance=ExtResource("2_4c65i")]
-y_sort_enabled = false
 position = Vector2(202, 187)
 
 [node name="honeymash6" parent="." instance=ExtResource("2_4c65i")]
-y_sort_enabled = false
 position = Vector2(286, 226)
 
 [node name="honeymash7" parent="." instance=ExtResource("2_4c65i")]
-y_sort_enabled = false
 position = Vector2(349, 238)
 
 [node name="honeymash8" parent="." instance=ExtResource("2_4c65i")]
-y_sort_enabled = false
 position = Vector2(365, 199)
 
 [node name="honeymash9" parent="." instance=ExtResource("2_4c65i")]
-y_sort_enabled = false
 position = Vector2(361, 148)
 
 [node name="porcini" parent="." instance=ExtResource("3_2wtn5")]
-y_sort_enabled = false
 position = Vector2(173, 752)
 
 [node name="porcini2" parent="." instance=ExtResource("3_2wtn5")]
-y_sort_enabled = false
 position = Vector2(251, 727)
 
 [node name="porcini3" parent="." instance=ExtResource("3_2wtn5")]
-y_sort_enabled = false
 position = Vector2(209, 681)
 
 [node name="toadstool" parent="." instance=ExtResource("4_3n5c2")]
-y_sort_enabled = false
 position = Vector2(1041, 670)
 
 [node name="toadstool2" parent="." instance=ExtResource("4_3n5c2")]
-y_sort_enabled = false
 position = Vector2(924, 701)
 
 [node name="toadstool3" parent="." instance=ExtResource("4_3n5c2")]
-y_sort_enabled = false
 position = Vector2(934, 602)
 
 [node name="toadstool4" parent="." instance=ExtResource("4_3n5c2")]
-y_sort_enabled = false
 position = Vector2(1030, 571)
 
 [node name="toadstool5" parent="." instance=ExtResource("4_3n5c2")]
-y_sort_enabled = false
 position = Vector2(933, 472)
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]

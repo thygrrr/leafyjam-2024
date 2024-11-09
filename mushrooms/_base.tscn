@@ -5,13 +5,11 @@
 [ext_resource type="Script" path="res://mushrooms/navigation_target.gd" id="3_6qlb5"]
 
 [node name="Mushroom" type="Node2D"]
-y_sort_enabled = true
 texture_filter = 1
 scale = Vector2(4, 4)
 script = ExtResource("1_fg67e")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-y_sort_enabled = true
 sprite_frames = ExtResource("1_prquw")
 offset = Vector2(0, -6)
 
