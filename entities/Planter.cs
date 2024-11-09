@@ -1,4 +1,5 @@
 using Godot;
+// ReSharper disable StringLiteralTypo
 
 namespace leafy.entities;
 
@@ -64,9 +65,6 @@ public partial class Planter : Node2D
                         GetParent().AddChild(planted);
                     }
                 }
-                break;
-
-            default:
                 break;
         }
     }
