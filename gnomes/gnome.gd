@@ -74,12 +74,13 @@ func _on_velocity_computed(safe_velocity: Vector2):
 func _on_navigation_agent_2d_target_reached() -> void:
 	if current_state == GnomeState.TRAVELING_HOME:
 		current_state = GnomeState.IDLE
-		await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(5).timeout
 		find_job.call_deferred()
 		
 
 	elif current_state == GnomeState.TRAVELING_WORK:
 		current_state = GnomeState.WORKING
+		await get_tree().create_timer(5).timeout
 		if current_target and current_target.has_method("work_done"):
 			current_target.work_done()
 

@@ -4,9 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://drvyj0ycxgb3l" path="res://gnomes/gnome_house.tscn" id="2_wd8no"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_4v3q5"]
-vertices = PackedVector2Array(7394.65, 5622.13, -5768.32, 5794.87, -6076.68, -3813.22, 7058.35, -4103.78)
+vertices = PackedVector2Array(7380.16, 5608.32, -5754.76, 5780.69, -6062.23, -3799.54, 7044.82, -4089.48)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-6087, -3823, -5778, 5805, 7405, 5632, 7068, -4114)])
+agent_radius = 24.0
 
 [node name="GnomeScene" type="Node2D"]
 y_sort_enabled = true
@@ -16,25 +17,25 @@ y_sort_enabled = true
 
 [node name="Gnome" parent="Gnomes" node_paths=PackedStringArray("home") instance=ExtResource("1_4nr8s")]
 position = Vector2(218, 191)
-home = NodePath("../../GnomeHouse")
+home = NodePath("../../NavigationRegion2D/GnomeHouse")
 
 [node name="Gnome2" parent="Gnomes" node_paths=PackedStringArray("home") instance=ExtResource("1_4nr8s")]
 position = Vector2(805, 691)
-home = NodePath("../../GnomeHouse")
+home = NodePath("../../NavigationRegion2D/GnomeHouse")
 
 [node name="Gnome3" parent="Gnomes" node_paths=PackedStringArray("home") instance=ExtResource("1_4nr8s")]
 position = Vector2(279, 662)
-home = NodePath("../../GnomeHouse")
+home = NodePath("../../NavigationRegion2D/GnomeHouse")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_4v3q5")
 
-[node name="Target" type="Node2D" parent="."]
-position = Vector2(653, 571)
-
-[node name="GnomeHouse" parent="." instance=ExtResource("2_wd8no")]
+[node name="GnomeHouse" parent="NavigationRegion2D" instance=ExtResource("2_wd8no")]
 position = Vector2(525, 610)
 
-[node name="GnomeHouse2" parent="." instance=ExtResource("2_wd8no")]
+[node name="GnomeHouse2" parent="NavigationRegion2D" instance=ExtResource("2_wd8no")]
 position = Vector2(716, 354)
 house_type = 1
+
+[node name="Target" type="Node2D" parent="."]
+position = Vector2(653, 571)
