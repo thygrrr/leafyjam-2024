@@ -1,30 +1,49 @@
-[gd_scene load_steps=3 format=3 uid="uid://drvyj0ycxgb3l"]
+[gd_scene load_steps=6 format=3 uid="uid://drvyj0ycxgb3l"]
 
-[ext_resource type="Texture2D" uid="uid://cl55d8pm522ny" path="res://icon.svg" id="1_7k2a2"]
+[ext_resource type="Texture2D" uid="uid://cl2daw6ymuvgb" path="res://sprites/Houses.png" id="1_8y4ww"]
+[ext_resource type="Script" path="res://gnomes/gnome_house.gd" id="1_mx1q4"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_fafw0"]
-radius = 65.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rpv4"]
+atlas = ExtResource("1_8y4ww")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73lu7"]
+atlas = ExtResource("1_8y4ww")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vqbyo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rpv4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73lu7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="GnomeHouse" type="Node2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_mx1q4")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("CircleShape2D_fafw0")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_7k2a2")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_vqbyo")
 
 [node name="ChillSpots" type="Node2D" parent="."]
 
 [node name="Node2D" type="Node2D" parent="ChillSpots"]
-position = Vector2(0, 99)
+position = Vector2(1, 44)
 
 [node name="Node2D2" type="Node2D" parent="ChillSpots"]
-position = Vector2(-140, 101)
+position = Vector2(-15, 37.75)
 
 [node name="Node2D3" type="Node2D" parent="ChillSpots"]
-position = Vector2(105, 98)
+position = Vector2(15.5, 40.25)
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
-radius = 65.0
+position = Vector2(2.75, 20.75)
+radius = 80.0

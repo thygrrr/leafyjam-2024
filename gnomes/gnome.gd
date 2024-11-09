@@ -7,22 +7,43 @@ extends CharacterBody2D
 @export var target : Node2D = null
 
 
+enum GnomeState {IDLE, TRAVELING_HOME, TRAVELING_WORK, WORKING}
+var current_state : GnomeState = GnomeState.TRAVELING_HOME
+
 func _ready() -> void:
 	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
 	navigation_agent.max_speed = movement_speed
 
-	if home == null:
+	if not home:
 		push_error("Home Node2D not set in gnome.gd")
 
-	if target == null:
+	if not target:
 		push_error("Target Node2D not set in gnome.gd")
-	else:
-		set_movement_target(target.position)
+	
+	go_home.call_deferred()
 
 func set_movement_target(movement_target: Vector2):
 	navigation_agent.set_target_position(movement_target)
 
+func go_home() -> void:
+	var target_position = null
+	if home:
+		target_position = home.global_position
+		if home.has_method("get_chill_spot"):
+			var chill_node = home.get_chill_spot(self)
+			if chill_node:
+				target_position = chill_node.global_position
+
+		if target_position:
+			set_movement_target(target_position)
+		else:
+			push_warning("Going home failed")
+	
 func _physics_process(_delta):
+	
+	#if current_state == GnomeState.TRAVELING_HOME:
+		#if navigation_agent.is_target_reached():
+			
 	# Do not query when the map has never synchronized and is empty.
 	if NavigationServer2D.map_get_iteration_id(navigation_agent.get_navigation_map()) == 0:
 		return
@@ -40,3 +61,9 @@ func _physics_process(_delta):
 func _on_velocity_computed(safe_velocity: Vector2):
 	velocity = safe_velocity
 	move_and_slide()
+
+
+func _on_navigation_agent_2d_target_reached() -> void:
+	if current_state == GnomeState.TRAVELING_HOME:
+		print("Reached home")
+		current_state = GnomeState.IDLE
