@@ -26,24 +26,26 @@ animations = [{
 }]
 
 [node name="GnomeHouse" type="Node2D"]
+y_sort_enabled = true
 scale = Vector2(4, 4)
 script = ExtResource("1_mx1q4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_vqbyo")
 
 [node name="ChillSpots" type="Node2D" parent="."]
 
 [node name="Node2D" type="Node2D" parent="ChillSpots"]
-position = Vector2(1, 44)
+position = Vector2(1, 12.75)
 
 [node name="Node2D2" type="Node2D" parent="ChillSpots"]
-position = Vector2(-15, 37.75)
+position = Vector2(-15, 7.25)
 
 [node name="Node2D3" type="Node2D" parent="ChillSpots"]
-position = Vector2(15.5, 40.25)
+position = Vector2(15.5, 10.5)
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
-position = Vector2(2.75, 20.75)
-radius = 80.0
+position = Vector2(2.25, -5.5)
+radius = 40.0
