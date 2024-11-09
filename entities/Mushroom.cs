@@ -6,6 +6,8 @@ namespace leafy.entities;
 [GlobalClass]
 public partial class Mushroom : EntityNode2D
 {
+    private Node2D _navTarget;
+
     [Export]
     private Vector2 _growTimes = new(4, 6);
     [Export]
@@ -34,7 +36,7 @@ public partial class Mushroom : EntityNode2D
     private AnimatedSprite2D _sprite;
     private int _frames;
 
-
+    
     private static readonly FastNoiseLite Noise = new();
     static Mushroom()
     {
@@ -48,7 +50,10 @@ public partial class Mushroom : EntityNode2D
     public override void _Ready()
     {
         base._Ready();
-
+    
+        _navTarget = GetNode<Node2D>("NavigationTarget");
+        _navTarget.Connect("start_growing", Callable.From(StartGrowing));
+        
         _sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
         _frames = _sprite.GetSpriteFrames().GetFrameCount(_sprite.Animation);
 
@@ -58,8 +63,6 @@ public partial class Mushroom : EntityNode2D
         _orientation = new(Random.Shared.NextSingle() > 0.5f ? 1f : -1f, 1f);
 
         Entity.Add(_sprite);
-
-        Entity.Add<Growing>();
 
         //NOTE: This is something fennecs should do better, one of the overloads is broken in 0.5.x
         Entity.Add(new Position(Position.X, Position.Y));
@@ -102,5 +105,10 @@ public partial class Mushroom : EntityNode2D
     {
         Entity.Despawn();
         base._ExitTree();
+    }
+    
+    public void StartGrowing()
+    {
+        Entity.Add<Growing>();
     }
 }

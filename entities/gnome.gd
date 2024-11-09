@@ -13,13 +13,13 @@ func _ready() -> void:
 		push_error("NavigationAgent not set in gnome.gd")
 	else:
 		navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
-		
+
 	if home == null:
 		push_error("Home Node2D not set in gnome.gd")
-	
+
 	if target == null:
 		push_error("Target Node2D not set in gnome.gd")
-		
+
 	else:
 		set_movement_target(target.position)
 
@@ -35,7 +35,7 @@ func _physics_process(_delta):
 
 	var next_path_position: Vector2 = navigation_agent.get_next_path_position()
 	var new_velocity: Vector2 = global_position.direction_to(next_path_position) * movement_speed
-	
+
 	if navigation_agent.avoidance_enabled:
 		navigation_agent.set_velocity(new_velocity)
 	else:
@@ -44,5 +44,3 @@ func _physics_process(_delta):
 func _on_velocity_computed(safe_velocity: Vector2):
 	velocity = safe_velocity
 	move_and_slide()
-	
-	

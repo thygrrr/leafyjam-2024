@@ -6,17 +6,20 @@ namespace leafy.entities;
 public partial class Ecosystem : Node
 {
     private Stream<Mushroom> _growing;
-    private Stream<Mushroom, Position> _maturePositions;
     private Stream<Mushroom> _immature;
-    private Stream<Mushroom, Position> _allShrooms;
-
+    
+    private Stream<Mushroom, Position> _maturePositions;
+    private Stream<Mushroom, Position> _allPositions;
+    
     public override void _Ready()
     {
         base._Ready();
         _growing = ECS.World.Query<Mushroom>().Has<Growing>().Stream();
         _immature = ECS.World.Query<Mushroom>().Has<Growing>().Not<Mature>().Stream();
         _maturePositions = ECS.World.Query<Mushroom, Position>().Has<Mature>().Stream();
-        _allShrooms = ECS.World.Query<Mushroom, Position>().Stream();
+        _allPositions = ECS.World.Query<Mushroom, Position>().Stream();
+        
+        
     }
 
     public override void _Process(double delta)
@@ -39,7 +42,7 @@ public partial class Ecosystem : Node
 
         var closest = point;
 
-        _allShrooms.For((ref Mushroom shroom, ref Position position) =>
+        _allPositions.For((ref Mushroom shroom, ref Position position) =>
         {
             var d = position.Distance(point);
             if (d < shroom.plantRange.Min()) tooClose = true;

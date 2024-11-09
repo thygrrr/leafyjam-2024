@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://eu2m21vqurfu"]
+[gd_scene load_steps=4 format=3 uid="uid://eu2m21vqurfu"]
 
 [ext_resource type="Script" path="res://entities/Mushroom.cs" id="1_fg67e"]
 [ext_resource type="SpriteFrames" uid="uid://bhtf42vj1ly0y" path="res://sprites/sf_mushrooms.tres" id="1_prquw"]
+[ext_resource type="Script" path="res://mushrooms/navigation_target.gd" id="3_6qlb5"]
 
 [node name="Mushroom" type="Node2D"]
 texture_filter = 1
@@ -12,3 +13,6 @@ y_sort_enabled = true
 scale = Vector2(4, 4)
 sprite_frames = ExtResource("1_prquw")
 offset = Vector2(0, -6)
+
+[node name="NavigationTarget" type="Node2D" parent="."]
+script = ExtResource("3_6qlb5")

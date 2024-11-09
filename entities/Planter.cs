@@ -1,4 +1,3 @@
-using System;
 using Godot;
 
 namespace leafy.entities;
