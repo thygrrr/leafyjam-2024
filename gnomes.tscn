@@ -33,8 +33,8 @@ navigation_polygon = SubResource("NavigationPolygon_4v3q5")
 position = Vector2(653, 571)
 
 [node name="GnomeHouse" parent="." instance=ExtResource("2_wd8no")]
-position = Vector2(487, 399)
+position = Vector2(525, 610)
 
 [node name="GnomeHouse2" parent="." instance=ExtResource("2_wd8no")]
-position = Vector2(678, 143)
+position = Vector2(716, 354)
 house_type = 1

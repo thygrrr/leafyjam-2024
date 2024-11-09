@@ -32,8 +32,8 @@ script = ExtResource("1_mx1q4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_vqbyo")
+offset = Vector2(0, -32)
 
 [node name="ChillSpots" type="Node2D" parent="."]
 
