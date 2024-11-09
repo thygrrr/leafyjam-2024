@@ -9,14 +9,139 @@
 script = ExtResource("1_ef70f")
 
 [node name="honeymash" parent="." instance=ExtResource("2_4c65i")]
-position = Vector2(137, 95)
-scale = Vector2(1, 1)
+position = Vector2(42, 45)
 
-[node name="toadstool" parent="." instance=ExtResource("3_2wtn5")]
-position = Vector2(39, 83)
-scale = Vector2(1, 1)
-_growTimes = Vector2(5, 8)
+[node name="honeymash2" parent="." instance=ExtResource("2_4c65i")]
+position = Vector2(63, 57)
 
-[node name="Mushroom" parent="." instance=ExtResource("4_3n5c2")]
-position = Vector2(71, 49)
-scale = Vector2(1, 1)
+[node name="honeymash3" parent="." instance=ExtResource("2_4c65i")]
+position = Vector2(85, 40)
+
+[node name="honeymash4" parent="." instance=ExtResource("2_4c65i")]
+position = Vector2(118, 73)
+
+[node name="honeymash5" parent="." instance=ExtResource("2_4c65i")]
+position = Vector2(49, 85)
+
+[node name="honeymash6" parent="." instance=ExtResource("2_4c65i")]
+position = Vector2(101, 84)
+
+[node name="honeymash7" parent="." instance=ExtResource("2_4c65i")]
+position = Vector2(105, 53)
+
+[node name="honeymash8" parent="." instance=ExtResource("2_4c65i")]
+position = Vector2(73, 85)
+
+[node name="honeymash9" parent="." instance=ExtResource("2_4c65i")]
+position = Vector2(83, 65)
+
+[node name="honeymash10" parent="." instance=ExtResource("2_4c65i")]
+position = Vector2(66, 44)
+
+[node name="honeymash11" parent="." instance=ExtResource("2_4c65i")]
+position = Vector2(38, 65)
+
+[node name="honeymash12" parent="." instance=ExtResource("2_4c65i")]
+position = Vector2(71, 71)
+
+[node name="honeymash13" parent="." instance=ExtResource("2_4c65i")]
+position = Vector2(88, 94)
+
+[node name="honeymash14" parent="." instance=ExtResource("2_4c65i")]
+position = Vector2(103, 67)
+
+[node name="honeymash15" parent="." instance=ExtResource("2_4c65i")]
+position = Vector2(103, 67)
+
+[node name="honeymash16" parent="." instance=ExtResource("2_4c65i")]
+position = Vector2(42, 83)
+
+[node name="honeymash17" parent="." instance=ExtResource("2_4c65i")]
+position = Vector2(63, 95)
+
+[node name="honeymash18" parent="." instance=ExtResource("2_4c65i")]
+position = Vector2(85, 78)
+
+[node name="honeymash19" parent="." instance=ExtResource("2_4c65i")]
+position = Vector2(118, 111)
+
+[node name="honeymash20" parent="." instance=ExtResource("2_4c65i")]
+position = Vector2(49, 123)
+
+[node name="honeymash21" parent="." instance=ExtResource("2_4c65i")]
+position = Vector2(101, 122)
+
+[node name="honeymash22" parent="." instance=ExtResource("2_4c65i")]
+position = Vector2(105, 91)
+
+[node name="honeymash23" parent="." instance=ExtResource("2_4c65i")]
+position = Vector2(73, 123)
+
+[node name="honeymash24" parent="." instance=ExtResource("2_4c65i")]
+position = Vector2(83, 103)
+
+[node name="honeymash25" parent="." instance=ExtResource("2_4c65i")]
+position = Vector2(66, 82)
+
+[node name="honeymash26" parent="." instance=ExtResource("2_4c65i")]
+position = Vector2(38, 103)
+
+[node name="honeymash27" parent="." instance=ExtResource("2_4c65i")]
+position = Vector2(71, 109)
+
+[node name="honeymash28" parent="." instance=ExtResource("2_4c65i")]
+position = Vector2(88, 132)
+
+[node name="honeymash29" parent="." instance=ExtResource("2_4c65i")]
+position = Vector2(103, 105)
+
+[node name="honeymash30" parent="." instance=ExtResource("2_4c65i")]
+position = Vector2(103, 105)
+
+[node name="porcini" parent="." instance=ExtResource("3_2wtn5")]
+position = Vector2(246, 48)
+
+[node name="porcini2" parent="." instance=ExtResource("3_2wtn5")]
+position = Vector2(255, 64)
+
+[node name="porcini3" parent="." instance=ExtResource("3_2wtn5")]
+position = Vector2(230, 75)
+
+[node name="porcini4" parent="." instance=ExtResource("3_2wtn5")]
+position = Vector2(240, 91)
+
+[node name="porcini5" parent="." instance=ExtResource("3_2wtn5")]
+position = Vector2(255, 75)
+
+[node name="porcini6" parent="." instance=ExtResource("3_2wtn5")]
+position = Vector2(276, 42)
+
+[node name="porcini7" parent="." instance=ExtResource("3_2wtn5")]
+position = Vector2(305, 55)
+
+[node name="porcini8" parent="." instance=ExtResource("3_2wtn5")]
+position = Vector2(315, 74)
+
+[node name="porcini9" parent="." instance=ExtResource("3_2wtn5")]
+position = Vector2(331, 84)
+
+[node name="porcini10" parent="." instance=ExtResource("3_2wtn5")]
+position = Vector2(331, 84)
+
+[node name="toadstool" parent="." instance=ExtResource("4_3n5c2")]
+position = Vector2(139, 141)
+
+[node name="toadstool2" parent="." instance=ExtResource("4_3n5c2")]
+position = Vector2(154, 149)
+
+[node name="toadstool3" parent="." instance=ExtResource("4_3n5c2")]
+position = Vector2(176, 158)
+
+[node name="toadstool4" parent="." instance=ExtResource("4_3n5c2")]
+position = Vector2(214, 112)
+
+[node name="toadstool5" parent="." instance=ExtResource("4_3n5c2")]
+position = Vector2(219, 133)
+
+[node name="toadstool6" parent="." instance=ExtResource("4_3n5c2")]
+position = Vector2(219, 134)
