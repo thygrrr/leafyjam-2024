@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d2b1wi0um6mow"]
 
-[ext_resource type="PackedScene" path="res://entities/gnome.tscn" id="1_1kcg0"]
+[ext_resource type="PackedScene" uid="uid://4shyyx2bwjiq" path="res://entities/gnome.tscn" id="1_1kcg0"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ckuuo"]
 vertices = PackedVector2Array(5416.75, 2430.1, -737.25, 3686.8, -818.797, -180.852, 3513.81, -560.5)
