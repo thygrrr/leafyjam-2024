@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://fmp547o72q2k" path="res://mushrooms/shroom_porcini.tscn" id="3_2wtn5"]
 [ext_resource type="PackedScene" uid="uid://dhe26vqb4bgoq" path="res://mushrooms/shroom_toadstool.tscn" id="4_3n5c2"]
 [ext_resource type="PackedScene" uid="uid://y3nmra30jlox" path="res://environment/environment.tscn" id="7_c046l"]
-[ext_resource type="PackedScene" uid="uid://d2b1wi0um6mow" path="res://navigation.tscn" id="8_f8b4c"]
+[ext_resource type="PackedScene" uid="uid://d2b1wi0um6mow" path="res://gnomes.tscn" id="8_s2fht"]
 
 [node name="Ecosystem2" type="Node2D"]
 y_sort_enabled = true
@@ -71,4 +71,4 @@ position = Vector2(933, 472)
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 position = Vector2(619, 670)
 
-[node name="GnomeScene" parent="." instance=ExtResource("8_f8b4c")]
+[node name="GnomeScene" parent="." instance=ExtResource("8_s2fht")]
