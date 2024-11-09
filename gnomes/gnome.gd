@@ -21,6 +21,7 @@ func _ready() -> void:
 
 func set_movement_target(movement_target: Vector2):
 	navigation_agent.set_target_position(movement_target)
+	$FootstepPlayer.start_playing_footsteps()
 
 func go_home() -> void:
 	var target_position = null
@@ -52,6 +53,7 @@ func find_job() -> void:
 func _physics_process(_delta):
 
 	if current_state == GnomeState.IDLE:
+		$FootstepPlayer.stop_playing_footsteps()
 		find_job.call_deferred()
 
 	# Do not query when the map has never synchronized and is empty.
@@ -59,6 +61,7 @@ func _physics_process(_delta):
 		return
 	if navigation_agent.is_navigation_finished():
 		return
+		$SoundPlayer/Woosh.play()
 
 	var next_path_position: Vector2 = navigation_agent.get_next_path_position()
 	var new_velocity: Vector2 = global_position.direction_to(next_path_position) * movement_speed
@@ -74,14 +77,15 @@ func _on_velocity_computed(safe_velocity: Vector2):
 
 
 func _on_navigation_agent_2d_target_reached() -> void:
+	$FootstepPlayer.stop_playing_footsteps()
+	
 	if current_state == GnomeState.TRAVELING_HOME:
 		await get_tree().create_timer(2).timeout
 		current_state = GnomeState.IDLE
 
-
-
 	elif current_state == GnomeState.TRAVELING_WORK:
 		current_state = GnomeState.WORKING
+		$SoundPlayer/Pickup1.play()
 		await get_tree().create_timer(2).timeout
 		if current_target and current_target.has_method("work_done"):
 			current_target.work_done()
