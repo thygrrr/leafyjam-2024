@@ -1,9 +1,10 @@
 using System;
 using Godot;
+using leafy.entities;
 
 // ReSharper disable StringLiteralTypo
 
-namespace leafy.entities;
+namespace leafy.ui;
 
 public partial class Planter : Node2D
 {
