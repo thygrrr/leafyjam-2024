@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://drvyj0ycxgb3l"]
+[gd_scene load_steps=8 format=3 uid="uid://drvyj0ycxgb3l"]
 
 [ext_resource type="Texture2D" uid="uid://cl2daw6ymuvgb" path="res://sprites/Houses.png" id="1_8y4ww"]
 [ext_resource type="Script" path="res://gnomes/gnome_house.gd" id="1_mx1q4"]
+[ext_resource type="Script" path="res://entities/House.cs" id="3_vvqua"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7n0eh"]
 radius = 7.25
@@ -48,3 +49,6 @@ offset = Vector2(0, -32)
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 vertices = PackedVector2Array(-46, 0, -58, -16, -56, -37, -26, -99, 11, -162, 39, -116, 57, -78, 77, -42, 62, -2, 15, 4, -4, 4)
 affect_navigation_mesh = true
+
+[node name="Entity" type="Node2D" parent="."]
+script = ExtResource("3_vvqua")

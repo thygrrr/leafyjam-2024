@@ -11,6 +11,7 @@ public partial class Ecosystem : Node
     private Stream<Mushroom, Position> _plantPositions;
     private Stream<Mushroom, Position> _allPositions;
     private Stream<Mushroom, Position> _fullyGrown;
+    private Stream<House, Position> _housePositions;
 
     public override void _Ready()
     {
@@ -20,6 +21,7 @@ public partial class Ecosystem : Node
         _fullyGrown = ECS.World.Query<Mushroom, Position>().Not<Growing>().Has<Mature>().Stream();
         _plantPositions = ECS.World.Query<Mushroom, Position>().Stream();
         _allPositions = ECS.World.Query<Mushroom, Position>().Stream();
+        _housePositions = ECS.World.Query<House, Position>().Stream();
     }
 
     public override void _Process(double delta)
@@ -41,7 +43,13 @@ public partial class Ecosystem : Node
 
         var closest = point;
 
-        _allPositions.For((ref Mushroom shroom, ref Position position) =>
+        _housePositions.For((ref House house, ref Position position) =>
+        {
+            var d = position.Distance(point);
+            if (d < 100f) tooClose = true;
+        });
+        
+        if (!tooClose) _allPositions.For((ref Mushroom shroom, ref Position position) =>
         {
             var d = position.Distance(point);
             if (d < shroom.plantRange.Min()) tooClose = true;
