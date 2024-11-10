@@ -10,7 +10,7 @@ public partial class Ecosystem : Node
     
     private Stream<Mushroom, Position> _plantPositions;
     private Stream<Mushroom, Position> _allPositions;
-    private Stream<Mushroom> _fullyGrown;
+    private Stream<Mushroom, Position> _fullyGrown;
 
     public override void _Ready()
     {
