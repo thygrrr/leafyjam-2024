@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=4 uid="uid://y3nmra30jlox"]
 
 [ext_resource type="AudioStream" uid="uid://cdo4ystiekfyw" path="res://sounds/ambience/nature_ambience.ogg" id="1_fl50p"]
-[ext_resource type="AudioStream" uid="uid://cb3otr0uw4xpk" path="res://sounds/music/game_music.ogg" id="2_k3t4q"]
+[ext_resource type="AudioStream" uid="uid://beq1quea1ekan" path="res://sounds/music/game_music.ogg" id="2_k3t4q"]
 [ext_resource type="Texture2D" uid="uid://pn8pfdkdjf41" path="res://sprites/Leaves_and_floor.png" id="3_cnblq"]
 [ext_resource type="Shader" path="res://film_grain.gdshader" id="3_s734x"]
 [ext_resource type="Shader" path="res://environment/vignette.gdshader" id="5_71pat"]

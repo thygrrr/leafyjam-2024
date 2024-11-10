@@ -34,6 +34,7 @@ public partial class Planter : Node2D
     private AudioStreamPlayer2D _sound;
 
     private ShroomTraits _traits;
+    private ShroomTraits _fusion;
 
     public override void _Process(double delta)
     {
@@ -61,6 +62,8 @@ public partial class Planter : Node2D
                 Position = closestPoint;
                 _traits = shroom.traits;
 
+                _ecosystem.GatherTraits(closestPoint, out var fusion);
+                _fusion = fusion;
                 _sprite.Animation = PickSpriteAnimation(_traits);
 
                 _plantable = shroom;
@@ -88,7 +91,7 @@ public partial class Planter : Node2D
                 {
                     var planted = ResourceLoader.Load<PackedScene>(_plantable?.SceneFilePath).Instantiate<Mushroom>();
                     planted.Position = Position;
-                    planted.traits = _traits;
+                    planted.fusion = _fusion;
                     GetParent().AddChild(planted);
                     var sound = _plantableSounds[Random.Shared.Next(_plantableSounds.Length)];
                     _sound.Stream = sound;
@@ -120,6 +123,7 @@ public partial class Planter : Node2D
         if (traits.HasFlag(ShroomTraits.Honey))return "hint_honeymash";
         if (traits.HasFlag(ShroomTraits.Toad)) return "hint_toadstool";
         if (traits.HasFlag(ShroomTraits.Porc)) return "hint_porcini";
+        
         return "default";
     }
 

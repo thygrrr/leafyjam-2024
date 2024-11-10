@@ -100,4 +100,17 @@ public partial class Ecosystem : Node
         mushroom = found;
         return found != null;
     }
+
+    public void GatherTraits(Vector2 point, out ShroomTraits fusion)
+    {
+        ShroomTraits found = default;
+
+        _fullyGrown.For((ref Mushroom mushroom, ref Position position) =>
+        {
+            var d = position.Distance(point);
+            if (d < 50f) found |= mushroom.traits;
+        });
+        
+        fusion = found;
+    }
 }
