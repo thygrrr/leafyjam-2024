@@ -120,7 +120,7 @@ public partial class Mushroom : EntityNode2D
 
             {ShroomTraits.Porc | ShroomTraits.Toad | ShroomTraits.Honey,                 (
                     new(3, 4, 2, 5), 
-                    -1.0f, 0.5f, 
+                    -0.5f, 0.5f, 
                     Color.FromHtml("#ffff00"), Color.FromHtml("#00ffff")
                 )
             },
