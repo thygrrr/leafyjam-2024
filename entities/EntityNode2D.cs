@@ -28,7 +28,7 @@ public partial class EntityNode2D : Node2D
             case NotificationPredelete:
                 if (!Deleting)
                 {
-                    GD.Print($"NotificationPredelete for {Entity}");
+                    //GD.Print($"NotificationPredelete for {Entity}");
                     Entity.Despawn();
                 }
                 Deleting = true;

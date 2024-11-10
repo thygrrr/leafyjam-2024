@@ -165,16 +165,35 @@ public partial class Mushroom : EntityNode2D
 
     private void InitializeTraits()
     {
-        if (fusion == default) fusion = traits;
-        
-        var shaderParams = _traitColors[fusion];
-        var material = (ShaderMaterial)_sprite.Material;
-        material.SetShaderParameter("color_1", shaderParams.color1);
-        material.SetShaderParameter("color_2", shaderParams.color2);
-        material.SetShaderParameter("pulse", shaderParams.pulse);
-        material.SetShaderParameter("glow", shaderParams.glow);
-    }
+        //GD.Print($"Traits: {traits}, Fusion: {fusion}");
 
+        fusion |= traits;
+        
+        // Select animation if procedural
+        if (traits != fusion)
+        {
+            var shaderParams = _traitColors[fusion];
+            var material = (ShaderMaterial)_sprite.Material.Duplicate();
+            material.SetShaderParameter("color_1", shaderParams.color1);
+            material.SetShaderParameter("color_2", shaderParams.color2);
+            material.SetShaderParameter("pulse", shaderParams.pulse);
+            material.SetShaderParameter("glow", shaderParams.glow);
+            _sprite.Material = material;
+            
+            switch (traits)
+            {
+                case ShroomTraits.Toad:
+                    _sprite.Animation = "hybrid_toadstool";
+                    break;
+                case ShroomTraits.Honey:
+                    _sprite.Animation = "hybrid_honeymash";
+                    break;
+                case ShroomTraits.Porc:
+                    _sprite.Animation = "hybrid_porcini";
+                    break;
+            }
+        }
+    }
 
     public void Grow(float dt)
     {

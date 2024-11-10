@@ -62,8 +62,7 @@ public partial class Planter : Node2D
                 Position = closestPoint;
                 _traits = shroom.traits;
 
-                _ecosystem.GatherTraits(closestPoint, out var fusion);
-                _fusion = fusion;
+                _ecosystem.GatherTraits(closestPoint, out _fusion);
                 _sprite.Animation = PickSpriteAnimation(_traits);
 
                 _plantable = shroom;
