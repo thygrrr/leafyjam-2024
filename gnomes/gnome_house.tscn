@@ -48,4 +48,3 @@ offset = Vector2(0, -32)
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 vertices = PackedVector2Array(-46, 0, -58, -16, -56, -37, -26, -99, 11, -162, 39, -116, 57, -78, 77, -42, 62, -2, 15, 4, -4, 4)
 affect_navigation_mesh = true
-carve_navigation_mesh = true
