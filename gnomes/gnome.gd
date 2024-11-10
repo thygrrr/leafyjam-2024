@@ -26,18 +26,18 @@ func go_home() -> void:
 	if not chill_spots:
 		current_state = GnomeState.IDLE
 		return
-	
+
 	chill_spots.shuffle()
 	var choosen_chill_spot : Node2D = chill_spots.front()
 	set_movement_target(choosen_chill_spot.global_position)
 	current_state = GnomeState.TRAVELING_HOME
-	
+
 func find_job() -> void:
 	current_target = JobManager.consume_target()
 
 	if current_target:
 		navigation_agent.target_desired_distance = 25
-		
+
 		set_movement_target(current_target.global_position)
 		current_state = GnomeState.TRAVELING_WORK
 	else:
