@@ -10,7 +10,7 @@ public partial class KeyHandler : Node
 	public override void _Ready()
 	{
 		base._Ready();
-		_music = GetNode<AudioStreamPlayer>("/root/Ecosystem2/Environment/Music");
+		_music = GetNode<AudioStreamPlayer>("/root/Ecosystem/Environment/Music");
 	}
 
 	public override void _Process(double delta)
