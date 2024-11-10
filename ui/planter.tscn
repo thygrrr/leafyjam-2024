@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ctnaucbi7wbra"]
 
 [ext_resource type="Script" path="res://ui/Planter.cs" id="1_ko4rs"]
-[ext_resource type="SpriteFrames" uid="uid://bhtf42vj1ly0y" path="res://sprites/sf_mushrooms.tres" id="2_j0m4o"]
+[ext_resource type="SpriteFrames" uid="uid://bhtf42vj1ly0y" path="res://mushrooms/sf_mushrooms.tres" id="2_j0m4o"]
 [ext_resource type="AudioStream" uid="uid://pbgcmupcpn46" path="res://sounds/effects/wet_squish2.wav" id="2_ltbe0"]
 [ext_resource type="AudioStream" uid="uid://cw4irwwm6oh88" path="res://sounds/effects/wet_squish.wav" id="3_trn58"]
 [ext_resource type="AudioStream" uid="uid://b2xk817we47by" path="res://sounds/effects/wet_explosion.wav" id="4_xhr71"]

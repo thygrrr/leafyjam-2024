@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://eu2m21vqurfu"]
 
 [ext_resource type="Script" path="res://entities/Mushroom.cs" id="1_fg67e"]
-[ext_resource type="SpriteFrames" uid="uid://bhtf42vj1ly0y" path="res://sprites/sf_mushrooms.tres" id="1_prquw"]
+[ext_resource type="SpriteFrames" uid="uid://bhtf42vj1ly0y" path="res://mushrooms/sf_mushrooms.tres" id="1_prquw"]
 [ext_resource type="Shader" path="res://mushrooms/hybrid_shroom.gdshader" id="2_m0huv"]
 [ext_resource type="PackedScene" uid="uid://56cw51vp0hkh" path="res://audio_players/sound_player/sound_player.tscn" id="2_v33w6"]
 [ext_resource type="Script" path="res://mushrooms/navigation_target.gd" id="3_6qlb5"]
