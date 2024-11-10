@@ -11,6 +11,7 @@ func _ready() -> void:
 func _on_play_pressed() -> void:
 	get_tree().paused = false
 	play.visible = false
+	exit.visible = false
 	$SoundPlayer/Pop.play()
 	$AnimationPlayer.play("fade_out")
 
