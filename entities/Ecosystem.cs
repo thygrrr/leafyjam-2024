@@ -17,7 +17,7 @@ public partial class Ecosystem : Node
         base._Ready();
         _growing = ECS.World.Query<Mushroom>().Has<Growing>().Stream();
         _immature = ECS.World.Query<Mushroom>().Has<Growing>().Not<Mature>().Stream();
-        _fullyGrown = ECS.World.Query<Mushroom>().Not<Growing>().Has<Mature>().Stream();
+        _fullyGrown = ECS.World.Query<Mushroom, Position>().Not<Growing>().Has<Mature>().Stream();
         _plantPositions = ECS.World.Query<Mushroom, Position>().Stream();
         _allPositions = ECS.World.Query<Mushroom, Position>().Stream();
     }
@@ -80,7 +80,7 @@ public partial class Ecosystem : Node
 
         var distance = float.PositiveInfinity;
 
-        _allPositions.For((ref Mushroom shroom, ref Position position) =>
+        _fullyGrown.For((ref Mushroom shroom, ref Position position) =>
         {
             var d = position.Distance(point);
             if (d >= distance) return;
