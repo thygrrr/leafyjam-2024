@@ -30,7 +30,7 @@ public partial class Planter : Node2D
     }
 
 
-    private Node _plantable;
+    private Mushroom _plantable;
     private AudioStreamPlayer2D _sound;
 
     public override void _Input(InputEvent input)
@@ -50,16 +50,27 @@ public partial class Planter : Node2D
                     _ => "default",
                 };
 
+                if (_plantable != null)
+                {
+                    _plantable.Modulate = Colors.White;
+                    _plantable = null;
+                }
                 _plantable = shroom;
                 _state = State.Planting;
             }
             else if (_ecosystem.ClosestHarvestable(mouseMotion.Position, out var mushroom))
             {
                 _plantable = mushroom;
+                _plantable.Modulate = Colors.Red;
                 _state = State.Harvesting;
             }
             else
             {
+                if (_plantable != null)
+                {
+                    _plantable.Modulate = Colors.White;
+                    _plantable = null;
+                }
                 Position = mouseMotion.Position;
                 _state = State.Idle;
                 _sprite.Animation = "default";
@@ -89,6 +100,7 @@ public partial class Planter : Node2D
                     _sound.Stream = sound;
                     _sound.PitchScale = _pitchRange.Remap(Random.Shared.NextSingle());
                     _sound.Play();
+
                     _plantable.QueueFree();
                     _plantable = null;
                     _state = State.Idle;
