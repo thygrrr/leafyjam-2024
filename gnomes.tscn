@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://drvyj0ycxgb3l" path="res://gnomes/gnome_house.tscn" id="2_wd8no"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_4v3q5"]
-vertices = PackedVector2Array(7380.16, 5608.32, -5754.76, 5780.69, -6062.23, -3799.54, 7044.82, -4089.48)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+vertices = PackedVector2Array(7044.82, -4089.48, 7380.16, 5608.32, 602, 568, 582, 532, 782, 353, 591, 609, -5754.76, 5780.69, 528.875, 609.5, 527.5, 609.5, 479, 610, -6062.23, -3799.54, 467, 594, 469, 573, 500, 511, 793, 312, 773, 276, 746, 258, 691, 255, 660, 317, 658, 338, 555, 514, 670, 354, 718.5, 353.5, 719.875, 353.5)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 2, 1), PackedInt32Array(5, 1, 6, 7), PackedInt32Array(8, 7, 6, 9), PackedInt32Array(9, 6, 10, 11), PackedInt32Array(12, 11, 10), PackedInt32Array(13, 12, 10), PackedInt32Array(0, 14, 15), PackedInt32Array(0, 15, 16), PackedInt32Array(10, 0, 16, 17), PackedInt32Array(13, 10, 17, 18), PackedInt32Array(13, 18, 19, 20), PackedInt32Array(20, 19, 21, 3), PackedInt32Array(3, 21, 22, 23), PackedInt32Array(3, 23, 4), PackedInt32Array(0, 4, 14)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-6087, -3823, -5778, 5805, 7405, 5632, 7068, -4114)])
 agent_radius = 24.0
 
