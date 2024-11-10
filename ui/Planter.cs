@@ -37,6 +37,12 @@ public partial class Planter : Node2D
     {
         if (input is InputEventMouse mouseMotion)
         {
+            if (_plantable != null)
+            {
+                _plantable.Modulate = Colors.White;
+                _plantable = null;
+            }
+            
             if (_ecosystem.ClosestPlantPosition(mouseMotion.Position, out var shroom, out var closestPoint))
             {
                 Position = closestPoint;
@@ -50,11 +56,6 @@ public partial class Planter : Node2D
                     _ => "default",
                 };
 
-                if (_plantable != null)
-                {
-                    _plantable.Modulate = Colors.White;
-                    _plantable = null;
-                }
                 _plantable = shroom;
                 _state = State.Planting;
             }
@@ -66,11 +67,6 @@ public partial class Planter : Node2D
             }
             else
             {
-                if (_plantable != null)
-                {
-                    _plantable.Modulate = Colors.White;
-                    _plantable = null;
-                }
                 Position = mouseMotion.Position;
                 _state = State.Idle;
                 _sprite.Animation = "default";
@@ -82,7 +78,7 @@ public partial class Planter : Node2D
             switch (_state)
             {
                 case State.Planting:
-                    var planted = ResourceLoader.Load<PackedScene>(_plantable.SceneFilePath).Instantiate<Mushroom>();
+                    var planted = ResourceLoader.Load<PackedScene>(_plantable?.SceneFilePath).Instantiate<Mushroom>();
                     planted.Position = Position;
                     GetParent().AddChild(planted);
 
@@ -101,7 +97,7 @@ public partial class Planter : Node2D
                     _sound.PitchScale = _pitchRange.Remap(Random.Shared.NextSingle());
                     _sound.Play();
 
-                    _plantable.QueueFree();
+                    _plantable?.QueueFree();
                     _plantable = null;
                     _state = State.Idle;
                 }

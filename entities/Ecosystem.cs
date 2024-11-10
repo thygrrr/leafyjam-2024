@@ -46,7 +46,7 @@ public partial class Ecosystem : Node
         _housePositions.For((ref House house, ref Position position) =>
         {
             var d = position.Distance(point);
-            if (d < 100f) tooClose = true;
+            if (d < 75f) tooClose = true;
         });
         
         if (!tooClose) _allPositions.For((ref Mushroom shroom, ref Position position) =>
