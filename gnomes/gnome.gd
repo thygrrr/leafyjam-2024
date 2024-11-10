@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var movement_speed: float = 350.0
+@export var movement_speed: float = 275.0
 @onready var navigation_agent: NavigationAgent2D = get_node("NavigationAgent2D")
 
 @export var home : Node2D = null
