@@ -5,7 +5,7 @@
 [node name="toadstool" instance=ExtResource("1_fuoc5")]
 _growTimes = Vector2(6, 8)
 plantRange = Vector2(30, 60)
-traits = 4
+traits = 1
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 animation = &"toadstool_0"

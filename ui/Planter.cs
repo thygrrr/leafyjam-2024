@@ -33,28 +33,26 @@ public partial class Planter : Node2D
     private Mushroom _plantable;
     private AudioStreamPlayer2D _sound;
 
+    private ShroomTraits _traits;
+
     public override void _Input(InputEvent input)
     {
         if (_plantable is { Deleting: false })
         {
             _plantable.Modulate = Colors.White;
-            _plantable = null;
         }
+
+        _plantable = null;
+        _traits = default;
 
         if (input is InputEventMouse mouseMotion)
         {
             if (_ecosystem.ClosestPlantPosition(mouseMotion.Position, out var shroom, out var closestPoint))
             {
                 Position = closestPoint;
-                var traits = shroom.traits;
+                _traits = shroom.traits;
 
-                _sprite.Animation = traits switch
-                {
-                    ShroomTraits.Trait1 => "hint_honeymash",
-                    ShroomTraits.Trait2 => "hint_toadstool",
-                    ShroomTraits.Trait3 => "hint_porcini",
-                    _ => "default",
-                };
+                _sprite.Animation = PickSpriteAnimation(_traits);
 
                 _plantable = shroom;
                 _state = State.Planting;
@@ -81,6 +79,7 @@ public partial class Planter : Node2D
                 {
                     var planted = ResourceLoader.Load<PackedScene>(_plantable?.SceneFilePath).Instantiate<Mushroom>();
                     planted.Position = Position;
+                    planted.traits = _traits;
                     GetParent().AddChild(planted);
                     var sound = _plantableSounds[Random.Shared.Next(_plantableSounds.Length)];
                     _sound.Stream = sound;
@@ -100,10 +99,19 @@ public partial class Planter : Node2D
                     break;
                 }
             }
-            
+
             _plantable = null;
             _state = State.Idle;
         }
+    }
+
+    private StringName PickSpriteAnimation(ShroomTraits traits)
+    {
+        // We select the shape based on the traits.
+        if (traits.HasFlag(ShroomTraits.Honey))return "hint_honeymash";
+        if (traits.HasFlag(ShroomTraits.Toad)) return "hint_toadstool";
+        if (traits.HasFlag(ShroomTraits.Porc)) return "hint_porcini";
+        return "default";
     }
 
     public enum State

@@ -9,7 +9,7 @@ _angles = Vector2(-4, 4)
 _scales = Vector2(0.9, 1.2)
 plantRange = Vector2(15, 30)
 pickRange = 15.0
-traits = 1
+traits = 2
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 animation = &"honeymash_0"

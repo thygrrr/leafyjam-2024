@@ -14,8 +14,8 @@ void fragment()
 	{
 		float alpha = COLOR.a;
 		COLOR = 
-			color_1 * COLOR.r * (sin(TIME*pulse.x + pulse.z) * amplitude + glow) + 
-			color_2 * COLOR.g * (sin(TIME*pulse.y + pulse.w) * amplitude + glow);
+			color_1 * COLOR.r * (cos(TIME*pulse.x + pulse.z) * amplitude + glow) + 
+			color_2 * COLOR.g * (cos(TIME*pulse.y + pulse.w) * amplitude + glow);
 		COLOR.a = alpha;			
 	}
 }

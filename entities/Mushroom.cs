@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Godot;
 
 namespace leafy.entities;
@@ -37,6 +38,7 @@ public partial class Mushroom : EntityNode2D
 
     [Export(PropertyHint.Enum)]
     public ShroomTraits traits = default;
+    public ShroomTraits fusion = default;
 
     private float _seed;
     private float _speed;
@@ -50,6 +52,9 @@ public partial class Mushroom : EntityNode2D
     private AnimatedSprite2D _sprite;
     private int _frames;
 
+    private static Dictionary<ShroomTraits, (Vector4 pulse, float glow, Color color1, Color color2)> _traitColors;
+    //private static Dictionary<ShroomTraits, Color> _traitColors = new();
+    //private static Dictionary<ShroomTraits, float> _traitGlows = new();
     
     private static readonly FastNoiseLite Noise = new();
     static Mushroom()
@@ -59,6 +64,67 @@ public partial class Mushroom : EntityNode2D
         Noise.SetFractalOctaves(3);
         Noise.SetFractalLacunarity(2.0f);
         Noise.SetFractalGain(0.5f);
+        
+        _traitColors = new()
+        {
+            #region Basic
+            {
+                ShroomTraits.Toad, 
+                (
+                    new(0, 0, 0, 0), 
+                    0.0f, 
+                    Color.FromHtml("#CEC8B6"), Color.FromHtml("#913426")
+                )
+            },
+            {
+                ShroomTraits.Honey, 
+                (
+                    new(0, 0, 0, 0), 
+                    0.0f, 
+                    Color.FromHtml("#B86D30"), Color.FromHtml("#00ff00")
+                )
+            },
+            {
+                ShroomTraits.Porc, 
+                (
+                    new(0, 0, 0, 0), 
+                    0.0f, 
+                    Color.FromHtml("#977743"), Color.FromHtml("#5F412C")
+                )
+            },
+            #endregion
+            
+            #region 2-Traits
+            {ShroomTraits.Toad | ShroomTraits.Honey, 
+                (
+                    new(3, 4, 2, 1), 
+                    1.5f, 
+                    Color.FromHtml("#B86D30"), Color.FromHtml("#00ff00")
+                )
+            },
+            {ShroomTraits.Toad | ShroomTraits.Porc,                 (
+                    new(2, 3, 3, 5), 
+                    1.5f, 
+                    Color.FromHtml("#5B6EE1"), Color.FromHtml("#306082")
+                )
+            },
+
+            {ShroomTraits.Honey | ShroomTraits.Porc,                 (
+                    new(3, 2, 3, 7), 
+                    1.5f, 
+                    Color.FromHtml("#FBF236"), Color.FromHtml("#DF7126")
+                )
+            },
+            
+            #endregion
+
+            {ShroomTraits.Porc | ShroomTraits.Toad | ShroomTraits.Honey,                 (
+                    new(3, 4, 5, 6), 
+                    2.0f, 
+                    Color.FromHtml("#ffffff"), Color.FromHtml("#ffffff")
+                )
+            },
+        };
     }
 
     public override void _Ready()
@@ -93,6 +159,20 @@ public partial class Mushroom : EntityNode2D
         Entity.Add(new Position(Position.X, Position.Y));
         
         Grow(0);
+        
+        InitializeTraits();
+    }
+
+    private void InitializeTraits()
+    {
+        if (fusion == default) fusion = traits;
+        
+        var shaderParams = _traitColors[fusion];
+        var material = (ShaderMaterial)_sprite.Material;
+        material.SetShaderParameter("color_1", shaderParams.color1);
+        material.SetShaderParameter("color_2", shaderParams.color2);
+        material.SetShaderParameter("pulse", shaderParams.pulse);
+        material.SetShaderParameter("glow", shaderParams.glow);
     }
 
 
