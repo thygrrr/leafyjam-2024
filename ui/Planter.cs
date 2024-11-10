@@ -73,6 +73,7 @@ public partial class Planter : Node2D
                 _plantable = mushroom;
                 _plantable.Modulate = Colors.Red;
                 _state = State.Harvesting;
+                _sprite.Animation = "default";
             }
             else
             {
@@ -110,7 +111,7 @@ public partial class Planter : Node2D
                     break;
                 }
             }
-
+            
             _plantable = null;
             _state = State.Idle;
         }
