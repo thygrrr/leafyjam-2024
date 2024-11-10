@@ -28,20 +28,6 @@ vec3 rainbow2(float hue_in) {
     return color;
 }
  
-vec3 rainbow(float hue) {
-    float x = 1.0 - abs(mod(hue / (1.0 / 6.0), 2.0) - 1.0);
-    vec3 color = vec3(0.0);
- 
-    color += vec3(1.0, x, 0.0) * when_lt(hue, 1.0 / 6.0);
-    color += vec3(x, 1.0, 0.0) * when_lt(hue, 1.0 / 3.0) * when_lt(1.0 / 6.0, hue);
-    color += vec3(0.0, 1.0, x) * when_lt(hue, 1.0 / 2.0) * when_lt(1.0 / 3.0, hue);
-    color += vec3(0.0, x, 1.0) * when_lt(hue, 2.0 / 3.0) * when_lt(1.0 / 2.0, hue);
-    color += vec3(x, 0.0, 1.0) * when_lt(hue, 5.0 / 6.0) * when_lt(2.0 / 3.0, hue);
-    color += vec3(1.0, 0.0, x) * when_lt(hue, 1.1) * when_lt(5.0 / 6.0, hue);
- 
-    return color;
-}
- 
 vec3 pulsating(vec3 color)
 {
 	vec3 output;
@@ -51,8 +37,8 @@ vec3 pulsating(vec3 color)
 			color_1.rgb * color.r * (cos(TIME*pulse.x + pulse.z) * amplitude + glow) + 
 			color_2.rgb * color.g * (cos(TIME*pulse.y + pulse.w) * amplitude + glow)
 			:
-			color_1.rgb * color.r * (rainbow(TIME*pulse.x + pulse.z) * amplitude + glow) + 
-			color_2.rgb * color.g * (rainbow(TIME*pulse.y + pulse.w) * amplitude + glow)
+			color_1.rgb * color.r * (rainbow2(TIME*pulse.x + pulse.z) * amplitude + glow) + 
+			color_2.rgb * color.g * (rainbow2(TIME*pulse.y + pulse.w) * amplitude + glow)
 			;
 	}
 	else
