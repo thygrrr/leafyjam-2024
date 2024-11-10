@@ -1,5 +1,7 @@
 
 # A cozy dreamy shroomy thingy for leafy jam 2024.
+![image](https://github.com/user-attachments/assets/f6d9d36f-22cf-4cf5-ac80-d3fdcdf5427b)
+
 _by Lucas, Bart, Matteo, Moritz, and Oliver_
 
 ## Itch.io links:
