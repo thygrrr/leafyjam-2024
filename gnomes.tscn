@@ -38,9 +38,6 @@ position = Vector2(525, 610)
 position = Vector2(716, 354)
 house_type = 1
 
-[node name="Target" type="Node2D" parent="."]
-position = Vector2(653, 571)
-
 [node name="ChillSpots" type="Node2D" parent="."]
 
 [node name="ChillSpot" type="Node2D" parent="ChillSpots" groups=["ChillSpots"]]
