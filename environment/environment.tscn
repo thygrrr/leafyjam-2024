@@ -80,10 +80,12 @@ tile_map_data = PackedByteArray("AAD+//7/AAAAAAIAAAD+////AAAAAAIAAAD+/wAAAAAAAAE
 tile_set = ExtResource("6_mudhd")
 
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("1_fl50p")
 autoplay = true
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("2_k3t4q")
 volume_db = -6.0
 autoplay = true
