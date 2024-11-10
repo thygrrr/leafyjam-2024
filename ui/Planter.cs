@@ -62,8 +62,7 @@ public partial class Planter : Node2D
                 Position = closestPoint;
                 _traits = shroom.traits;
 
-                _ecosystem.GatherTraits(closestPoint, out var fusion);
-                _fusion = fusion;
+                _ecosystem.GatherTraits(closestPoint, out _fusion);
                 _sprite.Animation = PickSpriteAnimation(_traits);
 
                 _plantable = shroom;
@@ -74,6 +73,7 @@ public partial class Planter : Node2D
                 _plantable = mushroom;
                 _plantable.Modulate = Colors.Red;
                 _state = State.Harvesting;
+                _sprite.Animation = "default";
             }
             else
             {
@@ -111,7 +111,7 @@ public partial class Planter : Node2D
                     break;
                 }
             }
-
+            
             _plantable = null;
             _state = State.Idle;
         }

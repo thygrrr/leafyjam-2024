@@ -1,20 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://eu2m21vqurfu"]
+[gd_scene load_steps=8 format=3 uid="uid://eu2m21vqurfu"]
 
 [ext_resource type="Script" path="res://entities/Mushroom.cs" id="1_fg67e"]
-[ext_resource type="SpriteFrames" uid="uid://bhtf42vj1ly0y" path="res://sprites/sf_mushrooms.tres" id="1_prquw"]
-[ext_resource type="Shader" path="res://mushrooms/hybrid_shroom.gdshader" id="2_m0huv"]
+[ext_resource type="SpriteFrames" uid="uid://bhtf42vj1ly0y" path="res://mushrooms/sf_mushrooms.tres" id="1_prquw"]
+[ext_resource type="Material" uid="uid://bdr7ry08rbjcl" path="res://mushrooms/mushroom_material.tres" id="2_1gtnr"]
 [ext_resource type="PackedScene" uid="uid://56cw51vp0hkh" path="res://audio_players/sound_player/sound_player.tscn" id="2_v33w6"]
 [ext_resource type="Script" path="res://mushrooms/navigation_target.gd" id="3_6qlb5"]
 [ext_resource type="AudioStream" uid="uid://b2xk817we47by" path="res://sounds/effects/wet_explosion.wav" id="4_rke7t"]
 [ext_resource type="Script" path="res://mushrooms/growth_sound.gd" id="5_irumn"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ltd88"]
-shader = ExtResource("2_m0huv")
-shader_parameter/color_1 = null
-shader_parameter/color_2 = null
-shader_parameter/pulse = Vector4(4, 3, 1, 0.5)
-shader_parameter/glow = 1.5
-shader_parameter/amplitude = 0.5
 
 [node name="Mushroom" type="Node2D"]
 texture_filter = 1
@@ -23,7 +15,7 @@ script = ExtResource("1_fg67e")
 _pitchRange = Vector2(0.2, 2)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-material = SubResource("ShaderMaterial_ltd88")
+material = ExtResource("2_1gtnr")
 sprite_frames = ExtResource("1_prquw")
 offset = Vector2(0, -6)
 

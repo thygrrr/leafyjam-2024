@@ -12,12 +12,14 @@ public partial class Ecosystem : Node
     private Stream<Mushroom, Position> _allPositions;
     private Stream<Mushroom, Position> _fullyGrown;
     private Stream<House, Position> _housePositions;
+    private Stream<Mushroom, Position> _mature;
 
     public override void _Ready()
     {
         base._Ready();
         _growing = ECS.World.Query<Mushroom>().Has<Growing>().Stream();
         _immature = ECS.World.Query<Mushroom>().Has<Growing>().Not<Mature>().Stream();
+        _mature = ECS.World.Query<Mushroom, Position>().Has<Mature>().Stream();
         _fullyGrown = ECS.World.Query<Mushroom, Position>().Not<Growing>().Has<Mature>().Stream();
         _plantPositions = ECS.World.Query<Mushroom, Position>().Stream();
         _allPositions = ECS.World.Query<Mushroom, Position>().Stream();
@@ -105,10 +107,10 @@ public partial class Ecosystem : Node
     {
         ShroomTraits found = default;
 
-        _fullyGrown.For((ref Mushroom mushroom, ref Position position) =>
+        _mature.For((ref Mushroom mushroom, ref Position position) =>
         {
             var d = position.Distance(point);
-            if (d < 50f) found |= mushroom.traits;
+            if (d < 100f) found |= mushroom.traits;
         });
         
         fusion = found;

@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bdr7ry08rbjcl"]
+
+[ext_resource type="Shader" path="res://mushrooms/hybrid_shroom.gdshader" id="1_uf1i2"]
+
+[resource]
+shader = ExtResource("1_uf1i2")

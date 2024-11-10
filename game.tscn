@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b0f8t5s80rwcu" path="res://main_menu/main_menu.tscn" id="8_cxw2g"]
 [ext_resource type="PackedScene" uid="uid://d2b1wi0um6mow" path="res://gnomes.tscn" id="8_s2fht"]
 
-[node name="Ecosystem2" type="Node2D"]
+[node name="Ecosystem" type="Node2D"]
 y_sort_enabled = true
 texture_filter = 1
 script = ExtResource("1_ef70f")
