@@ -9,6 +9,8 @@ public partial class EntityNode2D : Node2D
 
     protected Entity Entity;
 
+    public bool Deleting { get; private set; }
+
     public override void _EnterTree()
     {
         base._EnterTree();
@@ -21,10 +23,15 @@ public partial class EntityNode2D : Node2D
 
     public override void _Notification(int what)
     {
-        switch ((long) what)
+        switch ((long)what)
         {
             case NotificationPredelete:
-                if (Entity) Entity.Despawn();
+                if (!Deleting)
+                {
+                    GD.Print($"NotificationPredelete for {Entity}");
+                    Entity.Despawn();
+                }
+                Deleting = true;
                 break;
         }
     }

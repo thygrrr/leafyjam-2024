@@ -35,14 +35,14 @@ public partial class Planter : Node2D
 
     public override void _Input(InputEvent input)
     {
+        if (_plantable is { Deleting: false })
+        {
+            _plantable.Modulate = Colors.White;
+            _plantable = null;
+        }
+
         if (input is InputEventMouse mouseMotion)
         {
-            if (_plantable != null)
-            {
-                _plantable.Modulate = Colors.White;
-                _plantable = null;
-            }
-            
             if (_ecosystem.ClosestPlantPosition(mouseMotion.Position, out var shroom, out var closestPoint))
             {
                 Position = closestPoint;
@@ -78,17 +78,16 @@ public partial class Planter : Node2D
             switch (_state)
             {
                 case State.Planting:
+                {
                     var planted = ResourceLoader.Load<PackedScene>(_plantable?.SceneFilePath).Instantiate<Mushroom>();
                     planted.Position = Position;
                     GetParent().AddChild(planted);
-
-                {
                     var sound = _plantableSounds[Random.Shared.Next(_plantableSounds.Length)];
                     _sound.Stream = sound;
                     _sound.PitchScale = _pitchRange.Remap(Random.Shared.NextSingle());
                     _sound.Play();
+                    break;
                 }
-                break;
 
                 case State.Harvesting:
                 {
@@ -98,11 +97,12 @@ public partial class Planter : Node2D
                     _sound.Play();
 
                     _plantable?.QueueFree();
-                    _plantable = null;
-                    _state = State.Idle;
+                    break;
                 }
-                break;
             }
+            
+            _plantable = null;
+            _state = State.Idle;
         }
     }
 
