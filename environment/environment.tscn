@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://y3nmra30jlox"]
+[gd_scene load_steps=17 format=4 uid="uid://y3nmra30jlox"]
 
 [ext_resource type="AudioStream" uid="uid://cdo4ystiekfyw" path="res://sounds/ambience/nature_ambience.ogg" id="1_fl50p"]
 [ext_resource type="AudioStream" uid="uid://beq1quea1ekan" path="res://sounds/music/game_music.ogg" id="2_k3t4q"]
@@ -6,6 +6,7 @@
 [ext_resource type="Shader" path="res://film_grain.gdshader" id="3_s734x"]
 [ext_resource type="Shader" path="res://environment/vignette.gdshader" id="5_71pat"]
 [ext_resource type="TileSet" uid="uid://c1r6v14imcwwo" path="res://sprites/ground_tiles.tres" id="6_mudhd"]
+[ext_resource type="Script" path="res://environment/KeyHandler.cs" id="7_71pfx"]
 
 [sub_resource type="Environment" id="Environment_3ula6"]
 background_mode = 3
@@ -123,3 +124,6 @@ process_material = SubResource("ParticleProcessMaterial_0gs74")
 texture = SubResource("AtlasTexture_6ouab")
 lifetime = 60.0
 speed_scale = 0.5
+
+[node name="KeyHandler" type="Node" parent="."]
+script = ExtResource("7_71pfx")
