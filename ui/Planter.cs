@@ -84,7 +84,7 @@ public partial class Planter : Node2D
 
                 case State.Harvesting:
                 {
-                    var sound = _plantableSounds[Random.Shared.Next(_harvestSounds.Length)];
+                    var sound = _harvestSounds[Random.Shared.Next(_harvestSounds.Length)];
                     _sound.Stream = sound;
                     _sound.PitchScale = _pitchRange.Remap(Random.Shared.NextSingle());
                     _sound.Play();
