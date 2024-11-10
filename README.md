@@ -5,9 +5,9 @@
 _by Lucas, Bart, Matteo, Moritz, and Oliver_
 
 ## Itch.io links:
-https://itch.io/jam/leafyjam
-https://itch.io/jam/leafyjam/rate/3097534
-https://lucasmolina.itch.io/gnome-garden
+- Jam: https://itch.io/jam/leafyjam
+- Sub: https://itch.io/jam/leafyjam/rate/3097534
+- Game: https://lucasmolina.itch.io/gnome-garden
 
 Grow wondrous patterns of mushrooms as autumn sweeps the first leaves off the lush trees in the gnome forest.
 
