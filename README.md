@@ -1,8 +1,11 @@
 
 # A cozy dreamy shroomy thingy for leafy jam 2024.
-https://itch.io/jam/leafyjam
-
 _by Lucas, Bart, Matteo, Moritz, and Oliver_
+
+## Itch.io links:
+https://itch.io/jam/leafyjam
+https://itch.io/jam/leafyjam/rate/3097534
+https://lucasmolina.itch.io/gnome-garden
 
 Grow wondrous patterns of mushrooms as autumn sweeps the first leaves off the lush trees in the gnome forest.
 
