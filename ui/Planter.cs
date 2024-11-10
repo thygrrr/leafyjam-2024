@@ -35,6 +35,15 @@ public partial class Planter : Node2D
 
     private ShroomTraits _traits;
 
+    public override void _Process(double delta)
+    {
+        if (Input.IsActionPressed("reset"))
+        {
+            GetTree().ReloadCurrentScene();
+        }
+
+    }
+    
     public override void _Input(InputEvent input)
     {
         if (_plantable is { Deleting: false })

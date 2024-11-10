@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b0f8t5s80rwcu"]
+[gd_scene load_steps=14 format=3 uid="uid://b0f8t5s80rwcu"]
 
 [ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_8y7rx"]
 [ext_resource type="Texture2D" uid="uid://ed0k6o8b3303" path="res://sprites/Title.png" id="1_f3nyh"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://56cw51vp0hkh" path="res://audio_players/sound_player/sound_player.tscn" id="2_47of1"]
 [ext_resource type="Texture2D" uid="uid://80a6t0aol0k5" path="res://sprites/play_highlight.png" id="4_owdgi"]
 [ext_resource type="Texture2D" uid="uid://cdrydis7nlrlt" path="res://sprites/logo.png" id="5_lrfhb"]
+[ext_resource type="Texture2D" uid="uid://dli141tsmik4k" path="res://sprites/exit.png" id="7_ae5at"]
+[ext_resource type="Texture2D" uid="uid://cyw41re3n1ywx" path="res://sprites/exit-highlight.png" id="8_oliya"]
 
 [sub_resource type="Animation" id="Animation_ubnvb"]
 length = 0.001
@@ -138,9 +140,21 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="Exit" type="TextureButton" parent="HBoxContainer/VBoxContainer/MarginContainer3"]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 2
+tooltip_text = "Quit the game"
+texture_normal = ExtResource("7_ae5at")
+texture_hover = ExtResource("8_oliya")
+ignore_texture_size = true
+stretch_mode = 5
+
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
 custom_minimum_size = Vector2(230, 0)
 layout_mode = 2
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/MarginContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/MarginContainer3/Exit" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/MarginContainer3/Exit" to="." method="_on_exit_pressed"]
