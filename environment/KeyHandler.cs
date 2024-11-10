@@ -9,7 +9,6 @@ public partial class KeyHandler : Node
 
 	public override void _Ready()
 	{
-		Console.Write("Keyhandler ready");
 		base._Ready();
 		_music = GetNode<AudioStreamPlayer>("/root/Ecosystem2/Environment/Music");
 	}
@@ -43,7 +42,12 @@ public partial class KeyHandler : Node
 		
 		if (Input.IsActionJustReleased("increase_volume"))
 		{
-			if (_music.IsPlaying() && _music.VolumeDb < 0)
+			if (!_music.IsPlaying())
+			{
+				_music.VolumeDb = -20;
+				
+				_music.Play();
+			} else if (_music.VolumeDb < 0)
 			{
 				_music.VolumeDb += 5;
 			}
