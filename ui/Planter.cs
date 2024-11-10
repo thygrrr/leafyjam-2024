@@ -35,7 +35,7 @@ public partial class Planter : Node2D
 
     public override void _Input(InputEvent input)
     {
-        if (input is InputEventMouseMotion mouseMotion)
+        if (input is InputEventMouse mouseMotion)
         {
             if (_ecosystem.ClosestPlantPosition(mouseMotion.Position, out var shroom, out var closestPoint))
             {
