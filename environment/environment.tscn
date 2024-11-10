@@ -90,6 +90,8 @@ process_mode = 3
 stream = ExtResource("2_k3t4q")
 volume_db = -10.0
 autoplay = true
+playback_type = 1
+parameters/looping = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3ula6")

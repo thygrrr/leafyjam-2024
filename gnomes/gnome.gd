@@ -54,7 +54,7 @@ func _physics_process(_delta):
 		return
 	if navigation_agent.is_navigation_finished():
 		return
-		$SoundPlayer/Woosh.play()
+		#$SoundPlayer/Woosh.play()
 
 	var next_path_position: Vector2 = navigation_agent.get_next_path_position()
 	var new_velocity: Vector2 = global_position.direction_to(next_path_position) * movement_speed
