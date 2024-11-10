@@ -1,14 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctnaucbi7wbra"]
+[gd_scene load_steps=7 format=3 uid="uid://ctnaucbi7wbra"]
 
 [ext_resource type="Script" path="res://ui/Planter.cs" id="1_ko4rs"]
 [ext_resource type="SpriteFrames" uid="uid://bhtf42vj1ly0y" path="res://sprites/sf_mushrooms.tres" id="2_j0m4o"]
 [ext_resource type="AudioStream" uid="uid://pbgcmupcpn46" path="res://sounds/effects/wet_squish2.wav" id="2_ltbe0"]
 [ext_resource type="AudioStream" uid="uid://cw4irwwm6oh88" path="res://sounds/effects/wet_squish.wav" id="3_trn58"]
+[ext_resource type="AudioStream" uid="uid://d1aeetratv3rx" path="res://sounds/effects/pickup1.wav" id="4_q4s2k"]
+[ext_resource type="AudioStream" uid="uid://cyc8a4rnnn478" path="res://sounds/effects/pickup_quiet.wav" id="5_tfh1x"]
 
 [node name="Planter" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_ko4rs")
 _plantableSounds = [ExtResource("2_ltbe0"), ExtResource("3_trn58")]
+_harvestSounds = [ExtResource("4_q4s2k"), ExtResource("5_tfh1x")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.25098)

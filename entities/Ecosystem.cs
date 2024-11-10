@@ -31,7 +31,7 @@ public partial class Ecosystem : Node
         _fullyGrown.For((ref Mushroom shroom) => shroom.Idle(dt));
     }
 
-    public bool ClosestShroom(Vector2 point, out Mushroom shroom, out Vector2 closestPoint)
+    public bool ClosestPlantPosition(Vector2 point, out Mushroom shroom, out Vector2 closestPoint)
     {
         Mushroom found = null;
 
@@ -48,29 +48,48 @@ public partial class Ecosystem : Node
         });
 
         if (!tooClose) _plantPositions.For((ref Mushroom shroom, ref Position position) =>
-            {
-                var d = position.Distance(point);
+        {
+            var d = position.Distance(point);
 
-                if (d > distance) return;
+            if (d > distance) return;
                 
-                if (shroom.plantRange.Contains(d))
-                {
-                    closest = point;
-                }
-                else
-                {
-                    var dMax = shroom.plantRange.Max();
-                    closest = position + dMax * (point - position).Normalized();
-                }
+            if (shroom.plantRange.Contains(d))
+            {
+                closest = point;
+            }
+            else
+            {
+                var dMax = shroom.plantRange.Max();
+                closest = position + dMax * (point - position).Normalized();
+            }
 
-                distance = d;
-                found = shroom;
-            });
+            distance = d;
+            found = shroom;
+        });
         
         closestPoint = closest;
         shroom = found;
 
         var tooFar = distance > 150f;
         return !tooClose && !tooFar && found != null;
+    }
+    
+    public bool ClosestHarvestable(Vector2 point, out Mushroom mushroom)
+    {
+        Mushroom found = null;
+
+        var distance = float.PositiveInfinity;
+
+        _allPositions.For((ref Mushroom shroom, ref Position position) =>
+        {
+            var d = position.Distance(point);
+            if (d >= distance) return;
+            if (d > shroom.pickRange) return;
+            found = shroom;
+            distance = d;
+        });
+
+        mushroom = found;
+        return found != null;
     }
 }

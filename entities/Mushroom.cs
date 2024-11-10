@@ -134,12 +134,6 @@ public partial class Mushroom : EntityNode2D
         Entity.Add(this);
     }
 
-    public override void _ExitTree()
-    {
-        Entity.Despawn();
-        base._ExitTree();
-    }
-
     private void StartGrowing()
     {
         Entity.Add<Growing>();
