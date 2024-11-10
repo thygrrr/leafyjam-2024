@@ -40,3 +40,11 @@ house_type = 1
 
 [node name="Target" type="Node2D" parent="."]
 position = Vector2(653, 571)
+
+[node name="ChillSpots" type="Node2D" parent="."]
+
+[node name="ChillSpot" type="Node2D" parent="ChillSpots" groups=["ChillSpots"]]
+position = Vector2(518, 714)
+
+[node name="ChillSpot2" type="Node2D" parent="ChillSpots" groups=["ChillSpots"]]
+position = Vector2(718, 454)
