@@ -103,7 +103,7 @@ public partial class Mushroom : EntityNode2D
                 )
             },
             {ShroomTraits.Toad | ShroomTraits.Porc,                 (
-                    new(5, 4, 3, 3), 
+                    new(5, 4, 6, 9), 
                     1.5f, 0.3f, 
                     Color.FromHtml("#5B6EE1"), Color.FromHtml("#306082")
                 )
@@ -119,8 +119,8 @@ public partial class Mushroom : EntityNode2D
             #endregion
 
             {ShroomTraits.Porc | ShroomTraits.Toad | ShroomTraits.Honey,                 (
-                    new(3, 4, 2, 2), 
-                    1.5f, 0.5f, 
+                    new(3, 4, 2, 5), 
+                    -1.0f, 0.5f, 
                     Color.FromHtml("#ffff00"), Color.FromHtml("#00ffff")
                 )
             },
