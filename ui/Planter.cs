@@ -19,6 +19,8 @@ public partial class Planter : Node2D
 	private AnimatedSprite2D _sprite;
 
 	private Ecosystem _ecosystem;
+	
+	private Vector2 mousePos;
 
 	private State _state;
 	public override void _Ready()
@@ -48,30 +50,9 @@ public partial class Planter : Node2D
 
 		if (input is InputEventMouse mouseMotion)
 		{
-			if (_ecosystem.ClosestPlantPosition(mouseMotion.Position, out var shroom, out var closestPoint))
-			{
-				Position = closestPoint;
-				_traits = shroom.traits;
-
-				_ecosystem.GatherTraits(closestPoint, out _fusion);
-				_sprite.Animation = PickSpriteAnimation(_traits);
-
-				_plantable = shroom;
-				_state = State.Planting;
-			}
-			else if (_ecosystem.ClosestHarvestable(mouseMotion.Position, out var mushroom))
-			{
-				_plantable = mushroom;
-				_plantable.Modulate = Colors.Red;
-				_state = State.Harvesting;
-				_sprite.Animation = "default";
-			}
-			else
-			{
-				Position = mouseMotion.Position;
-				_state = State.Idle;
-				_sprite.Animation = "default";
-			}
+			mousePos = mouseMotion.Position;
+			Position = mouseMotion.Position;
+			TryPlantOrHighlight(mouseMotion.Position);
 		}
 
 		if (input is InputEventMouseButton { ButtonIndex: MouseButton.Left } button && button.IsPressed())
@@ -99,13 +80,43 @@ public partial class Planter : Node2D
 					_sound.Play();
 
 					_plantable?.QueueFree();
+					
 					break;
 				}
 			}
 			
 			_plantable = null;
 			_state = State.Idle;
+			TryPlantOrHighlight(mousePos);
 		}
+	}
+	
+	private void TryPlantOrHighlight(Vector2 position)
+	{
+			if (_ecosystem.ClosestPlantPosition(position, out var shroom, out var closestPoint))
+			{
+				Position = closestPoint;
+				_traits = shroom.traits;
+
+				_ecosystem.GatherTraits(closestPoint, out _fusion);
+				_sprite.Animation = PickSpriteAnimation(_traits);
+
+				_plantable = shroom;
+				_state = State.Planting;
+			}
+			else if (_ecosystem.ClosestHarvestable(position, out var mushroom))
+			{
+				_plantable = mushroom;
+				_plantable.Modulate = Colors.Red;
+				_state = State.Harvesting;
+				_sprite.Animation = "default";
+			}
+			else
+			{
+				Position = position;
+				_state = State.Idle;
+				_sprite.Animation = "default";
+			}
 	}
 
 	private StringName PickSpriteAnimation(ShroomTraits traits)
