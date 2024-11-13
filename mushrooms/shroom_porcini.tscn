@@ -4,7 +4,6 @@
 
 [node name="porcini" instance=ExtResource("1_jtykb")]
 plantRange = Vector2(40, 80)
-pickRange = 15.0
 traits = 4
 
 [node name="AnimatedSprite2D" parent="." index="0"]
