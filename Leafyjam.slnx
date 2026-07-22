@@ -1,0 +1,20 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="Debug" />
+    <BuildType Name="ExportDebug" />
+    <BuildType Name="ExportRelease" />
+  </Configurations>
+  <Project Path="Leafyjam.2dog/Leafyjam.2dog.csproj">
+    <BuildType Project="Debug" />
+  </Project>
+  <Project Path="Leafyjam.csproj" />
+  <Project Path="Leafyjam.gdext/Leafyjam.gdext.csproj">
+    <BuildType Project="Debug" />
+  </Project>
+  <Project Path="Leafyjam.tests/Leafyjam.tests.csproj">
+    <BuildType Project="Debug" />
+  </Project>
+  <Project Path="Leafyjam.web/Leafyjam.web.csproj">
+    <BuildType Project="Debug" />
+  </Project>
+</Solution>

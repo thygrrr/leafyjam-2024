@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <OutputType>Exe</OutputType>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <IsPackable>false</IsPackable>
+        <RootNamespace>Leafyjam.Gdext</RootNamespace>
+        <!-- comctl32 v6 + long paths for Godot's Windows display server -->
+        <ApplicationManifest>../Leafyjam.2dog/app.manifest</ApplicationManifest>
+        <TwoDogVariant Condition="'$(Configuration)' == 'Debug'">debug</TwoDogVariant>
+        <TwoDogVariant Condition="'$(Configuration)' == 'Editor'">editor</TwoDogVariant>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="2dog.gdextension" Version="4.7.1.51-local.8"/>
+        <!-- Game dependencies (the game C# below compiles into this host) -->
+        <PackageReference Include="fennecs" Version="0.5.14-beta"/>
+        <!-- Unlike 2dog.engine, natives are not transitive: one explicit package per
+             platform, exact-pinned to the natives version (independent of 4.7.1.50) -->
+        <PackageReference Include="2dog.gdextension.win-x64" Version="[4.7.1.21]"/>
+    </ItemGroup>
+
+    <!-- Compile the game's C# into the host: script classes must live in the
+         process for the script-language shim to attach them to scenes. The
+         GodotSharp game csproj stays untouched for the mono-stack hosts. -->
+    <ItemGroup>
+        <Compile Include="../**/*.cs"
+                 Exclude="../Leafyjam.2dog/**;../Leafyjam.web/**;../Leafyjam.tests/**;../Leafyjam.gdext/**;../TwoDogWebBoot.cs;../.godot/**"/>
+    </ItemGroup>
+</Project>

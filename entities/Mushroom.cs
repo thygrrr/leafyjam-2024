@@ -56,15 +56,30 @@ public partial class Mushroom : EntityNode2D
 	//private static Dictionary<ShroomTraits, Color> _traitColors = new();
 	//private static Dictionary<ShroomTraits, float> _traitGlows = new();
 	
-	private static readonly FastNoiseLite Noise = new();
+	// Lazy + releasable: a static Godot resource would outlive the engine and
+	// be reported as leaked at exit (Ecosystem releases it on Predelete).
+	private static FastNoiseLite? _noise;
+	private static FastNoiseLite Noise => _noise ??= CreateNoise();
+
+	private static FastNoiseLite CreateNoise()
+	{
+		var noise = new FastNoiseLite();
+		noise.SetNoiseType(FastNoiseLite.NoiseTypeEnum.Simplex);
+		noise.SetFrequency(.5f);
+		noise.SetFractalOctaves(3);
+		noise.SetFractalLacunarity(2.0f);
+		noise.SetFractalGain(0.5f);
+		return noise;
+	}
+
+	internal static void ReleaseNoise()
+	{
+		_noise?.Dispose();
+		_noise = null;
+	}
+
 	static Mushroom()
 	{
-		Noise.SetNoiseType(FastNoiseLite.NoiseTypeEnum.Simplex);
-		Noise.SetFrequency(.5f);
-		Noise.SetFractalOctaves(3);
-		Noise.SetFractalLacunarity(2.0f);
-		Noise.SetFractalGain(0.5f);
-		
 		_traitColors = new()
 		{
 			#region Basic

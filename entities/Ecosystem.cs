@@ -115,4 +115,11 @@ public partial class Ecosystem : Node
 		
 		fusion = found;
 	}
+
+	public override void _Notification(int what)
+	{
+		// Scene-root teardown: release statically held Godot resources so the
+		// engine's exit leak accounting stays clean.
+		if (what == NotificationPredelete) Mushroom.ReleaseNoise();
+	}
 }

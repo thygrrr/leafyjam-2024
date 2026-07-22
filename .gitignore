@@ -1,6 +1,7 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+*.old
 
 # Godot-specific ignores
 .import/
@@ -15,6 +16,9 @@ export_presets.cfg
 data_*/
 mono_crash.*.json
 
+obj/
+bin/
+AppBundle/
 
 # Rider
 .idea/

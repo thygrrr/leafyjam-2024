@@ -1,10 +1,16 @@
-<Project Sdk="Godot.NET.Sdk/4.7.0">
+<Project Sdk="Godot.NET.Sdk/4.7.1">
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <RootNamespace>leafy</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="fennecs" Version="0.5.14-beta" />
   </ItemGroup>
+    <!-- added by 2dog convert: properties 2dog hosts need that were not already set -->
+    <PropertyGroup>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <DefineConstants>$(DefineConstants);LIBGODOT_ENABLED</DefineConstants>
+        <DefaultItemExcludes>$(DefaultItemExcludes);Leafyjam.2dog/**;Leafyjam.web/**;Leafyjam.tests/**</DefaultItemExcludes>
+    </PropertyGroup>
 </Project>
