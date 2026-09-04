@@ -1,10 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://fmp547o72q2k"]
+[gd_scene format=3 uid="uid://fmp547o72q2k"]
 
 [ext_resource type="PackedScene" uid="uid://eu2m21vqurfu" path="res://mushrooms/_base.tscn" id="1_jtykb"]
 
-[node name="porcini" instance=ExtResource("1_jtykb")]
+[node name="porcini" unique_id=1892481428 instance=ExtResource("1_jtykb")]
 plantRange = Vector2(40, 80)
 traits = 4
 
-[node name="AnimatedSprite2D" parent="." index="0"]
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=223718691]
 animation = &"porcini_0"

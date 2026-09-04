@@ -1,11 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dhe26vqb4bgoq"]
+[gd_scene format=3 uid="uid://dhe26vqb4bgoq"]
 
 [ext_resource type="PackedScene" uid="uid://eu2m21vqurfu" path="res://mushrooms/_base.tscn" id="1_fuoc5"]
 
-[node name="toadstool" instance=ExtResource("1_fuoc5")]
+[node name="toadstool" unique_id=1460838138 instance=ExtResource("1_fuoc5")]
 _growTimes = Vector2(6, 8)
 plantRange = Vector2(30, 60)
 traits = 1
 
-[node name="AnimatedSprite2D" parent="." index="0"]
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=223718691]
 animation = &"toadstool_0"

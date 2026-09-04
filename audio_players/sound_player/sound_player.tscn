@@ -1,6 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://56cw51vp0hkh"]
+[gd_scene format=3 uid="uid://56cw51vp0hkh"]
 
-[ext_resource type="Script" path="res://audio_players/sound_player/sound_player.gd" id="1_onwi3"]
+[ext_resource type="Script" uid="uid://c6sier38nh8wd" path="res://audio_players/sound_player/sound_player.gd" id="1_onwi3"]
 [ext_resource type="AudioStream" uid="uid://cdo4ystiekfyw" path="res://sounds/ambience/nature_ambience.ogg" id="2_p2gmf"]
 [ext_resource type="AudioStream" uid="uid://d1aeetratv3rx" path="res://sounds/effects/pickup1.wav" id="3_uu8i6"]
 [ext_resource type="AudioStream" uid="uid://cyc8a4rnnn478" path="res://sounds/effects/pickup_quiet.wav" id="4_cudkd"]
@@ -11,34 +11,34 @@
 [ext_resource type="AudioStream" uid="uid://qwys0owk5rn6" path="res://sounds/effects/woosh.wav" id="9_pw5ui"]
 [ext_resource type="AudioStream" uid="uid://7wjse4m6qg6l" path="res://sounds/effects/pop.wav" id="10_mgnw7"]
 
-[node name="SoundPlayer" type="Node"]
+[node name="SoundPlayer" type="Node" unique_id=379019337]
 script = ExtResource("1_onwi3")
 
-[node name="NatureAmbience" type="AudioStreamPlayer" parent="."]
+[node name="NatureAmbience" type="AudioStreamPlayer" parent="." unique_id=788557608]
 stream = ExtResource("2_p2gmf")
 
-[node name="Pickup1" type="AudioStreamPlayer2D" parent="."]
+[node name="Pickup1" type="AudioStreamPlayer2D" parent="." unique_id=884619288]
 stream = ExtResource("3_uu8i6")
 volume_db = 10.0
 
-[node name="PickupQuiet" type="AudioStreamPlayer2D" parent="."]
+[node name="PickupQuiet" type="AudioStreamPlayer2D" parent="." unique_id=1728651491]
 stream = ExtResource("4_cudkd")
 
-[node name="Splosh" type="AudioStreamPlayer2D" parent="."]
+[node name="Splosh" type="AudioStreamPlayer2D" parent="." unique_id=2038506758]
 stream = ExtResource("5_whns7")
 
-[node name="WetExplosion" type="AudioStreamPlayer2D" parent="."]
+[node name="WetExplosion" type="AudioStreamPlayer2D" parent="." unique_id=1321303357]
 stream = ExtResource("6_bk7rr")
 
-[node name="WetSquish2" type="AudioStreamPlayer2D" parent="."]
+[node name="WetSquish2" type="AudioStreamPlayer2D" parent="." unique_id=1053571036]
 stream = ExtResource("7_f8r57")
 
-[node name="WetSquish" type="AudioStreamPlayer2D" parent="."]
+[node name="WetSquish" type="AudioStreamPlayer2D" parent="." unique_id=1581868347]
 stream = ExtResource("8_2t8im")
 
-[node name="Woosh" type="AudioStreamPlayer2D" parent="."]
+[node name="Woosh" type="AudioStreamPlayer2D" parent="." unique_id=1892413086]
 stream = ExtResource("9_pw5ui")
 
-[node name="Pop" type="AudioStreamPlayer2D" parent="."]
+[node name="Pop" type="AudioStreamPlayer2D" parent="." unique_id=441584544]
 stream = ExtResource("10_mgnw7")
 volume_db = -5.0

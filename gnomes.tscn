@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2b1wi0um6mow"]
+[gd_scene format=3 uid="uid://d2b1wi0um6mow"]
 
 [ext_resource type="PackedScene" uid="uid://4shyyx2bwjiq" path="res://gnomes/gnome.tscn" id="1_4nr8s"]
 [ext_resource type="PackedScene" uid="uid://drvyj0ycxgb3l" path="res://gnomes/gnome_house.tscn" id="2_wd8no"]
@@ -9,39 +9,39 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(-6087, -3823, -5778, 5805, 7405, 5632, 7068, -4114)])
 agent_radius = 24.0
 
-[node name="GnomeScene" type="Node2D"]
+[node name="GnomeScene" type="Node2D" unique_id=1953801017]
 y_sort_enabled = true
 
-[node name="Gnomes" type="Node2D" parent="."]
+[node name="Gnomes" type="Node2D" parent="." unique_id=1328019161]
 y_sort_enabled = true
 
-[node name="Gnome" parent="Gnomes" node_paths=PackedStringArray("home") instance=ExtResource("1_4nr8s")]
+[node name="Gnome" parent="Gnomes" unique_id=278497726 node_paths=PackedStringArray("home") instance=ExtResource("1_4nr8s")]
 position = Vector2(218, 191)
 home = NodePath("../../NavigationRegion2D/GnomeHouse")
 
-[node name="Gnome2" parent="Gnomes" node_paths=PackedStringArray("home") instance=ExtResource("1_4nr8s")]
+[node name="Gnome2" parent="Gnomes" unique_id=561925312 node_paths=PackedStringArray("home") instance=ExtResource("1_4nr8s")]
 position = Vector2(805, 691)
 home = NodePath("../../NavigationRegion2D/GnomeHouse")
 
-[node name="Gnome3" parent="Gnomes" node_paths=PackedStringArray("home") instance=ExtResource("1_4nr8s")]
+[node name="Gnome3" parent="Gnomes" unique_id=970686417 node_paths=PackedStringArray("home") instance=ExtResource("1_4nr8s")]
 position = Vector2(279, 662)
 home = NodePath("../../NavigationRegion2D/GnomeHouse")
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=900393988]
 y_sort_enabled = true
 navigation_polygon = SubResource("NavigationPolygon_4v3q5")
 
-[node name="GnomeHouse" parent="NavigationRegion2D" instance=ExtResource("2_wd8no")]
+[node name="GnomeHouse" parent="NavigationRegion2D" unique_id=2015153460 instance=ExtResource("2_wd8no")]
 position = Vector2(525, 610)
 
-[node name="GnomeHouse2" parent="NavigationRegion2D" instance=ExtResource("2_wd8no")]
+[node name="GnomeHouse2" parent="NavigationRegion2D" unique_id=1972458788 instance=ExtResource("2_wd8no")]
 position = Vector2(924, 304)
 house_type = 1
 
-[node name="ChillSpots" type="Node2D" parent="."]
+[node name="ChillSpots" type="Node2D" parent="." unique_id=1677313930]
 
-[node name="ChillSpot" type="Node2D" parent="ChillSpots" groups=["ChillSpots"]]
+[node name="ChillSpot" type="Node2D" parent="ChillSpots" unique_id=1814988547 groups=["ChillSpots"]]
 position = Vector2(518, 714)
 
-[node name="ChillSpot2" type="Node2D" parent="ChillSpots" groups=["ChillSpots"]]
+[node name="ChillSpot2" type="Node2D" parent="ChillSpots" unique_id=939628445 groups=["ChillSpots"]]
 position = Vector2(718, 454)

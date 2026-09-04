@@ -1,35 +1,35 @@
-[gd_scene load_steps=8 format=3 uid="uid://eu2m21vqurfu"]
+[gd_scene format=3 uid="uid://eu2m21vqurfu"]
 
-[ext_resource type="Script" path="res://entities/Mushroom.cs" id="1_fg67e"]
+[ext_resource type="Script" uid="uid://bugbdrad3swiy" path="res://entities/Mushroom.cs" id="1_fg67e"]
 [ext_resource type="SpriteFrames" uid="uid://bhtf42vj1ly0y" path="res://mushrooms/sf_mushrooms.tres" id="1_prquw"]
 [ext_resource type="Material" uid="uid://bdr7ry08rbjcl" path="res://mushrooms/mushroom_material.tres" id="2_1gtnr"]
 [ext_resource type="PackedScene" uid="uid://56cw51vp0hkh" path="res://audio_players/sound_player/sound_player.tscn" id="2_v33w6"]
-[ext_resource type="Script" path="res://mushrooms/navigation_target.gd" id="3_6qlb5"]
+[ext_resource type="Script" uid="uid://dsvmv0jf4wjv3" path="res://mushrooms/navigation_target.gd" id="3_6qlb5"]
 [ext_resource type="AudioStream" uid="uid://b2xk817we47by" path="res://sounds/effects/wet_explosion.wav" id="4_rke7t"]
-[ext_resource type="Script" path="res://mushrooms/growth_sound.gd" id="5_irumn"]
+[ext_resource type="Script" uid="uid://88o2hvoqx35f" path="res://mushrooms/growth_sound.gd" id="5_irumn"]
 
-[node name="Mushroom" type="Node2D"]
+[node name="Mushroom" type="Node2D" unique_id=1094443876]
 texture_filter = 1
 scale = Vector2(4, 4)
 script = ExtResource("1_fg67e")
 _pitchRange = Vector2(0.2, 2)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=223718691]
 material = ExtResource("2_1gtnr")
 sprite_frames = ExtResource("1_prquw")
 offset = Vector2(0, -6)
 
-[node name="NavigationTarget" type="Node2D" parent="."]
+[node name="NavigationTarget" type="Node2D" parent="." unique_id=2033774617]
 script = ExtResource("3_6qlb5")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=652527831]
 stream = ExtResource("4_rke7t")
 volume_db = -10.0
 pitch_scale = 0.5
 
-[node name="GrowthSound" type="Node" parent="."]
+[node name="GrowthSound" type="Node" parent="." unique_id=144236049]
 script = ExtResource("5_irumn")
 
-[node name="SoundPlayer" parent="GrowthSound" instance=ExtResource("2_v33w6")]
+[node name="SoundPlayer" parent="GrowthSound" unique_id=1766042063 instance=ExtResource("2_v33w6")]
 
 [connection signal="frame_changed" from="AnimatedSprite2D" to="GrowthSound" method="_on_animated_sprite_2d_frame_changed"]

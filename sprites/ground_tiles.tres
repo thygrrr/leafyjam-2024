@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://c1r6v14imcwwo"]
+[gd_resource type="TileSet" format=3 uid="uid://c1r6v14imcwwo"]
 
 [ext_resource type="Texture2D" uid="uid://pn8pfdkdjf41" path="res://sprites/Leaves_and_floor.png" id="1_4dp3j"]
 

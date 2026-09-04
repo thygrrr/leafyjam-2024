@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://drvyj0ycxgb3l"]
+[gd_scene format=3 uid="uid://drvyj0ycxgb3l"]
 
 [ext_resource type="Texture2D" uid="uid://cl2daw6ymuvgb" path="res://sprites/Houses.png" id="1_8y4ww"]
-[ext_resource type="Script" path="res://gnomes/gnome_house.gd" id="1_mx1q4"]
-[ext_resource type="Script" path="res://entities/House.cs" id="3_vvqua"]
+[ext_resource type="Script" uid="uid://bff6a3emsky08" path="res://gnomes/gnome_house.gd" id="1_mx1q4"]
+[ext_resource type="Script" uid="uid://cb6heb51iocoq" path="res://entities/House.cs" id="3_vvqua"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7n0eh"]
 radius = 7.25
@@ -25,30 +25,30 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_73lu7")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
 
-[node name="GnomeHouse" type="StaticBody2D"]
+[node name="GnomeHouse" type="StaticBody2D" unique_id=1459468070]
 y_sort_enabled = true
 script = ExtResource("1_mx1q4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=585727189]
 position = Vector2(2.75, -6.75)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_7n0eh")
 disabled = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1247422561]
 texture_filter = 1
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_vqbyo")
 offset = Vector2(0, -32)
 
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="." unique_id=717846691]
 vertices = PackedVector2Array(-46, 0, -58, -16, -56, -37, -26, -99, 11, -162, 39, -116, 57, -78, 77, -42, 62, -2, 15, 4, -4, 4)
 affect_navigation_mesh = true
 
-[node name="Entity" type="Node2D" parent="."]
+[node name="Entity" type="Node2D" parent="." unique_id=1555184245]
 script = ExtResource("3_vvqua")

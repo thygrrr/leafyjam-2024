@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=38 format=3 uid="uid://bhtf42vj1ly0y"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://bhtf42vj1ly0y"]
 
 [ext_resource type="Texture2D" uid="uid://dquwrsugba4p3" path="res://sprites/Hint_Sheet_1.png" id="1_f3oij"]
 [ext_resource type="Texture2D" uid="uid://cny7j2dui2kbs" path="res://sprites/Leaf_Sheet_1.png" id="2_1jsuu"]
@@ -146,7 +146,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1ra3m")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -154,7 +154,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_alp4m")
 }],
-"loop": true,
+"loop": 1,
 "name": &"hint_honeymash",
 "speed": 5.0
 }, {
@@ -162,7 +162,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_thx2a")
 }],
-"loop": true,
+"loop": 1,
 "name": &"hint_porcini",
 "speed": 5.0
 }, {
@@ -170,7 +170,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_b4k8u")
 }],
-"loop": true,
+"loop": 1,
 "name": &"hint_toadstool",
 "speed": 5.0
 }, {
@@ -190,7 +190,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vcpaw")
 }],
-"loop": false,
+"loop": 0,
 "name": &"honeymash_0",
 "speed": 5.0
 }, {
@@ -210,7 +210,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fcpm4")
 }],
-"loop": true,
+"loop": 1,
 "name": &"hybrid_honeymash",
 "speed": 5.0
 }, {
@@ -230,7 +230,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_d3oft")
 }],
-"loop": true,
+"loop": 1,
 "name": &"hybrid_porcini",
 "speed": 5.0
 }, {
@@ -250,7 +250,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dgbl6")
 }],
-"loop": true,
+"loop": 1,
 "name": &"hybrid_toadstool",
 "speed": 5.0
 }, {
@@ -270,7 +270,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ubkv5")
 }],
-"loop": false,
+"loop": 0,
 "name": &"porcini_0",
 "speed": 5.0
 }, {
@@ -290,7 +290,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8u0on")
 }],
-"loop": false,
+"loop": 0,
 "name": &"toadstool_0",
 "speed": 5.0
 }]

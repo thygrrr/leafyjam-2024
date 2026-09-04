@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=17 format=3 uid="uid://dfp4pmbntkw1a"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://dfp4pmbntkw1a"]
 
 [ext_resource type="Texture2D" uid="uid://cny7j2dui2kbs" path="res://sprites/Leaf_Sheet_1.png" id="1_ekdqh"]
 
@@ -80,7 +80,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_saba8")
 }],
-"loop": true,
+"loop": 1,
 "name": &"gnome_0",
 "speed": 7.0
 }, {
@@ -100,7 +100,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vgffm")
 }],
-"loop": true,
+"loop": 1,
 "name": &"gnome_1",
 "speed": 5.0
 }, {
@@ -120,7 +120,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bn2t8")
 }],
-"loop": true,
+"loop": 1,
 "name": &"gnome_2",
 "speed": 6.0
 }]

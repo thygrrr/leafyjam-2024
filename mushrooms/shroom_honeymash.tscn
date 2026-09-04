@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cuufdtans67rs"]
+[gd_scene format=3 uid="uid://cuufdtans67rs"]
 
 [ext_resource type="PackedScene" uid="uid://eu2m21vqurfu" path="res://mushrooms/_base.tscn" id="1_1ynwe"]
 
-[node name="honeymash" instance=ExtResource("1_1ynwe")]
+[node name="honeymash" unique_id=2002636367 instance=ExtResource("1_1ynwe")]
 _jitterRange = Vector2(-4, 4)
 _growTimes = Vector2(1, 3)
 _angles = Vector2(-4, 4)
@@ -10,5 +10,5 @@ _scales = Vector2(0.9, 1.2)
 plantRange = Vector2(15, 30)
 traits = 2
 
-[node name="AnimatedSprite2D" parent="." index="0"]
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=223718691]
 animation = &"honeymash_0"
